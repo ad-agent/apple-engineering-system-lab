@@ -19,6 +19,11 @@ Updated 2026-11-26 22:2x by the AES lead (session on branch claude/aes-v0-2-d005
   the agent's result in the folder, then write `trial-005/REFINEMENT.md` (separate from RESULTS.md; no superiority
   claim; the agent's notes, diff summary, what it exercised, by script from the jsonl). If a usage limit cut it:
   "budget exhausted", no rerun without the owner.
+  Usage: 5-hour 22 % at 22:18, 32 % at 22:23 (resets **02:50 local**, i.e. 01:50 UTC; earlier entries saying "01:50
+  local" were wrong). At this pace the run may use up the window before 22:51 and this lead with it. **No resume is
+  armed**: re-arming `resume-appleengineeringsystem-287007` for 02:53 was refused (needs a person's approval; this is
+  an unattended run). If this lead goes quiet, the owner can start a fresh AES lead in this work tree after 02:50, or
+  approve that task, to do the "When it ends" steps above.
 - **HAND-OFF 2026-11-26 22:0x** (lead: scheduled run `resume-appleengineeringsystem-287007`, fired 21:53).
   **Decision 006 step 3 is DONE**: `trial-005/COMPLETION.md` (linked from README; commit named in git log as
   "Decision 006 step 3"). Plan usage 5-hour ~10 % (resets 01:50 local), weekly 40 %; context 55 %. In flight:
