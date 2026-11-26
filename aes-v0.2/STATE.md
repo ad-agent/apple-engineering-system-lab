@@ -17,6 +17,8 @@ Lead hand-over 2026-11-26 ~16:00 (account tag 287007). Next lead: read this bloc
   arm-v02 exactly as trial-005/ARMS.md says, one at a time, outside the session (R9 nohup/setsid + keep-awake), only
   when usage has room for a full 60 minutes. Then score both with assessor/CHECKS.md in a lead lock window, write
   trial-005/RESULTS.md, commit, push. One pair can only reveal failures; make no superiority claim.
+- Resume: one-time scheduled task `resume-appleengineeringsystem-287007` fires 2026-11-26 16:53 local (keep-awake
+  until 17:38). It starts in the default permission mode, so the owner may need to approve its tools.
 - In flight: nothing running. No lock held (windows 14:59:37–15:12:31 and 15:43:57–15:55:14, both released).
 - OWNER QUESTIONS: (1) run `sudo xcrun mcp-server allow-folder ~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run`
   before the arms (otherwise approve each arm's prompt; logged as an intervention); (2) trash the stray default
