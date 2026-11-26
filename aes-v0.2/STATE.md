@@ -23,9 +23,10 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
   drag, reversal, screenshot, hierarchy) in one lock window, and write a short method page (no copy of the skill).
   Then steps 3 and 4 as below.
 - Hand-over 19:1x (task boundary after step 1; context 59 %, plan usage 5-hour 77 %, weekly 36 %, 5-hour reset
-  21:50 local). The next lead is the one-time scheduled task `next-lead-appleengineeringsystem-287007`, updated to
-  fire 2026-11-26 19:16 local (keep-awake until 20:01), same work tree. Nothing running, no lock held. If usage
-  reaches 90 % during step 2, finish that step and hand over under R9 (auto-resume after the reset).
+  21:50 local). **The hand-over FAILED**: updating the scheduled task `next-lead-appleengineeringsystem-287007`
+  needs a person's approval, and nobody had opened this unattended run. So no next lead is scheduled and the
+  keep-awake hold was ended. This lead went on with step 2 in the same session (context had room). Nothing else
+  running at 19:1x, no lock held.
 
 - 2026-11-26 18:4x: **Director Decision 006 is CONFIRMED by the owner** in this lead's chat ("Yes, confirmed").
   The text is verbatim in `directives/DECISION-006.md`. No step has been started yet. **NEXT: a fresh lead (scheduled
