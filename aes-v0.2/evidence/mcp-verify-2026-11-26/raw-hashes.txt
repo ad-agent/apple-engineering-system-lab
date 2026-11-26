@@ -1,0 +1,2 @@
+2db8cb09da1be3cd5a70b7199c3fbfd58e2c1cfa2d2cc85e597009f084e30829  ~/Scratch/AppleEngineeringSystem/2026-11-26-mcp-verify/evidence/calls.jsonl
+5f81992105cf26add2f24a22bafb29753864e5bc16ceb62198ddd7e9f7238b36  ~/Scratch/AppleEngineeringSystem/2026-11-26-mcp-verify/evidence/client-check2.jsonl

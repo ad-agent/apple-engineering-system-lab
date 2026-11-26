@@ -1,0 +1,15 @@
+============== Summary ==============
+Run: 1
+Trace Duration: 13.73 s
+Summary of Hangs (Sorted by Hang Type Ascending)
+Hang Type  Count  Min Duration  Avg Duration  Std Dev Duration  Max Duration  Range
+* All *        1     870.58 ms     870.58 ms               n/a     870.58 ms    n/a
+└─ Hang        1     870.58 ms     870.58 ms               n/a     870.58 ms    n/a
+
+Hangs By Duration (Limit = 10, Sorted by Duration Descending):
+==============Hang #1==============
+Start Time: 00:00.973.492
+Duration: 870.58 ms
+Hang Type: Hang
+
+CPU Usage of Main Thread (Sorted by Category Ascending)

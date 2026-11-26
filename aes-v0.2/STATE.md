@@ -1,6 +1,24 @@
 # AES v0.2 — state
 
-Updated 2026-11-26 by the AES v0.2 lead session (Claude Code desktop).
+Updated 2026-11-26 15:2x by the AES lead (session on branch claude/aes-v0-2-d005-91383d, pushes to aes-v0.2).
+
+## Top block (read first)
+
+- DONE 2026-11-26: projects.tsv row added (owner yes; codedirector-briefs commit 50e39bb, not pushed).
+- DONE: Decision 005 step A/B. Window 14:59:37–15:12:31, lock released. Results in MCP-VERIFIED.md; TOOLS.md and
+  README updated. Scratch: ~/Scratch/AppleEngineeringSystem/2026-11-26-mcp-verify/ (META; raw logs; Xcode skills export).
+- Approved in Xcode: the check client (Python, 24 h) and `com.anthropic.claude-code`; folder
+  `~/Scratch/AppleEngineeringSystem/2026-11-26-mcp-verify/project` (expires 2026-11-27 14:00 UTC). Trial folders
+  need their own approval or a parent `allow-folder` (sudo, owner).
+- Maps recording received 15:04: `~/Data/AppleEngineeringSystem/trial-005/reference/maps-reference.mp4`, SHA-256
+  7b8ad86b9c3569a8dd8e3a9d228e1f558249af59de64cb4ec30c7c6b30cedad7, 52.2 s, 1170x2532 HEVC with audio, from a
+  physical iPhone. Not in git, never publish. The original is still in ~/Downloads.
+- IN FLIGHT: step C (Trial 005 inputs). Next: analyse the recording (assessor side), write participant objective,
+  frozen inputs, assessor checks, identical arm configs; then run both arms.
+- OWNER QUESTIONS: (1) trash the stray default DerivedData `~/Library/Developer/Xcode/DerivedData/MCPVerify-bdsk…`
+  (60 MB, made by the first workspace open)? (2) The Xcode preview device clone made by RenderPreview: keep it
+  through Trial 005 and then delete it? (3) Enable developer mode (`sudo DevToolsSecurity -enable`) so the MCP
+  debugger works, or leave it off for both arms? (4) Trailhead builder (still open).
 
 ## Where things are
 

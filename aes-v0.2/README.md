@@ -43,8 +43,10 @@ core alone for the unrelated one.
 
 - No application evidence for v0.2. Trial 005 is designed, not run.
 - Activation was checked on Claude Code only (Codex CLI is not installed), with one run per task, headless.
-- Xcode MCP tools were inventoried but not called past the approval gate; their documentation, preview and
-  interaction abilities are taken from their descriptions.
+- Xcode MCP was executed on 2026-11-26 (MCP-VERIFIED.md): documentation, project tools, build diagnostics,
+  previews, simulator interaction and console work. The debugger does not attach on this Mac (developer mode is
+  off), hitch measurement needs a physical device, and the tools ignore the shared lock and reset the run
+  destination to an eDraft simulator on every open, so containment depends on project rules.
 - Interaction guidance on SwiftUI's handling of a non-animated write during an in-flight animation is unresolved
   (Finding 17).
 - `examples/spring-estimate` checks SwiftUI's spring model, not rendering. `edge_track.py` finds the strongest

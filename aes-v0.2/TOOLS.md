@@ -10,9 +10,11 @@ configuration was changed.
 | Is the bridge installed? | `/Applications/Xcode.app/Contents/Developer/usr/bin/mcpbridge`; also `mcp-server` and `lldb-mcp` in the same folder | Verified |
 | Does it start without a running Xcode? | Yes: `initialize` returned `xcode-tools` (server version 25464) and launched Xcode in the background | Verified |
 | Which tools? | 54 tools, listed in [evidence/xcode-mcp-tools-27.2.json](evidence/xcode-mcp-tools-27.2.json): documentation search, project read/write/grep, schemes, targets, build settings, build and build log, tests (list, all, some), `RenderPreview`, `RunProject`/`StopProject`, `DeviceInteraction*` (start session, install and run, synthesize tap/swipe/type with a screenshot and UI hierarchy back), `GetConsoleOutput`, `InvokeDebuggerCommand`, `RunCodeSnippet`, crash and field-performance reports, localization tools | Verified (inventory) |
-| Can an agent call them? | Not yet: every call returned "This agent isn't approved to use Xcode's tools yet. Call XcodeOpenWorkspace or XcodeNewProject first", which asks the user in Xcode. The owner has not approved it | Verified (gate) |
-| Documentation retrieval, preview rendering, app interaction, console, debugger | Described by the tools; not exercised because of the approval gate | Unverified |
-| Do the tools respect the project's shared lock? | No mechanism: they run builds, tests, simulators and previews inside Xcode, outside any shell `lockf` | Inferred from the design |
+| Can an agent call them? | Yes, after the owner approves in Xcode. Approval is per client executable (code identity) and per folder, with a 24 h expiry for folders and unsigned clients; `XcodeOpenWorkspace`/`XcodeNewProject` raise the prompt. Approved 2026-11-26: the check client and `com.anthropic.claude-code` | Verified ([MCP-VERIFIED.md](MCP-VERIFIED.md)) |
+| Documentation, project inspection and editing, build diagnostics, preview rendering (with Dynamic Type and appearance overrides), install and run, hierarchy, screenshot, tap, swipe, timed multi-point drag, console | Executed with recorded results | Verified (executed) |
+| Debugger (`InvokeDebuggerCommand`) | Fails on this Mac: the attach fails while `RunProject` still reports success; developer mode is disabled | Verified (failure); cause inferred |
+| Performance | No MCP tool. `xctrace` Time Profiler and hang triage work on the simulator; Animation Hitches does not ("not supported on this platform") | Verified (executed) |
+| Do the tools respect the project's shared lock and simulator rules? | No. They run inside Xcode, outside any `lockf`, and every workspace open set the destination to an eDraft gate simulator. Containment comes from a holder-process window plus a rule to switch the destination after each open | Verified |
 
 Xcode 27.2 also ships Apple-written agent guidance in
 `Xcode.app/Contents/PlugIns/IDEIntelligenceChat.framework/Versions/A/Resources/`: `swiftui-specialist` (9 references
@@ -20,8 +22,8 @@ incl. animations, data flow, identity), `swiftui-whats-new-27`, `xctrace` (overv
 `app-resizability`, `building-document-based-swiftui-applications`, `app-intents-specialist`,
 `app-intents-whats-new-27`, `adopt-c-bounds-safety`, `audit-xcode-security-settings`, and 20 documents in
 `AdditionalDocumentation/` (Liquid Glass for SwiftUI/UIKit/AppKit/WidgetKit, toolbars, styled text editing,
-AttributedString, Swift concurrency and more). `xcrun mcpbridge run-agent skills export` writes them out; it was not
-run, because exporting into `~/.claude/skills` changes global configuration. AES reads them in place.
+AttributedString, Swift concurrency and more). `xcrun mcpbridge run-agent skills export --output-dir <dir>` writes them out. On 2026-11-26 it ran into scratch only
+(not `~/.claude/skills`), and the export also contains `device-interaction` and `modernize-tests`. AES reads them in place.
 
 ## Client-provided
 
