@@ -15,6 +15,11 @@ Updated 2026-11-26 22:0x by the AES lead (session on branch claude/aes-v0-2-d005
   `xcrun mcpbridge --help` → `run-agent skills`; v02 accepted the Cancel defect it was looking at because it had no
   written expected end state; the cold-launch delay was never measured). COMPLETION.md names assessor findings:
   **the step 4 agent must not see it.**
+- **OWNER ANSWER 2026-11-26 22:1x, in chat: "30 min now"** (budget question below). So step 4 runs with
+  `timeout 1800`, started as soon as the next lead has prepared it, not after a reset. The 5-hour window was at
+  20 % at 22:11 (resets 01:50 local); at ~2.4 %/min a 30-minute run needs ~72 %, plus the lead's own use, so it is
+  tight: if a usage limit cuts the run, record it as "budget exhausted" and do not rerun without asking. Next lead:
+  the one-time task `next-lead-appleengineeringsystem-287007`, re-armed by the stood-down 17:xx lead for ~22:18.
 - **NEXT: Decision 006 step 4** (separate autonomous refinement). Owner question first, because it blocks the launch:
   **the budget.** At the Trial 005 rate (~2.4 % of the Pro 5-hour window per minute) a 60-minute run needs ~145 % of
   one window and cannot finish inside it (extra usage is off). Lead's pick, unless the owner says otherwise: start
