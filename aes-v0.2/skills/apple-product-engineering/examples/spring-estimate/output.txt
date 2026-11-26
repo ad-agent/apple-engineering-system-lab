@@ -1,0 +1,7 @@
+1. Spring(duration: 0.42, bounce: 0): mass 1.000 stiffness 223.80 damping 29.92; (2π/d)² = 223.80, 2ω = 29.92
+   max |closed form - Spring.value| over 0.5 s = 5.55e-17 progress (0.0000 pt)
+2. Reduce Motion: easeOut(0.2) vs spring estimate, worst gap 0.251 progress = 91 pt at t = 0.142 s
+3. Re-targeted settle (tap at 80 ms, progress 0.34, velocity 5.41/s): velocity-kept vs zeroed differ by up to 0.133 progress = 48 pt at t = 0.067 s
+4. Start-time error of 1 frame(s) at 120 Hz: up to 0.046 progress = 16.5 pt
+4. Start-time error of 2 frame(s) at 120 Hz: up to 0.091 progress = 32.9 pt
+4. Start-time error of 6 frame(s) at 120 Hz: up to 0.269 progress = 96.7 pt

@@ -1,0 +1,538 @@
+[
+ {
+  "name": "AddEntitlement",
+  "description": "Add a new entitlement to the project's entitlements file.",
+  "arguments": [
+   "entitlementDictionaryItems",
+   "entitlementKey",
+   "entitlementValue",
+   "entitlementValueItems",
+   "entitlementValueType",
+   "projectPath",
+   "targetName",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "AddInfoPlist",
+  "description": "Add or update an Info.plist key in the project.",
+  "arguments": [
+   "infoPlistDictionaryItems",
+   "infoPlistKey",
+   "infoPlistValue",
+   "infoPlistValueItems",
+   "infoPlistValueType",
+   "projectPath",
+   "targetName",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "BuildProject",
+  "description": "Builds an Xcode project and waits until the build completes.",
+  "arguments": [
+   "buildForTesting",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "DeviceInteractionEndSession",
+  "description": "Closes previous device session created in DeviceInteractionStartSession or DeviceInteractionStartWorkspaceSession.",
+  "arguments": [
+   "interactionSessionKey"
+  ]
+ },
+ {
+  "name": "DeviceInteractionInstallAndRun",
+  "description": "Builds, installs, and starts the current application on the currently targeted device.",
+  "arguments": [
+   "commandLineArguments",
+   "environmentVariables",
+   "interactionSessionKey",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "DeviceInteractionStartSession",
+  "description": "Prepares a runtime for device interaction WITHOUT a workspace. This should be called as early as possible if device interaction will be needed.",
+  "arguments": [
+   "deviceIdentifier",
+   "sessionIdentifier"
+  ]
+ },
+ {
+  "name": "DeviceInteractionStartWorkspaceSession",
+  "description": "Prepares a runtime for device interaction WITH a workspace. This should be called as early as possible if device interaction will be needed.",
+  "arguments": [
+   "deviceIdentifier",
+   "sessionIdentifier",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "DeviceInteractionSynthesize",
+  "description": "Synthesizes device events (tap, swipe, type, etc.) on a physical device or simulator",
+  "arguments": [
+   "activationBundleId",
+   "interactSessionKey",
+   "interactionCommand"
+  ]
+ },
+ {
+  "name": "DocumentationSearch",
+  "description": "Searches Apple Developer Documentation using semantic matching.",
+  "arguments": [
+   "frameworks",
+   "query"
+  ]
+ },
+ {
+  "name": "GetBuildLog",
+  "description": "Gets the log of the current or most recently finished build. You can choose which build log entries to include by specifying the severity of any issues emitted by the build task represented by the ent",
+  "arguments": [
+   "glob",
+   "pattern",
+   "severity",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "GetConsoleOutput",
+  "description": "Retrieves console output (stdout, stderr, OSLog) from a running or completed app launch session. Supports regex filtering, severity filtering, and context extraction. Use this to analyze app logs, deb",
+  "arguments": [
+   "contextLines",
+   "includeMetadata",
+   "launchSessionReference",
+   "oslogSeverity",
+   "outputType",
+   "pattern",
+   "tailLimit",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "GetCrashIssueLogs",
+  "description": "Get detailed crash logs, expert triage knowledge, and actionable recommendations for a specific crash signature.",
+  "arguments": [
+   "app_version",
+   "bundle_id",
+   "is_beta",
+   "platform",
+   "signature_name",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "GetFieldPerformanceIssueLogs",
+  "description": "Get detailed logs, performance data, expert triage knowledge, and actionable recommendations for specific field performance issue.",
+  "arguments": [
+   "app_version",
+   "bundle_id",
+   "diagnostic_type",
+   "is_beta",
+   "platform",
+   "signature_name",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "GetFileCompilerFlags",
+  "description": "Gets the additional per-file compiler flags for a single source file in a specific Xcode target \u2014 the same value shown in the Compiler Flags column of Target > Build Phases > Compile Sources. Returns ",
+  "arguments": [
+   "filePath",
+   "projectPath",
+   "targetName",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "GetTargetBuildSettings",
+  "description": "Get all the Xcode build setting for a specified Xcode project target.",
+  "arguments": [
+   "projectPath",
+   "targetName",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "GetTestList",
+  "description": "Gets all available tests from the active scheme's active test plan. Results are limited to 100 tests. The complete list is written to fullTestListPath in grep-friendly format. Use grep with keys like ",
+  "arguments": [
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "GetTopCrashIssues",
+  "description": "Retrieve the top crash signatures for an app from Apple's crash reporting service.",
+  "arguments": [
+   "app_version",
+   "bundle_id",
+   "count",
+   "is_beta",
+   "platform",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "GetTopFieldPerformanceIssues",
+  "description": "Analyze app performance and identify performance regressions across different diagnostic types.",
+  "arguments": [
+   "app_version",
+   "bundle_id",
+   "diagnostic_type",
+   "is_beta",
+   "platform",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "InvokeDebuggerCommand",
+  "description": "Sends an lldb command to Xcode's active debugging session and returns the output.",
+  "arguments": [
+   "command",
+   "timeout",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "LocalizationPlanner",
+  "description": "Ensures the project is in a state where translations can be added. **Call this tool each time you are tasked with adding a language** to the project, or to translate an entire project. Before calling ",
+  "arguments": [
+   "targetLocaleIdentifier",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "RenderPreview",
+  "description": "Builds and renders a Preview and waits until a snapshot of the resulting UI is available.",
+  "arguments": [
+   "displayMode",
+   "preferredRenderDestination",
+   "previewCanvasControlOverrides",
+   "previewDefinitionIndexInFile",
+   "previewLocalizationOverride",
+   "previewVariantOverrides",
+   "snapshotDelay",
+   "sourceFilePath",
+   "timeout",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "RunAllTests",
+  "description": "Runs all tests from the active scheme's active test plan",
+  "arguments": [
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "RunCodeSnippet",
+  "description": "Builds and runs a snippet of code in the context of a specific file and waits until results are available. This tool is available for source files in targets that build applications, frameworks, libra",
+  "arguments": [
+   "codeSnippet",
+   "purpose",
+   "sourceFilePath",
+   "timeout",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "RunProject",
+  "description": "Builds and runs the current scheme in Xcode, equivalent to pressing the Run button (Cmd+R).",
+  "arguments": [
+   "attachDebugger",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "RunSomeTests",
+  "description": "Runs specific tests using the active scheme's active test plan",
+  "arguments": [
+   "tests",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "StopProject",
+  "description": "Stops the currently running app in Xcode, equivalent to pressing the Stop button (Cmd+.).",
+  "arguments": [
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "StringCatalogContext",
+  "description": "Returns context and the source language value for a given string in the String Catalog. The sourceValues field contains the text that must be translated. Before calling this tool, you MUST activate th",
+  "arguments": [
+   "filePath",
+   "stringKey",
+   "targetLocaleIdentifier",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "StringCatalogEdit",
+  "description": "Inserts a translation for a given locale into a String Catalog. Before calling this tool, you MUST activate the `xcode-integration:translation` skill. Do not call this tool without first loading that ",
+  "arguments": [
+   "filePath",
+   "stringKey",
+   "stringSetTranslation",
+   "targetLocaleIdentifier",
+   "templateTranslation",
+   "translation",
+   "variationTranslation",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "StringCatalogRead",
+  "description": "Returns string keys grouped by translation state for the requested locale. Before calling this tool, you MUST activate the `xcode-integration:translation-coordinator` skill. Do not call this tool with",
+  "arguments": [
+   "filePath",
+   "keyLimit",
+   "offset",
+   "requestedState",
+   "targetLocaleIdentifier",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "UpdateFileCompilerFlags",
+  "description": "Updates, appends or deletes the additional per-file compiler flags for a single source file in a specific Xcode target \u2014 the same value shown in the Compiler Flags column of Target > Build Phases > Co",
+  "arguments": [
+   "appendValue",
+   "compilerFlags",
+   "filePath",
+   "projectPath",
+   "targetName",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "UpdateTargetBuildSetting",
+  "description": "Updates, appends or deletes the named build setting for the specified Xcode project target.",
+  "arguments": [
+   "appendValue",
+   "buildSettingName",
+   "buildSettingValue",
+   "projectPath",
+   "targetName",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeCloseWorkspace",
+  "description": "Closes a workspace that was opened with XcodeOpenWorkspace, identified by its workspace identifier.",
+  "arguments": [
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeGlob",
+  "description": "Finds files in the Xcode project structure matching wildcard patterns. Works on Xcode project organization, not filesystem structure. Example patterns: '*.swift', '**/*.json', 'src/**/*.{swift,m}'. If",
+  "arguments": [
+   "path",
+   "pattern",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeGrep",
+  "description": "Searches for text patterns in files within the Xcode project structure using regex. Works on Xcode project organization, not filesystem structure. CRITICAL: Must include a 'pattern' argument - this to",
+  "arguments": [
+   "glob",
+   "headLimit",
+   "ignoreCase",
+   "linesAfter",
+   "linesBefore",
+   "linesContext",
+   "multiline",
+   "outputMode",
+   "path",
+   "pattern",
+   "showLineNumbers",
+   "type",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeLS",
+  "description": "Lists files and directories in the Xcode project structure at the specified path. Works on Xcode project organization, not filesystem structure.",
+  "arguments": [
+   "ignore",
+   "path",
+   "recursive",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeListRunDestinations",
+  "description": "Lists run destinations available for the currently active scheme, grouped the same way the Xcode picker groups them (Devices, Simulators, Build, Incompatible, etc.), and identifies which one is active",
+  "arguments": [
+   "includeIncompatible",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeListSchemes",
+  "description": "Lists all schemes available in the current Xcode workspace and identifies which one is currently",
+  "arguments": [
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeListTargets",
+  "description": "Lists targets in the current Xcode workspace, optionally scoped to a single project. Each entry",
+  "arguments": [
+   "productTypeFilter",
+   "projectPath",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeListTemplates",
+  "description": "Lists Xcode templates available in this Xcode install. Use this to discover the templateIdentifier",
+  "arguments": [
+   "categoryFilter",
+   "kind",
+   "nameFilter",
+   "platformFilter",
+   "templateIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeListTestPlans",
+  "description": "Lists the test plans associated with the currently active scheme and identifies which one",
+  "arguments": [
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeListWorkspaces",
+  "description": "Lists the workspaces currently open in Xcode, with the identifier and path of each. Use a workspace identifier (or absolute path) to target other tools at a specific workspace.",
+  "arguments": []
+ },
+ {
+  "name": "XcodeMV",
+  "description": "Moves or renames files and directories in the project navigator with support for filesystem operations.",
+  "arguments": [
+   "destinationPath",
+   "operation",
+   "overwriteExisting",
+   "sourcePath",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeMakeDir",
+  "description": "Creates directories in the Xcode project structure. Creates a file system synchronized (buildable) folder by default, or a classic group when requested.",
+  "arguments": [
+   "directoryKind",
+   "directoryPath",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeNewProject",
+  "description": "Creates a new Xcode project from a template. The project is written to disk at the specified directory.",
+  "arguments": [
+   "destinationPath",
+   "options",
+   "organizationIdentifier",
+   "productName",
+   "teamIdentifier",
+   "templateIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeNewTarget",
+  "description": "Adds a new target to a project in the current Xcode workspace using a target template. Discover",
+  "arguments": [
+   "embedInAppNamed",
+   "options",
+   "organizationIdentifier",
+   "productName",
+   "projectPath",
+   "templateIdentifier",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeOpenWorkspace",
+  "description": "Opens an Xcode workspace or project at the given path and returns its workspace identifier, which other tools can use to target it.",
+  "arguments": [
+   "path"
+  ]
+ },
+ {
+  "name": "XcodeRM",
+  "description": "Removes files and directories from the Xcode project structure and optionally deletes the underlying files from the filesystem.",
+  "arguments": [
+   "deleteFiles",
+   "path",
+   "recursive",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeRead",
+  "description": "Reads the contents of a file within the Xcode project organization. Returns content in cat -n format with line numbers. Supports reading up to 600 lines by default with optional offset and limit param",
+  "arguments": [
+   "filePath",
+   "limit",
+   "offset",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeRefreshCodeIssuesInFile",
+  "description": "Retrieves current compiler diagnostics (errors, warnings, notes) for a file in the Xcode project. Returns formatted diagnostic information including severity levels and messages.",
+  "arguments": [
+   "filePath",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeSwitchRunDestination",
+  "description": "Changes the active run destination for the currently active scheme. The active scheme is left unchanged. Pass the destination's `displayTitle` (the disambiguated label shown in the Xcode picker). Vali",
+  "arguments": [
+   "displayTitle",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeSwitchScheme",
+  "description": "Changes the active scheme in the current Xcode workspace to the specified scheme.",
+  "arguments": [
+   "schemeName",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeSwitchTestPlan",
+  "description": "Changes the active test plan for the currently active scheme. The testing tools (GetTestList, RunAllTests, RunSomeTests) and build-for-testing all operate on the active test plan, so switch it before ",
+  "arguments": [
+   "testPlanName",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeUpdate",
+  "description": "Edits files in the Xcode project by replacing text content. Works on Xcode project structure paths, not filesystem paths. IMPORTANT: The tool will fail if filePath, oldString, or newString parameters ",
+  "arguments": [
+   "filePath",
+   "newString",
+   "oldString",
+   "replaceAll",
+   "workspaceIdentifier"
+  ]
+ },
+ {
+  "name": "XcodeWrite",
+  "description": "Creates or overwrites files with content in the Xcode project. Works on Xcode project structure paths, not filesystem paths. Automatically adds new files to the project structure. Both filePath and co",
+  "arguments": [
+   "content",
+   "filePath",
+   "workspaceIdentifier"
+  ]
+ }
+]
