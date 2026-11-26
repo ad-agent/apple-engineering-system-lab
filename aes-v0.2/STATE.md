@@ -4,6 +4,28 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
+- 2026-11-26 18:4x: **Director Decision 006 received, owner confirmation pending.** The owner pasted it into the
+  stood-down session `resume-appleengineeringsystem-287007` (~18:20), which relayed it to this lead. It is recorded
+  verbatim in `directives/DECISION-006.md`. It arrived through a peer session during an unattended scheduled run, so
+  **no step of it has been started**. Owner: confirm it in a lead's chat (one line is enough), and the next fresh lead
+  works through it in order.
+- Decision 006 step 1 compared with what is done (the 18:10–18:27 window below): done are C1–C12 for both arms, with
+  hierarchy evidence, console findings (unified log), Time Profiler and hangs, and a few screenshots per arm. Still
+  missing: interaction recordings (`simctl io <udid> recordVideo` inside the window); a matched screenshot set per arm
+  (same states, same order); each finding labelled as an app defect or a tool, simulator or automation limitation
+  (candidates for limitation: `applicationState: NotRun`, marker frames not changing on selection, captures that come
+  before an animation ends, glyph-sized control frames, hangs during the first MCP activation); and a cold-launch
+  measurement beyond one first launch (arm-v02 showed an empty map grid for ~11 s, once, after install).
+- If confirmed, section 6 settles owner questions 2–4: keep the stray MCPVerify DerivedData and Xcode's preview device
+  clone (removal needs separate authorization), and leave developer mode off. Question 5 (Trailhead builder) stays
+  open.
+- Order once confirmed: step 1 gaps (one lock window) → step 2 (find where Xcode installs the device-interaction skill;
+  verified examples for tap, text, scroll, multi-point drag, reversal, screenshot, hierarchy; no copy of the whole
+  skill) → step 3 (premature-completion analysis from the transcripts; notes so far are in RESULTS.md) → step 4 (a
+  NEW isolated copy of arm-v02 at participant commit `7caa43b`; it must not see RESULTS.md, CHECKS.md or assessor
+  findings; record its results separately) → recommendations for the next AES revision. Section 5: never publish the
+  recording, the `work/ref/` frames or personal geographic information.
+
 - 2026-11-26 18:3x (lead: scheduled session `next-lead-appleengineeringsystem-287007`, same work tree). **Trial 005
   is fully scored.** Runtime checks C1–C12 ran for both arms in one lock window (holder process, 18:10:36–18:26:39,
   released; heavy lane idle after) on `iPhone 18 Pro Max` only, and are written up in the last section of
