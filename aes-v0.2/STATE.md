@@ -13,15 +13,21 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
   Headlines: v02's Cancel-to-medium was reproduced a third time; the ~11 s cold-launch grid did not come back (first
   launch after install: tiles at 4.6 s control, 5.6 s v02; relaunches 1.3–1.8 s); no on-screen keyboard in either arm
   (Sim/Auto, cause not established).
-- **NEXT: Decision 006 step 2** (verified Apple device-interaction guidance). Read-only findings so far, in
-  `~/Scratch/AppleEngineeringSystem/2026-11-26-d006-step2/notes.md`: `xcrun mcpbridge run-agent plugin path
-  --plugin-format claude` materialises Xcode's own Claude plugin (`xcode-integration` 1.0.0: the `xcode` MCP server
-  plus 16 skills, `device-interaction` among them) at `~/Library/Developer/Xcode/CodingAssistant/ExportedPlugins/27B52/claude`.
-  `claude --plugin-dir <that path>` should load it for one session without installing anything (not yet verified).
-  `xcrun mcpbridge run-agent claude` fails with "Could not find 'claude' binary" although `/opt/homebrew/bin/claude`
-  is on PATH. Still to do: verify that loading works, then run the verified examples (tap, text, scroll, multi-point
-  drag, reversal, screenshot, hierarchy) in one lock window, and write a short method page (no copy of the skill).
-  Then steps 3 and 4 as below.
+- 2026-11-26 19:2x: **Decision 006 step 2 is DONE**: `DEVICE-INTERACTION.md` (linked from README). Xcode writes its
+  own Claude plugin on request (`xcrun mcpbridge run-agent plugin path --plugin-format claude`); `claude --plugin-dir
+  <that path>` loaded it (2 Haiku runs, ~$0.008), with 15 skills and the connected `xcode` server. 15 examples ran
+  in one lock window, 19:12:53–19:13:50 (an earlier 8 s window at 19:12:16 was aborted because the assessor's
+  `mcpd.py` bridge had exited; it was restarted). Evidence:
+  `~/Scratch/AppleEngineeringSystem/2026-11-26-d006-step2/` (`ex/`, `examples.py`, `load-check*.jsonl`).
+  Findings that matter for step 3: StartSession's reply says the agent MUST spawn a subagent with the
+  device-interaction skill, and the skill calls the tool `DeviceEventSynthesize` (the real name is
+  `DeviceInteractionSynthesize`). The Trial 005 arms had the `xcode` MCP server but not Xcode's plugin skills.
+- **NEXT: Decision 006 step 3** (premature completion: why each arm stopped within nine minutes; separate missing
+  tool knowledge, missing acceptance criteria, inadequate runtime inspection, unused diagnostic paths, genuine
+  limits and legitimate stops). Sources: the arm transcripts `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/arm-*.jsonl`
+  (parse them by script; never publish them), each arm's final message and NOTES.md, `trial-005/participant/` (what
+  they were told), and RESULTS.md's existing notes. Write the analysis to `trial-005/COMPLETION.md` without
+  proposing extra reporting or more time as the fix. Then step 4.
 - Hand-over 19:1x (task boundary after step 1; context 59 %, plan usage 5-hour 77 %, weekly 36 %, 5-hour reset
   21:50 local). **The hand-over FAILED**: updating the scheduled task `next-lead-appleengineeringsystem-287007`
   needs a person's approval, and nobody had opened this unattended run. So no next lead is scheduled and the
