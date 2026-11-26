@@ -1,29 +1,31 @@
 # AES v0.2 — state
 
-Updated 2026-11-26 22:2x by the AES lead (session on branch claude/aes-v0-2-d005-91383d, pushes to aes-v0.2).
+Updated 2026-11-26 22:3x by the AES lead (session on branch claude/aes-v0-2-d005-91383d, pushes to aes-v0.2).
 
 ## Top block (read first)
 
-- **IN FLIGHT 2026-11-26 22:21 — Decision 006 step 4 refinement run** (lead: scheduled run
-  `next-lead-appleengineeringsystem-287007`, fired 22:18; the 21:53 lead had stood down). Started 22:21:44,
-  `timeout 1800` (cut at 22:51:44), PID 58823 (setsid; keep-awake hold on it). Folder
-  `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/refine-v02` (clone of arm-v02 at `7caa43b`, branch
-  `refine`, no remote; arm-v02's own frozen inputs copied and checked against `arm-v02.manifest.sha256`: 14/14 OK;
-  lead's input commit `db89e30` adds `REFINE.md` and a sanitized `DEVICE-METHOD.md`). Log `../refine-v02.jsonl`,
-  `.err`, `.start`, `.end`. Launch = arm-v02's ARMS.md command with `timeout 1800`, prompt `/apple-product-engineering
-  Read REFINE.md, DEVICE-METHOD.md and CLAUDE.md …`, plus `--plugin-dir` Xcode's exported plugin (skills only: under
-  `--strict-mcp-config` the plugin's own `xcode` server is dropped; checked with a Haiku load check, evidence in
-  `~/Scratch/AppleEngineeringSystem/2026-11-26-d006-step4/`). Subagent choice: Agent/Task NOT in `--allowedTools`
-  (same tool set as the arm; DEVICE-METHOD.md says to call the device tools directly, as step 2 verified). Heavy lane
-  free at start; memory pressure "warn". **When it ends**: check for a leftover `refine-v02/.hold` (trash it), commit
-  the agent's result in the folder, then write `trial-005/REFINEMENT.md` (separate from RESULTS.md; no superiority
-  claim; the agent's notes, diff summary, what it exercised, by script from the jsonl). If a usage limit cut it:
-  "budget exhausted", no rerun without the owner.
-  Usage: 5-hour 22 % at 22:18, 32 % at 22:23 (resets **02:50 local**, i.e. 01:50 UTC; earlier entries saying "01:50
-  local" were wrong). At this pace the run may use up the window before 22:51 and this lead with it. **No resume is
-  armed**: re-arming `resume-appleengineeringsystem-287007` for 02:53 was refused (needs a person's approval; this is
-  an unattended run). If this lead goes quiet, the owner can start a fresh AES lead in this work tree after 02:50, or
-  approve that task, to do the "When it ends" steps above.
+- **HAND-OFF 2026-11-26 22:3x** (lead: scheduled run `next-lead-appleengineeringsystem-287007`, fired 22:18; the
+  21:53 lead had stood down). **Decision 006 step 4 is DONE**: `trial-005/REFINEMENT.md` (linked from README; commit
+  named in git log as "Decision 006 step 4"). The run ended by itself at 22:29:21 after 7 min 37 s of its 30
+  (`success`, 83 turns, not cut by timeout or usage; no `.hold` left). The agent committed `f0a0ca0` in
+  `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/refine-v02` (branch `refine`; lead's input commit
+  `db89e30`). Frozen arms checked untouched (arm-v02 `4207fed`, arm-control `36c91ba`, both clean). Headline
+  (agent-reported, no assessor check yet): 8 multi-point drags, typing through the hardware keyboard, two
+  defects fixed (the map ignored text search; the map moved when the sheet changed height). It did not find the
+  assessor's known v02 defects: Cancel still sets `.medium` (`PlaceSheet.swift:95`), and it did not check Dynamic Type
+  or accessibility. Setup as recorded in REFINEMENT.md: Xcode plugin skills via `--plugin-dir` (its own server
+  dropped under `--strict-mcp-config`), Agent tool not allowed, sanitized `DEVICE-METHOD.md`. Private evidence:
+  `refine-v02.jsonl` and `.err`/`.start`/`.end` in the run folder; timeline and summary script in
+  `~/Scratch/AppleEngineeringSystem/2026-11-26-d006-step4/` (never publish). Plan usage: 5-hour 38 % at 22:30 (resets
+  **02:50 local**; earlier entries saying "01:50 local" were wrong), weekly 44 %; context ~52 %. In flight: nothing.
+  No lock held. Keep-awake: only the stood-down lead's hold (pid 53491, ends 23:03 by itself). No scheduled task
+  created or changed: re-arming `resume-appleengineeringsystem-287007` was refused because it needs a person's
+  approval, and it is no longer needed. **No next lead is armed.**
+- **NEXT: recommendations for the next AES revision** (the last Decision 006 deliverable). Inputs: COMPLETION.md's
+  implications, REFINEMENT.md, RESULTS.md's finding labels. Write them evidence-based, with no superiority claim.
+  Owner questions: (a) Trailhead builder (question 5, still open). (b) New: should an assessor run C1–C12 against
+  `refine-v02` `f0a0ca0` in a lock window? Decision 006 does not name it, so it needs a yes. Live yes: Decision 006.
+  The owner can start the next step with a fresh AES lead in this work tree.
 - **HAND-OFF 2026-11-26 22:0x** (lead: scheduled run `resume-appleengineeringsystem-287007`, fired 21:53).
   **Decision 006 step 3 is DONE**: `trial-005/COMPLETION.md` (linked from README; commit named in git log as
   "Decision 006 step 3"). Plan usage 5-hour ~10 % (resets 01:50 local), weekly 40 %; context 55 %. In flight:
