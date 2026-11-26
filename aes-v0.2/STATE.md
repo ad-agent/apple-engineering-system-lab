@@ -1,8 +1,45 @@
 # AES v0.2 — state
 
-Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005-91383d, pushes to aes-v0.2).
+Updated 2026-11-26 22:0x by the AES lead (session on branch claude/aes-v0-2-d005-91383d, pushes to aes-v0.2).
 
 ## Top block (read first)
+
+- **HAND-OFF 2026-11-26 22:0x** (lead: scheduled run `resume-appleengineeringsystem-287007`, fired 21:53).
+  **Decision 006 step 3 is DONE**: `trial-005/COMPLETION.md` (linked from README; commit named in git log as
+  "Decision 006 step 3"). Plan usage 5-hour ~10 % (resets 01:50 local), weekly 40 %; context 55 %. In flight:
+  nothing. No lock held, no keep-awake hold, no scheduled task created or changed (an unattended run may not).
+  Private evidence: `~/Scratch/AppleEngineeringSystem/2026-11-26-d006-step3/` (timeline script and per-arm
+  timelines built from the transcripts; never publish). Headline: neither arm ever looked at the clock; both stopped
+  when nothing they could drive by tapping was failing, and filed what they could not drive as "not verified".
+  Causes ranked per gap (tool knowledge primary for drag and typing; unused paths: the word `drag`, XCUITest,
+  `xcrun mcpbridge --help` → `run-agent skills`; v02 accepted the Cancel defect it was looking at because it had no
+  written expected end state; the cold-launch delay was never measured). COMPLETION.md names assessor findings:
+  **the step 4 agent must not see it.**
+- **NEXT: Decision 006 step 4** (separate autonomous refinement). Owner question first, because it blocks the launch:
+  **the budget.** At the Trial 005 rate (~2.4 % of the Pro 5-hour window per minute) a 60-minute run needs ~145 % of
+  one window and cannot finish inside it (extra usage is off). Lead's pick, unless the owner says otherwise: start
+  right after a 5-hour reset with `timeout 3600`, and record a usage-limit cut as "budget exhausted" for this
+  experiment (it is not a scored arm). Alternative: `timeout 1800`, which fits one window. Preparation notes for the
+  lead that does it (fresh session, R9):
+  1. Copy: `git clone` the arm-v02 folder's repo into a NEW folder inside
+     `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/` (Xcode's allow-folder covers it until
+     2026-11-27 19:47 local) and check out participant commit `7caa43b`. That commit lacks the frozen inputs the lead
+     added later in `4207fed` (`.claude/skills/apple-product-engineering`, `CLAUDE.md`, `OBJECTIVE.md`); copy those
+     from the arm's own folder, not from this repo's newer skill. Leave arm-v02 itself untouched.
+  2. Guidance: give Xcode's own plugin (`claude --plugin-dir "$(xcrun mcpbridge run-agent plugin path
+     --plugin-format claude)"`). Do NOT hand over `DEVICE-INTERACTION.md` as is: its examples carry the assessor's
+     fixture measurements and its "Known limits" point to RESULTS.md findings. If a short method is needed, write a
+     sanitized one (commands and how to read the hierarchy only).
+  3. Xcode's StartSession reply demands a subagent with the device-interaction skill. Decide whether the run's
+     `--allowedTools` includes the subagent tool (Xcode's requirement) or not (direct calls work, step 2); Decision
+     006 section 6 forbids adding agents of our own, not Xcode's own workflow. Note the choice in the run's record.
+  4. Folder rule: say that the tools' own output files and Xcode's bundled guidance may be read (COMPLETION.md,
+     implication 5). Keep the instruction concise; it must not mention any assessor finding.
+  5. Run outside the session (R9 nohup/setsid + keep-awake), under the shared lock rules of the arm's CLAUDE.md.
+     Record results in a new `trial-005/REFINEMENT.md`, separate from RESULTS.md, with no superiority claim.
+  Then: recommendations for the next AES revision (inputs: COMPLETION.md's implications). Owner question 5
+  (Trailhead builder) is still open. Live yes: Decision 006.
+- 2026-11-26 21:5x: the scheduled resume fired at 21:53 as set; no other AES lead was running.
 
 - **2026-11-26 19:5x — RESUME SET** (by the stood-down 17:xx lead, at 90 % of the 5-hour window): one-time task
   `resume-appleengineeringsystem-287007` fires **21:53 local** (reset 21:50 + 3 min) and continues NEXT below

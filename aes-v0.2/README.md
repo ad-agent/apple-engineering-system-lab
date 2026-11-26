@@ -14,6 +14,7 @@ run with it, so nothing here shows that it improves engineering quality.
 | [FOLIO-FINDINGS.md](FOLIO-FINDINGS.md) | 17 findings from both Folio arms, each demonstrated, inferred or unresolved |
 | [TOOLS.md](TOOLS.md) | Verified Xcode MCP inventory, Xcode's bundled agent guidance, third-party tools reviewed, what AES adds |
 | [DEVICE-INTERACTION.md](DEVICE-INTERACTION.md) | Where Xcode installs its device-interaction guidance, how an agent loads it, verified interaction examples (Decision 006 step 2) |
+| [trial-005/COMPLETION.md](trial-005/COMPLETION.md) | Why both Trial 005 arms stopped within nine minutes, cause by cause (Decision 006 step 3) |
 | [ACTIVATION.md](ACTIVATION.md) | Selective-loading check on two disposable projects |
 | [trial-005/PLAN.md](trial-005/PLAN.md) | The next application trial, designed but not frozen |
 | [evidence/](evidence/) | MCP tool list, edge measurement CSV |
