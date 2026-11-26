@@ -16,7 +16,18 @@ Updated 2026-11-26 by the AES v0.2 lead session (Claude Code desktop).
 
 See README.md. Skill v0.2, findings, tool evaluation, activation check, trial-005 plan.
 
-## Next steps (in order)
+## Next steps (in order) — governed by directives/DECISION-005.md (supersedes the order below where they differ)
+
+A. MCP verification window: one holder process owns `/tmp/edraft-checks.lock` for the window (`touch .hold;
+   /usr/bin/lockf -k -t 0 /tmp/edraft-checks.lock sh -c 'while [ -e .hold ]; do sleep 2; done' &`); inside it only
+   MCP calls and no `lockf`-prefixed commands (no nesting); `rm .hold` ends it. Simulator: `iPhone 18 Pro Max` only.
+B. In a fresh project under ~/Scratch/AppleEngineeringSystem/<date>-mcp-verify/, call `XcodeNewProject` or
+   `XcodeOpenWorkspace` (owner approves in Xcode; they said yes), then actually execute: DocumentationSearch,
+   XcodeLS/Read/Grep, BuildProject + GetBuildLog (with a deliberate error), RenderPreview, DeviceInteraction*
+   (tap, swipe, screenshot + hierarchy) on the allowed simulator, GetConsoleOutput, InvokeDebuggerCommand, and
+   `xctrace` for performance. Record pass/fail per tool in aes-v0.2/MCP-VERIFIED.md with evidence paths.
+C. Trial 005 = Maps-style reference challenge in a fresh isolated project; wait for the operator's recording; write
+   participant objective, frozen inputs, assessor checks; then run both arms with identical config and budget.
 
 1. Owner decisions: (a) DONE 2026-11-26: Xcode MCP for **both** arms, owner approves in Xcode ("Both, I'll
    approve"); trigger the prompt with `XcodeOpenWorkspace` on the frozen fixture (step 2), lock rule in
