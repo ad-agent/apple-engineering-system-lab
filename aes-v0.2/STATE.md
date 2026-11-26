@@ -4,6 +4,13 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
+- **2026-11-26 19:5x — RESUME SET** (by the stood-down 17:xx lead, at 90 % of the 5-hour window): one-time task
+  `resume-appleengineeringsystem-287007` fires **21:53 local** (reset 21:50 + 3 min) and continues NEXT below
+  (Decision 006 step 3). Keep-awake holds to 22:38. Xcode now permits the whole trial folder
+  `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run` until 2026-11-27 19:47 local (owner ran `sudo xcrun
+  mcp-server allow-folder --for-24-hours …`; two entries, both valid). ARMS.md's command lacks the required
+  `--for-24-hours` or `--always` flag: note it as a correction, don't edit the frozen ARMS.md.
+
 - **HAND-OFF 2026-11-26 19:2x** (lead: scheduled run 2 of `next-lead-appleengineeringsystem-287007`). Plan usage
   5-hour 86 % (resets 21:50 local), weekly 37 %; context 72 %. Stopped at the task boundary after step 2.
   Done: Decision 006 step 1 (2ec4c96, db3abe7) and step 2 (489ac7d). In flight: nothing. No lock held, no
