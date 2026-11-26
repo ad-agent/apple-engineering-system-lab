@@ -17,6 +17,17 @@ windows instead of one: the first window's automation typed wait suffixes as tex
 `--device`, so a one-minute second window redid C5's "lake" and C12. The cold-launch and C12 numbers for the refined
 app are recorded as not comparable (Mac load, different start conditions).
 
+**Owner's authority, recorded during the run.** At 22:55 the owner pasted a Standing Execution Authority into
+another AES session's chat. That session recorded it verbatim as
+[directives/AUTHORITY-006.md](directives/AUTHORITY-006.md) (`a3b5c58`). The recommendations follow its five
+priorities, and STATE.md lists it as a live yes.
+
+**Incident (reported by that session).** At about 22:57 that session's push, sent with an empty source SHA, deleted
+`origin/aes-v0.2` for a few seconds. It restored the branch at once to `49a2d1e`, the tip it had just fetched, and
+confirmed the restore with `ls-remote`. It reports that no pull request was affected. Nothing was lost: this lead had
+not pushed past `49a2d1e` at that time. At 23:1x the remote branch history was checked unbroken from `fa2503a`
+through `49a2d1e`, `a3b5c58` and `0bc4203` to `035fa50`.
+
 **Open.** Owner question 5 (who builds the Trailhead fixture) is unanswered; nothing in Decision 006 depends on it.
 Applying the recommendations to the skill is v0.3 work, not done here.
 
