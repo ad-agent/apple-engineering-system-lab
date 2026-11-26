@@ -4,19 +4,17 @@ Updated 2026-11-26 15:2x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
-- 2026-11-26 17:19 — arm-control DONE 17:10–17:17 (success, 72 turns; participant commit 6c5097c, lead commit
-  36c91ba in the arm; no `XcodeOpenWorkspace`, so no Xcode prompt). It used ~17 % of the 5-hour window. **arm-v02
-  IN FLIGHT** from 17:18, PID 78223, log `…/trial005-run/arm-v02.jsonl`, same `env -i` launch, keep-awake on the
-  PID. Started at 22 % (78 % room, ~4x arm-control's use); 60 full minutes cannot fit any Pro window at this
-  rate, so the lead read the rule as room for a realistic arm. If a limit cuts arm-v02 it is void: rerun after reset.
-- 2026-11-26 17:10 — (superseded) IN FLIGHT (lead: scheduled session `resume-appleengineeringsystem-287007`, work tree
-  `.claude/worktrees/aes-v0-2-d005-91383d`): Trial 005 **arm-control** running, PID 75873 (timeout 3600, ends by
-  18:10), log `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/arm-control.jsonl` (+ `.err`, `.start`,
-  `.pid`); keep-awake holds on the PID. Started with `env -i` (HOME, USER, LOGNAME, SHELL, PATH, LANG, TMPDIR,
-  TERM=dumb) so no desktop-session variables reach it; use the same for arm-v02. Xcode had not yet allowed the
-  trial folder (only `starter`), so the owner approves the arm's `XcodeOpenWorkspace` prompt live (ARMS.md
-  route 2; log it as an intervention in both arms). Owner said in chat at 17:09: "this is approval". If this lead
-  is gone: wait for the PID to end, commit the arm's result inside the arm, then run arm-v02 the same way.
+- 2026-11-26 17:4x (lead: scheduled session `resume-appleengineeringsystem-287007`, work tree
+  `.claude/worktrees/aes-v0-2-d005-91383d`). **Both Trial 005 arms ran and finished on their own**: arm-control
+  17:10–17:17 (arm commits 6c5097c + lead 36c91ba), arm-v02 17:18–17:27 (7caa43b + lead 4207fed). Logs:
+  `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/arm-*.jsonl` (+ `.err`, `.start`, `.end`, `.pid`).
+  Launched with `env -i` (HOME, USER, LOGNAME, SHELL, PATH, LANG, TMPDIR, TERM=dumb). Neither arm opened a
+  workspace, so no Xcode prompt and 0 interventions. Nothing running; no lock held.
+- `trial-005/RESULTS.md` holds the transcript, code and NOTES scoring and the deviations. **NEXT: runtime checks
+  C1–C12** for both arms in one lead-held lock window on `iPhone 18 Pro Max`: build each arm's committed source
+  with `-derivedDataPath` in the trial folder, install, drive with `tools/m` (mcpd.py → `xcrun mcpbridge`;
+  command syntax in `2026-11-26-mcp-verify/xcode-skills/device-interaction/SKILL.md`), then fill the last section.
+  Never publish anything from the arm folders (arm-v02's `work/ref/` holds frames of the participant copy).
 
 Lead hand-over 2026-11-26 ~16:00 (account tag 287007). Next lead: read this block, `get_usage`, `list_sessions
 {"linked": true}` (stand down if a live AES lead exists), then do NEXT below.
