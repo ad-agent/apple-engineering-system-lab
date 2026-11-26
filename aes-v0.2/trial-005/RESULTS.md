@@ -1,8 +1,9 @@
 # Trial 005: results (one pair)
 
-Status 2026-11-26 17:3x: both arms ran and finished. Transcript, code and `NOTES.md` scoring is below. **Runtime
-checks C1–C12 are pending** (they need a lead-held lock window on `iPhone 18 Pro Max`). One pair can show failures and
-differences in behaviour. It cannot show that either arm's configuration is better, and nothing here claims that.
+Status 2026-11-26 18:3x: both arms ran and finished, and all scoring is below: transcript, code, `NOTES.md` and the
+runtime checks C1–C12 (run 18:10–18:27 in one lead-held lock window on `iPhone 18 Pro Max`). One pair can show
+failures and differences in behaviour. It cannot show that either arm's configuration is better, and nothing here
+claims that.
 
 The arm folders, transcripts and screenshots stay in `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/`
 and are not published: arm-v02 saved frames from the participant copy of the private recording in `work/ref/`.
@@ -110,4 +111,62 @@ or `preservation.md` or either example. arm-control's skill list did not contain
 
 ## Runtime checks C1–C12 (assessor)
 
-Pending: to be run in a lead-held lock window on `iPhone 18 Pro Max` against each arm's committed source.
+**How they were run.** 2026-11-26 18:10:36–18:26:39, in one lock window: a holder process owned
+`/tmp/edraft-checks.lock` for the whole window, and nothing else ran in the heavy lane. Simulator: `iPhone 18 Pro Max`
+only. Each arm's committed source (`36c91ba` and `4207fed`) was exported with `git archive` and built with
+`xcodebuild -configuration Debug -derivedDataPath <trial folder>/assess/<arm>/DD`. Both builds succeeded with no
+compiler warnings, in 9.4 s and 6.1 s. The arms share a bundle ID, so each was installed with `simctl` only after the
+other was uninstalled, then launched with `simctl launch`. Each arm was driven through `tools/m` (`mcpd.py` →
+`xcrun mcpbridge`) in its own fresh `DeviceInteractionStartSession` ("Trial 005 Assess Control", "Trial 005 Assess
+V02"). After every `DeviceInteractionSynthesize` step a hierarchy was captured and parsed by script; the assessor
+looked at nine screenshots or crops. Dynamic Type (`large`) and appearance (`light`) were recorded first and restored
+after each arm, and the final state was checked. All evidence stays unpublished in
+`~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/assess/`. The assessor knew which arm was which, so the
+checks were not blind.
+
+**Evidence labels.** **measured**: numbers read by script from hierarchy frames, the unified log or a trace.
+**observed**: the assessor's reading of a screenshot. **code**: confirmed in the arm's source. **asserted**: an
+inference that was not checked directly.
+
+**Deviations from `assessor/CHECKS.md`**
+- C11 read the simulator's unified log (`simctl spawn … log show`, process `Waypoints`, error and fault) in place of
+  `GetConsoleOutput`. That tool refused because no Xcode workspace was open ("workspaceIdentifier is required"), and
+  the workspaces were left closed to avoid Xcode's destination switching (TOOLS.md).
+- In a session without a workspace, every capture reported `applicationState: NotRun` even though the app was in
+  front and responding. Liveness came from the PID in the hierarchy and from `ps`.
+- A marker's accessibility frame does not change when the marker is selected, so selection was judged from
+  screenshots.
+- A capture taken straight after a tap can come before the animation ends. After the first such miss (arm-control
+  C6: the tap had worked), taps were followed by `w 1`.
+
+| # | arm-control | arm-v02 |
+|---|---|---|
+| C1 | **Pass** (measured, observed). Full-bleed map under the status bar; inset floating search card; grabber at y 851. A drag down at the smallest height left it at 851 | **Pass** (measured, observed). The same, with the grabber at y 855. The first launch after install showed the empty map grid at ~3 s and tiles by ~11 s. All three later launches had tiles at the first capture (measured from screenshot colour) |
+| C2 | **Pass** (measured). Three resting heights, with the grabber at 851, 447 and 58. Single drags up and down settled on the next height. Three reversals within one touch settled at 851, 447 and 851 | **Pass** (measured). Heights 855, 447 and 58. The same drags and reversals settled on the same heights |
+| C3 | **Pass** (measured). Smallest height: a pan of (−100, −90) pt moved a marker by (−92, −81), and a pinch-out took the visible markers from 40 to 1. Middle height: a pan moved the map, and a pinch-in took the visible markers from 1 to 18 | **Pass** (measured). Smallest height: the marker moved by (−95, −78); pinch 40 → 1. Middle height: the pan moved the map; pinch 1 → 18 |
+| C4 | **Pass** (measured). At the middle height, a swipe up on the list grew the sheet to the largest height and left the list at 0 %. At the largest height, a swipe scrolled the list (43 %) while the sheet stayed put. A swipe down scrolled back to the top first | **Pass** (measured). The same behaviour; the list scrolled to 42 % |
+| C5 | **Pass** (measured). From the smallest height, tapping the field moved the sheet to the largest height with keyboard focus. "falcon" gave 2 rows. "lake" gave 12, because it also matches the kind "Lake & Spring". Cancel returned to the smallest height. The on-screen keyboard was not captured (the hierarchy shows focus only) | **Partial** (measured, code). Expanding, focus and filtering pass: "falcon" gave 2 rows and "lake" the 6 places named Lake. Cancel returned to the **middle** height, not the smallest height where search began. This happened twice in a row, and the code sets `detent = .medium` on Cancel (`PlaceSheet.swift:96`) |
+| C6 | **Pass** (measured, observed). Tapping a row recentred the map (the marker at x 220, above the sheet) and enlarged the marker. The sheet showed details: Directions, Share, facts and Nearby. Close returned to the list. Tapping an annotation opened its details | **Pass** (measured, observed). The same: the marker centred at x 220 and enlarged; details with About, facts and Nearby, but no Directions or Share. Close returned to the list. Tapping an annotation opened its details |
+| C7 | **Pass** (measured). Controls span y 742–835 at the smallest height (sheet at 851) and 339–431 at the middle height (447), and are hidden at the largest. They move with the sheet and stay above the details card | **Pass** (measured). Controls span 773–838 and 366–430, are hidden at the largest height, and sit above the map-style card. The hierarchy gives glyph-sized frames (19×18 and 22×22), but a tap 17 pt off the glyph opened Map Style, so the hit area is the 44 pt frame |
+| C8 (AX5) | **Partial** (observed, measured). Rows, search and details are reachable and wrap. The Explore category labels truncate ("Trai Ih…", "Vie w…"), and the Directions and Share buttons break words ("Di-rect ion", "Sh are"). The map controls do not scale | **Partial** (observed, code). Rows, search, details and the category labels are reachable and unclipped; the labels run full width in a horizontally scrolling row. The row icons fail: the symbol uses `.font(.body)` inside a fixed 34×34 circle, so at AX5 the white glyph overflows its coloured disc and the icon can't be read. The map controls do not scale |
+| C9 | **Pass** (measured). All 40 markers are labelled by name, and rows read "name, kind · elevation". Labelled controls: Map Modes, Show All Places, Cancel Search, Clear, Close, Directions, Share. The search field exposes only its placeholder, and some decorative symbols are exposed under their default names ("Binoculars, Filled") | **Pass** (measured). All 40 markers labelled, and rows read the same way. Labelled controls: Map Style, Show All Places, Cancel Search, Clear Search, Close, the three style buttons, and the Labels and 3D Terrain switches. The same placeholder-only field and default symbol names |
+| C10 | **Pass** (observed). In dark appearance the map and the glass sheet go dark and the text stays readable | **Pass** (observed). The same. The list card is an opaque dark panel inside the glass sheet |
+| C11 | **Pass** (measured). All 3 launches were alive at ~9 s, and one process (PID 89529) lasted through C1–C10. No crash report and 0 faults. 36 errors (12 per launch), all from Apple subsystems: CoreGraphics "clip: empty path" ×8, GeoServices "default.csv", CoreAnimation ×2, BoardServices | **Pass** (measured). The same: 3 of 3 launches alive, PID 93064 throughout, no crash report and 0 faults. The same 36 errors: the same five messages with the same counts |
+| C12 | Measured: a 25.9 s attached Time Profiler recording over 3 drag cycles. 5 hangs: 2 Hangs (551–619 ms) and 3 Microhangs (263–445 ms), between 4.0 s and 10.1 s. Main-thread CPU during them was 5–20 %, and the heaviest stack is `App.main` (system libraries flattened) | Measured: a 26.3 s recording. 4 hangs: 1 Hang (1.71 s) and 3 Microhangs (428–431 ms), between 3.9 s and 10.4 s. Main-thread CPU 5–24 %; the heaviest stack is `App.main` |
+
+**Reading C12 (asserted).** In both arms every hang falls in the first ~10 s of the trace. Going by command timing,
+that span covers the attach, the first MCP activation of the app and the first drag cycle; no hang falls in cycles 2
+or 3. Low main-thread CPU and flattened stacks don't point at app code. The simulator cannot measure hitches
+(MCP-VERIFIED.md), and one recording per arm can't separate the arms on performance.
+
+**What the runtime checks show (measured, one pair, no superiority claim)**
+- Both arms passed C1–C4, C6, C7 and C9–C11 with the same system-sheet behaviour: the same heights, the same reversal
+  results and the same log noise.
+- Arm-v02 failed one part of C5: Cancel goes to the middle height. Arm-control's search also matches kinds.
+- Both arms are partial on C8, with different defects: arm-control truncates category labels and breaks button
+  words; arm-v02's row icons overflow.
+- Not a numbered check: arm-control's Show All Places at the middle height frames the places in the whole screen,
+  leaving 19 of 40 markers under the sheet. Arm-v02 fits all 40 above it (measured).
+- Self-reports against the runtime checks: arm-v02's reported blank cold launch appeared once, on the first launch
+  after install. Arm-control's claimed sheet drags hold. Neither arm checked Dynamic Type, and both turned out
+  partial at AX5.

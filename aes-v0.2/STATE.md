@@ -1,8 +1,21 @@
 # AES v0.2 — state
 
-Updated 2026-11-26 15:2x by the AES lead (session on branch claude/aes-v0-2-d005-91383d, pushes to aes-v0.2).
+Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005-91383d, pushes to aes-v0.2).
 
 ## Top block (read first)
+
+- 2026-11-26 18:3x (lead: scheduled session `next-lead-appleengineeringsystem-287007`, same work tree). **Trial 005
+  is fully scored.** Runtime checks C1–C12 ran for both arms in one lock window (holder process, 18:10:36–18:26:39,
+  released; heavy lane idle after) on `iPhone 18 Pro Max` only, and are written up in the last section of
+  `trial-005/RESULTS.md` (status line updated). Evidence: `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/assess/`
+  (per-arm `caps/`, `notes.md`, `c11-errors.log`, `c12.trace`, `c12-triage.txt`; never publish). Dynamic Type
+  (`large`) and appearance (`light`) were restored and checked. Arm-v02's build is left installed on the simulator.
+  In brief: both arms pass C1–C4, C6, C7, C9–C11; arm-v02 fails part of C5 (Cancel goes to the middle height); both
+  are partial on C8 with different defects; C12 does not separate them. No superiority claim.
+- Deviation logged in RESULTS: C11 used `simctl … log show`, because `GetConsoleOutput` needs an open Xcode workspace.
+- **NEXT:** no further step has an owner yes. Trial 005's Decision 005 deliverables are complete; the owner reviews
+  `trial-005/RESULTS.md` and decides what follows (publishing v0.2, another pair, or Findings 7/11/17). Owner
+  questions 2–5 below are still open. No resume task is set, and nothing is running.
 
 - 2026-11-26 17:3x (lead: scheduled session `resume-appleengineeringsystem-287007`, work tree
   `.claude/worktrees/aes-v0-2-d005-91383d`). **Both Trial 005 arms ran and finished on their own**: arm-control
