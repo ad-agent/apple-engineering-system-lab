@@ -1,9 +1,24 @@
 # AES v0.2 — state
 
-Updated 2026-11-26 22:0x by the AES lead (session on branch claude/aes-v0-2-d005-91383d, pushes to aes-v0.2).
+Updated 2026-11-26 22:2x by the AES lead (session on branch claude/aes-v0-2-d005-91383d, pushes to aes-v0.2).
 
 ## Top block (read first)
 
+- **IN FLIGHT 2026-11-26 22:21 — Decision 006 step 4 refinement run** (lead: scheduled run
+  `next-lead-appleengineeringsystem-287007`, fired 22:18; the 21:53 lead had stood down). Started 22:21:44,
+  `timeout 1800` (cut at 22:51:44), PID 58823 (setsid; keep-awake hold on it). Folder
+  `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/refine-v02` (clone of arm-v02 at `7caa43b`, branch
+  `refine`, no remote; arm-v02's own frozen inputs copied and checked against `arm-v02.manifest.sha256`: 14/14 OK;
+  lead's input commit `db89e30` adds `REFINE.md` and a sanitized `DEVICE-METHOD.md`). Log `../refine-v02.jsonl`,
+  `.err`, `.start`, `.end`. Launch = arm-v02's ARMS.md command with `timeout 1800`, prompt `/apple-product-engineering
+  Read REFINE.md, DEVICE-METHOD.md and CLAUDE.md …`, plus `--plugin-dir` Xcode's exported plugin (skills only: under
+  `--strict-mcp-config` the plugin's own `xcode` server is dropped; checked with a Haiku load check, evidence in
+  `~/Scratch/AppleEngineeringSystem/2026-11-26-d006-step4/`). Subagent choice: Agent/Task NOT in `--allowedTools`
+  (same tool set as the arm; DEVICE-METHOD.md says to call the device tools directly, as step 2 verified). Heavy lane
+  free at start; memory pressure "warn". **When it ends**: check for a leftover `refine-v02/.hold` (trash it), commit
+  the agent's result in the folder, then write `trial-005/REFINEMENT.md` (separate from RESULTS.md; no superiority
+  claim; the agent's notes, diff summary, what it exercised, by script from the jsonl). If a usage limit cut it:
+  "budget exhausted", no rerun without the owner.
 - **HAND-OFF 2026-11-26 22:0x** (lead: scheduled run `resume-appleengineeringsystem-287007`, fired 21:53).
   **Decision 006 step 3 is DONE**: `trial-005/COMPLETION.md` (linked from README; commit named in git log as
   "Decision 006 step 3"). Plan usage 5-hour ~10 % (resets 01:50 local), weekly 40 %; context 55 %. In flight:
