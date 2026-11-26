@@ -4,6 +4,21 @@ Updated 2026-11-26 22:3x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
+- **2026-11-26 23:0x — assessor C1–C12 on `refine-v02` `f0a0ca0` DONE** (lead: scheduled run
+  `resume-appleengineeringsystem-287007`, fired 22:47; no other AES lead was running). Recorded in
+  `trial-005/REFINEMENT.md`, section "Assessor checks on `f0a0ca0`"; RESULTS.md untouched. Windows: 22:50:00–22:58:09
+  (build, step-1 cold series, C1–C12, recorded 24-state journey) and a short second one 22:59:03–23:00:06 (C12 and C5
+  "lake", because the first window's xctrace attach lacked `--device` and its typing steps typed the wait suffix).
+  Lead's picks, logged: the second window (C12 is part of C1–C12; one window could not finish it); the step-1 cold
+  series and journey in the same window; one extra C5 probe from medium. Headline: C1–C11 the same as arm-v02, with
+  the same App defects (Cancel → medium 4 of 4, AX5 row icons, controls don't scale, placeholder-only field); the
+  agent's "map stays still" fix confirmed (measured); C12 no hangs but not comparable; cold launch not comparable
+  (Mac load 11–14). Both windows released; keep-awake holds ended with them. Evidence:
+  `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/assess/refine-v02/` (never publish; real-area map tiles).
+  Refined build left installed on `iPhone 18 Pro Max`; `large`/`light` restored (checked).
+  **NEXT:** the recommendations (`RECOMMENDATIONS.md`, draft in the work tree), commit, scan, push; then the owner
+  report and one phone notice.
+
 - **OWNER 2026-11-26 22:3x, in chat: "why are you keep asking, for permission I already said go ahead"** and "I rely and trust you will continue your work". Read as a yes to question (b) below: an assessor runs C1–C12 against `refine-v02` `f0a0ca0` in one lock window (same method as Decision 006 step 1, results recorded in REFINEMENT.md, never in RESULTS.md), then the recommendations. Leads take their own pick on anything with a reasonable default, log it here, and keep going; a lead that must stop re-arms `resume-appleengineeringsystem-287007` itself (its task file asks for that). Next lead: that task, armed ~22:47 by the stood-down 17:xx lead.
 
 - **HAND-OFF 2026-11-26 22:3x** (lead: scheduled run `next-lead-appleengineeringsystem-287007`, fired 22:18; the

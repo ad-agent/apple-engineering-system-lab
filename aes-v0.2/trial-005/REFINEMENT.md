@@ -4,7 +4,7 @@ This is a separate experiment on a new copy of the frozen arm-v02 submission. It
 comparison and changes nothing in RESULTS.md. Both frozen arms are untouched: after the run, arm-v02 was still at
 `4207fed` and arm-control at `36c91ba`, with no changes in either. It is one run of one arm with different guidance and
 a different instruction, so it says nothing about AES against the control arm. All observations below come from the
-run's own transcript and notes. **No assessor has checked the refined app yet.**
+run's own transcript and notes, except the section "Assessor checks on `f0a0ca0`", which an assessor ran afterwards.
 
 ## Setup
 
@@ -55,7 +55,7 @@ It ran each journey on the unchanged app first and again after its changes:
 It compared hierarchy frames between captures (marker positions, the position of the map's Legal link) and read the
 app's log through `simctl`. Typing worked through the hardware keyboard. It saw no on-screen keyboard and said so.
 
-## Defects it found and changed (agent-reported, not yet checked by an assessor)
+## Defects it found and changed (agent-reported; the assessor's check is further down)
 
 1. **The map ignored text search.** The list filtered, but the map kept all 40 markers. Cause it gave: the query lived
    only in the sheet. Change: one shared filter feeds the list and the markers, and Return frames the results above
@@ -79,14 +79,82 @@ The assessor's findings were hidden from the agent until this run ended. They ar
 found on its own:
 
 - **Cancel returns the sheet to the middle height, not to the height where search began** (App; measured three
-  times). The agent ran Cancel and checked that the markers came back. It did not report the sheet height after
+  times on arm-v02, and four more times on the refined app below). The agent ran Cancel and checked that the markers came back. It did not report the sheet height after
   Cancel, and the code still sets it.
 - **AX5: row icon glyphs overflow their discs** (App), and **the floating map controls do not scale** (App, minor;
   both arms). Not found: the agent did not check Dynamic Type.
 - **The search field exposes only its placeholder; some decorative symbols are exposed under default names** (App,
   minor; both arms). Not found: the agent did not check accessibility.
-- Neither of its two defects is in the assessor's finding table. Whether C1–C12 would have caught them is not
-  established here.
+- Neither of its two defects is in the assessor's finding table. C1–C12 test neither one directly. The assessor
+  check below confirms the second fix by measurement and does not exercise the first.
+
+## Assessor checks on `f0a0ca0` (C1–C12, run after the refinement)
+
+**How they were run.** 2026-11-26 22:50:00–22:58:09, in one lead-held lock window: `lockf` + `turn-holder.sh` +
+`quiet.sh` around one script, with nothing else in the heavy lane. A short second window, 22:59:03–23:00:06, redid two
+checks that the first window's automation got wrong (see the deviations below). Simulator: `iPhone 18 Pro Max` only.
+The source was exported with `git archive f0a0ca0` and built in Debug with `-derivedDataPath` in the assessment
+folder. The build succeeded with no compiler warnings. Then uninstall and install, and the sequence of Decision 006
+step 1:
+- a cold-launch series of six launches without MCP;
+- C1–C12 in a fresh MCP device session, using the command sequence of the 18:10 window from RESULTS.md, with targets
+  found in the previous hierarchy instead of at fixed points;
+- the 24 matched states of step 1, recorded with `simctl io recordVideo` (78 s).
+
+Dynamic Type and appearance were `large` and `light` at the start and end of both windows (checked). The refined
+build is left installed. The assessor knew which app this was, so the checks were not blind. The evidence stays
+unpublished in `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/assess/refine-v02/`: its screenshots show
+map tiles of a real area. Labels as in RESULTS.md: **measured**, **observed**, **code**, **asserted**.
+
+**Deviations (Auto: the assessor's automation)**
+- In the first window, two typing steps sent `kbd falcon w 0.8`, which typed the wait suffix into the field as text.
+  The journey's state 11 typed "falcon" correctly, and "lake" was typed again in the second window.
+- The first window's Time Profiler attach failed ("Cannot find process for provided pid") because the command lacked
+  `--device`. C12 was recorded in the second window with `--device <udid> --attach <pid>`. There, the app had already
+  been launched and driven through MCP before the trace started. The arms' traces began at the first MCP activation,
+  so the conditions differ.
+- The first window's AX5 detail tap landed on the search field instead of a row. The journey's state 23 opened a row's
+  details at AX5.
+- The cold-launch series ran while the Mac was heavily loaded: load average 11.3 just before the window and 13.6
+  during it. Screenshot polling slowed to one frame every 0.7–3.5 s, against about 0.48 s in step 1.
+
+| # | refine-v02 `f0a0ca0` | Against arm-v02 (RESULTS.md) |
+|---|---|---|
+| C1 | **Pass** (measured, observed). Full-bleed map, floating search card, grabber at y 865. A drag down at the smallest height left it at 865. All 40 markers present at the first capture | Same |
+| C2 | **Pass** (measured). Heights 865, 459 and 70. Single drags settled on the next height. Three reversals within one touch settled at 865, 459 and 865 | Same heights and reversal results |
+| C3 | **Pass** (measured). Smallest height: a pan of (−100, −90) pt moved a marker by (−90, −80), and a pinch-out took the visible markers from 35 to 1. Middle height: the pan moved the one visible marker off screen in the pan's direction, and a pinch-in took the visible markers from 0 to 16 | Same |
+| C4 | **Pass** (measured). Middle height: a swipe up on the list grew the sheet to the largest height and left the list at 0 %. Largest height: a swipe scrolled the list to 42 % while the sheet stayed put. A swipe down scrolled back to the top first, and the next one moved the sheet to the middle height | Same |
+| C5 | **Partial** (measured, code). Tapping the field at the smallest height moved the sheet to the largest height with keyboard focus. "falcon" gave 2 rows and "lake" the 6 places named Lake. Cancel returned to the **middle** height, not the smallest height where search began, 4 times out of 4 (twice in the checks, journey state 12, the second window). From the middle height, Cancel stayed at the middle height. The code still sets `.medium` on Cancel | Same defect, unchanged |
+| C6 | **Pass** (measured, observed). Tapping the first row (Aspen Point) centred its marker at x 220, above the sheet, and showed its details (About and facts). Close returned to the list. Tapping an annotation (Silver Overlook) opened its details | Same |
+| C7 | **Pass** (measured). The controls span y 773–838 at the smallest height and 366–430 at the middle height, and are hidden at the largest. They sit above the map-style card (512–577) while it is open. A tap 17 pt left of the Map Style glyph opened the card | Same frames |
+| C8 (AX5) | **Partial** (observed). Search, rows, details and the category labels are reachable; the labels stay whole in a horizontally scrolling row. The row icons still fail: the glyph overflows its fixed disc and can't be read. The map controls do not scale | Same defects, unchanged |
+| C9 | **Pass** (measured). All 40 markers are labelled, and rows read "name, kind · elevation". The controls are labelled (Map Style, Show All Places, the category buttons, Cancel Search, Clear Search, Close). The search field exposes only its placeholder, and some decorative symbols are exposed under their default names ("Binoculars, Filled", "Leaf") | Same |
+| C10 | **Pass** (observed). In dark appearance the map and the glass sheet go dark and the text stays readable. The list card is an opaque dark panel | Same |
+| C11 | **Pass** (measured). 3 of 3 launches alive at about 8 s (PID in the hierarchy and `pgrep`). No crash report and 0 faults. 36 errors, all from Apple subsystems: the same five messages with the same counts as both arms | Same |
+| C12 | Measured: a 26.3 s attached Time Profiler recording over 3 drag cycles reported no hangs. The start conditions differ from the arms' traces (deviations above), so the two cannot be compared | Arms: 4 and 5 hangs, all in the first ~10 s |
+
+**The agent's two fixes against this check**
+- *The map moved when the sheet changed height:* **confirmed** (measured). Markers keep the same screen position at
+  the smallest, middle and smallest heights in turn (Aspen Point at (263, 404) in all three). RESULTS.md has no
+  matching measurement for arm-v02, whose code moved the map's bottom padding with the sheet (code).
+- *The map ignored text search:* **not exercised.** No check presses Return, and at the largest height the sheet
+  covers the map. Code: the markers now use the same filter as the list.
+
+**Cold launch (step 1 method; labelled Sim/host and not comparable with step 1).** First launch after install: the map
+was drawn at 13.2 s, with no tiles within 15 s. Relaunches: tiles at 6.1, 11.6, 11.5, 6.6 and 2.8 s, most of it on
+the white launch screen. Under this load the screenshot polling itself slowed 1.5–7 times, so these times measure the
+loaded Mac as much as the app. Step 1 measured arm-v02 at 3.8 s (map drawn) and 5.6 s (tiles) for its first launch and
+1.3–1.5 s for relaunches; these numbers cannot be set against those. All 40 markers were present at the first capture
+in C1 and in each C11 launch. No app-specific delay is established.
+
+**What this shows (one run, no comparison claimed)**
+- On C1–C11, the refined app behaves as arm-v02 did, with the same heights, the same passes and the same App
+  defects: Cancel's return height, the AX5 row icons, the controls that don't scale, the placeholder-only field and
+  the default symbol names.
+- The refinement removed none of the assessor's arm-v02 findings and added no failure that C1–C11 detect. One of
+  its own two fixes is confirmed; the other was not exercised.
+- Two of the remaining defects sit in areas the agent listed as not checked (Dynamic Type, accessibility). The third,
+  the Cancel height, sits in a journey it did run: it looked at the markers after Cancel, not at the sheet height.
 
 ## Rule notes (from the transcript and its notes)
 
@@ -99,10 +167,11 @@ found on its own:
 
 ## Limits of this record
 
-The defects and fixes above are as the agent reported them. The transcript shows the device calls were made. The
-lead did not rerun them, and no assessor has run C1–C12 against `f0a0ca0`. That would be a separate lock window, and
-Decision 006 does not name it. The evidence stays private: the transcript, the agent's screenshots and hierarchies,
-and the run folder.
+The "What it exercised" and "Defects it found" sections are as the agent reported them. The transcript shows the
+device calls were made; the lead did not rerun the agent's own calls. The assessor's C1–C12 above ran afterwards, on
+the owner's go-ahead of 2026-11-26 22:3x. They are one run of one build, not blind, and recorded here only, not in
+RESULTS.md. The evidence stays private: the transcript, the agent's screenshots and hierarchies, the assessor's
+captures and recording, and the run folder.
 
 ## `REFINE.md` as given (start time filled in at launch)
 
