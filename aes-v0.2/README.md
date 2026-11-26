@@ -16,6 +16,8 @@ run with it, so nothing here shows that it improves engineering quality.
 | [DEVICE-INTERACTION.md](DEVICE-INTERACTION.md) | Where Xcode installs its device-interaction guidance, how an agent loads it, verified interaction examples (Decision 006 step 2) |
 | [trial-005/COMPLETION.md](trial-005/COMPLETION.md) | Why both Trial 005 arms stopped within nine minutes, cause by cause (Decision 006 step 3) |
 | [trial-005/REFINEMENT.md](trial-005/REFINEMENT.md) | Separate 30-minute autonomous refinement run on a new copy of arm-v02, and the assessor's C1–C12 on its result, recorded apart from the Trial 005 results (Decision 006 step 4) |
+| [RECOMMENDATIONS.md](RECOMMENDATIONS.md) | Evidence-based recommendations for AES v0.3, from Trial 005, the refinement run and its assessor check; no superiority claim (Decision 006, last deliverable) |
+| [DECISION-006-REPORT.md](DECISION-006-REPORT.md) | One-page completion report for Decision 006: each deliverable, its headline and what stays open |
 | [ACTIVATION.md](ACTIVATION.md) | Selective-loading check on two disposable projects |
 | [trial-005/PLAN.md](trial-005/PLAN.md) | The next application trial, designed but not frozen |
 | [evidence/](evidence/) | MCP tool list, edge measurement CSV |

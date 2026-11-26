@@ -4,6 +4,16 @@ Updated 2026-11-26 22:3x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
+- **HAND-OFF 2026-11-26 23:1x — DECISION 006 IS COMPLETE** (lead: scheduled run `resume-appleengineeringsystem-287007`,
+  fired 22:47). Done: the assessor's C1–C12 on `refine-v02` (`0bc4203`, REFINEMENT.md) and the last deliverable,
+  `RECOMMENDATIONS.md` (AES v0.3, in the owner's priority order from `directives/AUTHORITY-006.md`), plus a one-page
+  `DECISION-006-REPORT.md`; both linked from README (commit named in git log as "Decision 006: recommendations").
+  In flight: nothing. No lock held; this lead's keep-awake holds ended with its windows (the only hold left is the
+  earlier lead's resume hold, pid 63582, which ends by itself at 23:32). No scheduled task created or changed (none
+  needed). Usage at 23:05: 5-hour 63 % (resets 02:50 local), weekly 47 %. **Next (needs a new owner decision, not covered by Decision 006):**
+  apply RECOMMENDATIONS.md to the skill as v0.3, then a new trial with more than one pair. Owner question still
+  open: (a) Trailhead builder (question 5). Live yeses: Decision 006 (complete), AUTHORITY-006.
+
 - **2026-11-26 23:0x — assessor C1–C12 on `refine-v02` `f0a0ca0` DONE** (lead: scheduled run
   `resume-appleengineeringsystem-287007`, fired 22:47; no other AES lead was running). Recorded in
   `trial-005/REFINEMENT.md`, section "Assessor checks on `f0a0ca0`"; RESULTS.md untouched. Windows: 22:50:00–22:58:09
@@ -16,8 +26,7 @@ Updated 2026-11-26 22:3x by the AES lead (session on branch claude/aes-v0-2-d005
   (Mac load 11–14). Both windows released; keep-awake holds ended with them. Evidence:
   `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/assess/refine-v02/` (never publish; real-area map tiles).
   Refined build left installed on `iPhone 18 Pro Max`; `large`/`light` restored (checked).
-  **NEXT:** the recommendations (`RECOMMENDATIONS.md`, draft in the work tree), commit, scan, push; then the owner
-  report and one phone notice.
+  Then: the recommendations (done, see the hand-off above).
 
 - **OWNER 2026-11-26 22:3x, in chat: "why are you keep asking, for permission I already said go ahead"** and "I rely and trust you will continue your work". Read as a yes to question (b) below: an assessor runs C1–C12 against `refine-v02` `f0a0ca0` in one lock window (same method as Decision 006 step 1, results recorded in REFINEMENT.md, never in RESULTS.md), then the recommendations. Leads take their own pick on anything with a reasonable default, log it here, and keep going; a lead that must stop re-arms `resume-appleengineeringsystem-287007` itself (its task file asks for that). Next lead: that task, armed ~22:47 by the stood-down 17:xx lead.
 
