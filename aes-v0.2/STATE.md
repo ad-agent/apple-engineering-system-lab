@@ -4,7 +4,12 @@ Updated 2026-11-26 15:2x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
-- 2026-11-26 17:10 — IN FLIGHT (lead: scheduled session `resume-appleengineeringsystem-287007`, work tree
+- 2026-11-26 17:19 — arm-control DONE 17:10–17:17 (success, 72 turns; participant commit 6c5097c, lead commit
+  36c91ba in the arm; no `XcodeOpenWorkspace`, so no Xcode prompt). It used ~17 % of the 5-hour window. **arm-v02
+  IN FLIGHT** from 17:18, PID 78223, log `…/trial005-run/arm-v02.jsonl`, same `env -i` launch, keep-awake on the
+  PID. Started at 22 % (78 % room, ~4x arm-control's use); 60 full minutes cannot fit any Pro window at this
+  rate, so the lead read the rule as room for a realistic arm. If a limit cuts arm-v02 it is void: rerun after reset.
+- 2026-11-26 17:10 — (superseded) IN FLIGHT (lead: scheduled session `resume-appleengineeringsystem-287007`, work tree
   `.claude/worktrees/aes-v0-2-d005-91383d`): Trial 005 **arm-control** running, PID 75873 (timeout 3600, ends by
   18:10), log `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/arm-control.jsonl` (+ `.err`, `.start`,
   `.pid`); keep-awake holds on the PID. Started with `env -i` (HOME, USER, LOGNAME, SHELL, PATH, LANG, TMPDIR,
