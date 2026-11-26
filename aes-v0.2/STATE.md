@@ -4,6 +4,15 @@ Updated 2026-11-26 15:2x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
+- 2026-11-26 17:10 — IN FLIGHT (lead: scheduled session `resume-appleengineeringsystem-287007`, work tree
+  `.claude/worktrees/aes-v0-2-d005-91383d`): Trial 005 **arm-control** running, PID 75873 (timeout 3600, ends by
+  18:10), log `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/arm-control.jsonl` (+ `.err`, `.start`,
+  `.pid`); keep-awake holds on the PID. Started with `env -i` (HOME, USER, LOGNAME, SHELL, PATH, LANG, TMPDIR,
+  TERM=dumb) so no desktop-session variables reach it; use the same for arm-v02. Xcode had not yet allowed the
+  trial folder (only `starter`), so the owner approves the arm's `XcodeOpenWorkspace` prompt live (ARMS.md
+  route 2; log it as an intervention in both arms). Owner said in chat at 17:09: "this is approval". If this lead
+  is gone: wait for the PID to end, commit the arm's result inside the arm, then run arm-v02 the same way.
+
 Lead hand-over 2026-11-26 ~16:00 (account tag 287007). Next lead: read this block, `get_usage`, `list_sessions
 {"linked": true}` (stand down if a live AES lead exists), then do NEXT below.
 
