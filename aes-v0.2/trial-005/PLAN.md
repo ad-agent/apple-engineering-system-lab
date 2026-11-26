@@ -55,7 +55,16 @@ one app, one freeze and one protocol.
   `--setting-sources project` keeps the owner's global CLAUDE.md and user skills out of both arms (they were in both
   Folio arms). Provide the project rules (lock prefix, simulator UDID, no erase) in each copy's own `CLAUDE.md`,
   identical in both.
-- Xcode MCP: either approved for both arms or for neither; record which.
+- Xcode MCP: **available to both arms** (owner, 2026-11-26: "Both, I'll approve"). Both arms get the same
+  `--mcp-config` with only `xcode-tools` (`xcrun mcpbridge`). Before the first pair, the operator opens the frozen
+  fixture through `XcodeOpenWorkspace` from a Claude Code session so the owner can approve in Xcode; check that a
+  participant session's call is not refused (approval may be per client) and record what was approved.
+- Lock rule for MCP, written identically into both copies' `CLAUDE.md`: Xcode MCP tools that build, test, run,
+  render a preview or drive a device (`BuildProject`, `RunAllTests`, `RunSomeTests`, `RunProject`, `RenderPreview`,
+  `RunCodeSnippet`, `DeviceInteraction*`) are called only while a holder process owns the heavy lock, e.g.
+  `/usr/bin/lockf -k -t 0 /tmp/edraft-checks.lock sh -c 'while [ -e .hold ]; do sleep 2; done' &` after `touch .hold`,
+  released with `rm .hold`. Read-only tools (documentation, read, grep, build log, settings, test list, console)
+  need no lock. The assessor counts lock violations from the transcripts.
 - Random arm order by a logged coin flip; one arm at a time on the shared simulator under `/tmp/edraft-checks.lock`.
 - Participants never see this folder, `evaluation/`, earlier submissions or the assessor checks: copies live
   outside this repository and the assessor files stay outside the participant roots.

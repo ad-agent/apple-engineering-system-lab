@@ -18,8 +18,9 @@ See README.md. Skill v0.2, findings, tool evaluation, activation check, trial-00
 
 ## Next steps (in order)
 
-1. Owner decisions: (a) approve Xcode MCP for agents in Xcode, or keep it off, for both trial arms alike;
-   (b) who builds the Trailhead fixture (proposed: Grok from `trial-005/PLAN.md`).
+1. Owner decisions: (a) DONE 2026-11-26: Xcode MCP for **both** arms, owner approves in Xcode ("Both, I'll
+   approve"); trigger the prompt with `XcodeOpenWorkspace` on the frozen fixture (step 2), lock rule in
+   `trial-005/PLAN.md`; (b) OPEN: who builds the Trailhead fixture (proposed: Grok from `trial-005/PLAN.md`).
 2. Build and freeze the fixture; reproduce the AX5 filter-sheet defect under `/usr/bin/lockf -k /tmp/edraft-checks.lock`.
 3. Capture the Maps reference recording; write participant and assessor files; hash; freeze.
 4. Run pairs headless with `--setting-sources project` and `timeout 3600`; score blind.
@@ -28,5 +29,10 @@ See README.md. Skill v0.2, findings, tool evaluation, activation check, trial-00
 
 ## Owner questions
 
-- Xcode MCP approval (step 1a). Using it in trials also needs a rule for the shared lock: the tools build and run
-  outside `lockf`.
+- Builder for the Trailhead fixture (step 1b).
+
+## Live yeses
+
+- 2026-11-26: Xcode MCP in both Trial 005 arms; the owner approves the agent in Xcode when prompted.
+- Brief (Assignment 004 + supplement): work on branch `aes-v0.2` and publish it after review; never touch `main`,
+  eDraft, Code Director, Draft Desk or the Folio submissions.
