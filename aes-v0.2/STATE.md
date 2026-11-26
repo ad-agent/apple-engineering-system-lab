@@ -10,7 +10,8 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
   keep-awake hold. Still running on purpose: the assessor's MCP bridge daemon `trial005-run/tools/mcpd.py`
   (restarted 19:12, log `trial005-run/evidence/mcpd-restart-1912.log`), which the next lead can reuse through
   `tools/m`. **No next lead is scheduled**: updating the one-time task `next-lead-appleengineeringsystem-287007`
-  needs a person's approval, which an unattended run cannot give (the owner got one phone notice). Next steps in
+  needs a person's approval, which an unattended run cannot give (a phone notice was tried but not delivered:
+  Remote Control inactive). Next steps in
   order: step 3, then step 4, then the recommendations, as the bullets below say. The owner can start them by
   re-arming that task (fire after 21:50) or by starting a fresh AES lead in this work tree. Owner question: Trailhead
   builder (still open). Live yes: Decision 006 (see Live yeses).
