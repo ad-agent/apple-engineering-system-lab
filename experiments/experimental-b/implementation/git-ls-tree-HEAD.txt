@@ -1,0 +1,13 @@
+100644 blob 28e9e4d60a2be97f53f3e39eab0850c68f62f539	Folio.xcodeproj/project.pbxproj
+100644 blob 919434a6254f0e9651f402737811be6634a03e9c	Folio.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+100644 blob 1f2b449ec73796a7607a9718c528a4c12e4c481f	Folio.xcodeproj/xcshareddata/xcschemes/Folio.xcscheme
+100644 blob 14d78ca4d87b3f9ad879028b050e339c9b80d499	References/Screenshot 2026-11-25 at 22.36.03.png
+100644 blob 7969982810c7e6fef440b4299c91bf790d2b887b	References/Screenshot 2026-11-25 at 22.44.32.png
+100644 blob 9a4c65a1d4aff7a0b5f08f29c03cfe9c4d23d9b9	References/claude example.mov
+100644 blob 52ede23588acb926ce0c1365154deb28d0178349	Sources/FolioApp.swift
+100644 blob b0cf39f422a1e95ee91475a8478bbf3b2225987e	Sources/Library.swift
+100644 blob fa642f638de298d32a180b2688ed77b800073d54	Sources/WorkspaceReveal.swift
+100644 blob e824cd535d7be938afb4ff2f9517f04719c140b0	TASK.md
+100644 blob 33818fd307f1fba3c3d26b63df425e13888ec9ea	Tests/NoteStoreTests.swift
+100644 blob 09fc8b7bf8cf62b08ec4cc0d15d8a821a924c546	Tests/WorkspaceRevealTests.swift
+100644 blob 575a1f622333d1722a40e50313fb2c4bc5f6b4d9	UITests/FolioUITests.swift

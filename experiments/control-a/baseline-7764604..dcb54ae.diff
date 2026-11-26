@@ -1,0 +1,653 @@
+diff --git a/Sources/FolioApp.swift b/Sources/FolioApp.swift
+index 4288679..00a4d3a 100644
+--- a/Sources/FolioApp.swift
++++ b/Sources/FolioApp.swift
+@@ -95,20 +95,68 @@ private struct EditorMemory {
+     var body: NSRange?
+ }
+ 
++/// A horizontal drag that moves the main surface over the workspace. It starts from where the surface rests and
++/// follows the finger in both directions until it lifts.
++private struct RevealDrag {
++    var start: CGFloat
++    var progress: CGFloat
++    var horizontal: Bool
++}
++
+ private struct Workspace: View {
+     let store: NoteStore
+     let direction: Direction
+     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+     @State private var path: [Route] = []
++    @State private var current: Shelf = .inbox
+     @State private var lastShelf: Shelf?
++    @State private var revealed = true
++    @State private var drag: RevealDrag?
++    /// False once the surface has settled over the workspace, so the hidden workspace leaves the accessibility tree.
++    @State private var workspaceMounted = true
+     @State private var memories: [Shelf: CollectionMemory] = [:]
+     @State private var selections: [UUID: EditorMemory] = [:]
+     @ScaledMetric(relativeTo: .body) private var shelfIconWidth = 28.0
+     @State private var newFolder = false
+     @State private var folderName = ""
++    /// How much of the main surface stays visible beside the workspace: room for its close and search controls.
++    private let peek = 76.0
++
++    private var progress: CGFloat {
++        if let drag, drag.horizontal { return drag.progress }
++        return revealed ? 1 : 0
++    }
+ 
+     var body: some View {
+-        NavigationStack(path: $path) {
++        GeometryReader { proxy in
++            let travel = min(proxy.size.width - peek, 420)
++            let progress = progress
++            ZStack(alignment: .topLeading) {
++                if workspaceMounted {
++                    workspace
++                        .frame(width: travel)
++                        .offset(x: (progress - 1) * travel * 0.18)
++                        .opacity(progress == 0 ? 0 : 1)
++                        .allowsHitTesting(revealed)
++                        .accessibilityHidden(!revealed)
++                        .accessibilityAction(.escape) { setRevealed(false) }
++                        .transition(.identity)
++                }
++                surface(progress: progress)
++                    .offset(x: progress * travel)
++            }
++            .contentShape(Rectangle())
++            .modifier(RevealGesture(enabled: path.isEmpty,
++                                    changed: { revealChanged($0, travel: travel) },
++                                    ended: { revealEnded(predicted: $0, velocity: $1, travel: travel) }))
++        }
++        .ignoresSafeArea(.container)
++        .background(direction.paper.ignoresSafeArea())
++        .sensoryFeedback(.impact(weight: .light), trigger: revealed)
++    }
++
++    private var workspace: some View {
++        NavigationStack {
+             List {
+                 heading("Folio", caption: "Workspace")
+                     .accessibilityIdentifier("workspace.heading")
+@@ -140,7 +188,7 @@ private struct Workspace: View {
+                         Section("Continue writing") {
+                             ForEach(recent) { note in
+                                 Button {
+-                                    navigate([.shelf(.recent), .note(note.id)])
++                                    show(.recent, then: [.note(note.id)])
+                                 } label: {
+                                     Text(note.displayTitle).lineLimit(1)
+                                 }
+@@ -162,32 +210,36 @@ private struct Workspace: View {
+                         .disabled(store.loadFailure != nil)
+                 }
+             }
+-            .navigationDestination(for: Route.self) { route in
+-                switch route {
+-                case .shelf(let shelf):
+-                    CollectionScreen(store: store, shelf: shelf, direction: direction,
+-                                     memory: Binding(get: { memories[shelf, default: CollectionMemory()] },
+-                                                     set: { memories[shelf] = $0 })) { create(in: shelf) }
+-                        .onAppear { lastShelf = shelf }
+-                case .note(let id, let composing):
+-                    Editor(store: store, id: id, direction: direction, composing: composing,
+-                           memory: Binding(get: { selections[id, default: EditorMemory()] },
+-                                           set: { selections[id] = $0 }))
+-                        .onAppear {
+-                            if let parent = path.dropLast().last, case .shelf(let shelf) = parent {
+-                                memories[shelf, default: CollectionMemory()].selectedNote = id
+-                            }
+-                        }
+-                }
+-            }
+             .alert("New Collection", isPresented: $newFolder) {
+                 TextField("Collection name", text: $folderName)
+                 Button("Cancel", role: .cancel) {}
+                 Button("Create") {
+-                    if let id = store.addFolder(folderName) { navigate([.shelf(.folder(id))]) }
++                    if let id = store.addFolder(folderName) { show(.folder(id)) }
+                 }.disabled(folderName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+             }
+         }
++        .ignoresSafeArea(.container)
++    }
++
++    /// The open collection and its notes. It stays alive while the workspace is revealed, so its search, scroll
++    /// position, selection and any editing state are exactly as they were when it slides back.
++    private func surface(progress: CGFloat) -> some View {
++        NavigationStack(path: $path) {
++            CollectionScreen(store: store, shelf: current, direction: direction,
++                             memory: Binding(get: { memories[current, default: CollectionMemory()] },
++                                             set: { memories[current] = $0 }),
++                             revealed: revealed, progress: progress,
++                             showWorkspace: { setRevealed($0) }) { create(in: current) }
++                .id(current)
++                .navigationDestination(for: Route.self) { route in
++                    if case .note(let id, let composing) = route {
++                        Editor(store: store, id: id, direction: direction, composing: composing,
++                               memory: Binding(get: { selections[id, default: EditorMemory()] },
++                                               set: { selections[id] = $0 }))
++                            .onAppear { memories[current, default: CollectionMemory()].selectedNote = id }
++                    }
++                }
++        }
+         .safeAreaInset(edge: .bottom, spacing: 0) {
+             if let message = store.writeFailure {
+                 VStack(alignment: .leading, spacing: 8) {
+@@ -201,6 +253,15 @@ private struct Workspace: View {
+                 .accessibilityElement(children: .contain)
+             }
+         }
++        .ignoresSafeArea(.container)
++        .clipShape(SurfaceShape(progress: progress))
++        .overlay {
++            SurfaceShape(progress: progress)
++                .stroke(Color(uiColor: .separator), lineWidth: 1)
++                .opacity(progress)
++                .allowsHitTesting(false)
++        }
++        .shadow(color: .black.opacity(0.18 * progress), radius: 24)
+     }
+ 
+     private func heading(_ title: String, caption: String) -> some View {
+@@ -217,12 +278,17 @@ private struct Workspace: View {
+     }
+ 
+     private func shelf(_ shelf: Shelf, icon: String, id: String) -> some View {
+-        NavigationLink(value: Route.shelf(shelf)) {
++        Button { show(shelf) } label: {
+             HStack(spacing: 12) {
+                 Image(systemName: icon)
+                     .frame(width: shelfIconWidth, alignment: .leading)
+                     .accessibilityHidden(true)
+                 Text(store.title(shelf))
++                Spacer(minLength: 0)
++                Image(systemName: "chevron.forward")
++                    .font(.footnote.weight(.semibold))
++                    .foregroundStyle(Color(uiColor: .tertiaryLabel))
++                    .accessibilityHidden(true)
+             }
+             .font(.body.weight(.medium))
+             .padding(.vertical, 7)
+@@ -233,6 +299,55 @@ private struct Workspace: View {
+         .listRowBackground(Color.clear)
+     }
+ 
++    /// Follows the finger in both directions, then settles where the release was heading.
++    private func revealChanged(_ translation: CGSize, travel: CGFloat) {
++        if drag == nil {
++            workspaceMounted = true
++            let start: CGFloat = revealed ? 1 : 0
++            drag = RevealDrag(start: start, progress: start,
++                              horizontal: abs(translation.width) > abs(translation.height))
++        }
++        guard let current = drag, current.horizontal else { return }
++        drag?.progress = min(max(current.start + translation.width / travel, 0), 1)
++    }
++
++    private func revealEnded(predicted: CGFloat, velocity: CGFloat, travel: CGFloat) {
++        guard let current = drag, current.horizontal else { drag = nil; return }
++        let open = current.start + predicted / travel > 0.5
++        let remaining = (open ? 1 : 0) - current.progress
++        let relative = abs(remaining) < 0.01 ? 0 : velocity / travel / remaining
++        setRevealed(open, velocity: min(max(relative, 0), 20))
++    }
++
++    private func setRevealed(_ open: Bool, velocity: CGFloat = 0) {
++        if open { workspaceMounted = true }
++        if reduceMotion {
++            var transaction = Transaction()
++            transaction.disablesAnimations = true
++            withTransaction(transaction) { drag = nil; revealed = open }
++            workspaceMounted = open
++        } else {
++            withAnimation(.interpolatingSpring(mass: 1, stiffness: 320, damping: 35, initialVelocity: velocity)) {
++                drag = nil
++                revealed = open
++            } completion: {
++                if !revealed && drag == nil { workspaceMounted = false }
++            }
++        }
++    }
++
++    /// Puts a collection (and optionally a note in it) on the main surface, then slides the surface back.
++    private func show(_ shelf: Shelf, then routes: [Route] = []) {
++        var transaction = Transaction()
++        transaction.disablesAnimations = true
++        withTransaction(transaction) {
++            lastShelf = shelf
++            current = shelf
++            path = routes
++        }
++        setRevealed(false)
++    }
++
+     private func navigate(_ routes: [Route]) {
+         if reduceMotion {
+             var transaction = Transaction()
+@@ -246,7 +361,92 @@ private struct Workspace: View {
+     private func create(in shelf: Shelf, fromWorkspace: Bool = false) {
+         guard let id = store.create(in: shelf) else { return }
+         let route = Route.note(id, composing: true)
+-        navigate(fromWorkspace ? [.shelf(shelf), route] : [route])
++        if fromWorkspace { show(shelf, then: [route]) } else { navigate([route]) }
++    }
++}
++
++/// Drives the reveal from horizontal drags anywhere on the workspace or the collection. Vertical drags stay with
++/// the scroll views, and a pushed note keeps the system back swipe.
++private struct RevealGesture: ViewModifier {
++    let enabled: Bool
++    let changed: (CGSize) -> Void
++    let ended: (_ predicted: CGFloat, _ velocity: CGFloat) -> Void
++
++    func body(content: Content) -> some View {
++        if #available(iOS 18, *) {
++            content.gesture(RevealPan(enabled: enabled, changed: changed, ended: ended))
++        } else {
++            content.simultaneousGesture(
++                DragGesture(minimumDistance: 12, coordinateSpace: .global)
++                    .onChanged { changed($0.translation) }
++                    .onEnded { ended($0.predictedEndTranslation.width, $0.velocity.width) },
++                including: enabled ? .all : .subviews)
++        }
++    }
++}
++
++/// A UIKit pan measured in window coordinates. SwiftUI's drag reads the touch through the view under the finger,
++/// so a finger resting on the still-settling surface registered as movement and flung the workspace open again.
++@available(iOS 18, *)
++private struct RevealPan: UIGestureRecognizerRepresentable {
++    let enabled: Bool
++    let changed: (CGSize) -> Void
++    let ended: (_ predicted: CGFloat, _ velocity: CGFloat) -> Void
++
++    final class Coordinator: NSObject, UIGestureRecognizerDelegate {
++        func gestureRecognizerShouldBegin(_ recognizer: UIGestureRecognizer) -> Bool {
++            guard let pan = recognizer as? UIPanGestureRecognizer else { return false }
++            let velocity = pan.velocity(in: pan.view?.window)
++            return abs(velocity.x) > abs(velocity.y)
++        }
++
++        /// Scrolling may continue alongside; anything else under the finger, such as a note row, is cancelled
++        /// once the reveal takes over, as the system back swipe does.
++        func gestureRecognizer(_ recognizer: UIGestureRecognizer,
++                               shouldRecognizeSimultaneouslyWith other: UIGestureRecognizer) -> Bool {
++            other.view is UIScrollView
++        }
++    }
++
++    func makeCoordinator(converter: CoordinateSpaceConverter) -> Coordinator { Coordinator() }
++
++    func makeUIGestureRecognizer(context: Context) -> UIPanGestureRecognizer {
++        let pan = UIPanGestureRecognizer()
++        pan.delegate = context.coordinator
++        return pan
++    }
++
++    func updateUIGestureRecognizer(_ recognizer: UIPanGestureRecognizer, context: Context) {
++        recognizer.isEnabled = enabled
++    }
++
++    func handleUIGestureRecognizerAction(_ recognizer: UIPanGestureRecognizer, context: Context) {
++        let window = recognizer.view?.window
++        let translation = recognizer.translation(in: window)
++        switch recognizer.state {
++        case .began, .changed:
++            changed(CGSize(width: translation.x, height: translation.y))
++        case .ended:
++            let velocity = recognizer.velocity(in: window).x
++            ended(translation.x + velocity * 0.25, velocity)
++        case .cancelled, .failed:
++            ended(translation.x, 0)
++        default:
++            break
++        }
++    }
++}
++
++/// The main surface's outline: square while it fills the screen, rounded like the display once it moves aside.
++private struct SurfaceShape: Shape {
++    var progress: CGFloat
++    var animatableData: CGFloat {
++        get { progress }
++        set { progress = newValue }
++    }
++
++    func path(in rect: CGRect) -> Path {
++        RoundedRectangle(cornerRadius: 52 * min(max(progress * 4, 0), 1), style: .continuous).path(in: rect)
+     }
+ }
+ 
+@@ -255,75 +455,122 @@ private struct CollectionScreen: View {
+     let shelf: Shelf
+     let direction: Direction
+     @Binding var memory: CollectionMemory
++    /// The workspace is open: the surface is a strip that only closes or searches.
++    let revealed: Bool
++    /// 0 while the surface fills the screen, 1 when it rests beside the workspace.
++    let progress: CGFloat
++    let showWorkspace: (Bool) -> Void
+     let create: () -> Void
++    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+     @FocusState private var searching: Bool
++    @State private var searchAfterClose = false
++    @Namespace private var morph
++    private static let top = "collection.top"
++    private var compact: Bool { progress > 0 }
+ 
+     var body: some View {
+         let notes = store.notes(in: shelf, matching: memory.query)
+         ScrollView {
+-            VStack(alignment: .leading, spacing: 12) {
+-                Text(store.title(shelf))
+-                    .font(.system(.largeTitle, design: direction.serif, weight: .semibold))
+-                    .accessibilityAddTraits(.isHeader)
+-                    .accessibilityIdentifier("collection.heading")
+-                    .padding(.top, 12)
+-                    .padding(.bottom, 7)
+-                if notes.isEmpty {
+-                    if memory.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+-                        Text("No notes yet").foregroundStyle(.secondary)
+-                        Button("Write a note", action: create).fontWeight(.semibold)
+-                    } else {
+-                        Text("No matching notes").foregroundStyle(.secondary)
++            ScrollViewReader { reader in
++                VStack(alignment: .leading, spacing: 12) {
++                    Text(store.title(shelf))
++                        .font(.system(.largeTitle, design: direction.serif, weight: .semibold))
++                        .accessibilityAddTraits(.isHeader)
++                        .accessibilityIdentifier("collection.heading")
++                        .id(Self.top)
++                        .padding(.top, 12)
++                        .padding(.bottom, 7)
++                    if notes.isEmpty {
++                        if memory.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
++                            Text("No notes yet").foregroundStyle(.secondary)
++                            Button("Write a note", action: create).fontWeight(.semibold)
++                        } else {
++                            Text("No matching notes").foregroundStyle(.secondary)
++                        }
+                     }
+-                }
+-                LazyVStack(alignment: .leading, spacing: 0) {
+-                    ForEach(notes) { note in
+-                        NavigationLink(value: Route.note(note.id)) {
+-                            HStack(spacing: 16) {
+-                                VStack(alignment: .leading, spacing: 5) {
+-                                    Text(note.displayTitle)
+-                                        .font(.system(.title3, design: direction.serif, weight: .semibold))
+-                                        .foregroundStyle(memory.selectedNote == note.id ? direction.accent : .primary)
+-                                        .lineLimit(2)
+-                                    let excerpt = note.body.prefix(400).split(whereSeparator: \.isWhitespace)
+-                                        .joined(separator: " ")
+-                                    if !excerpt.isEmpty {
+-                                        Text(excerpt).font(.callout)
+-                                            .foregroundStyle(.primary.opacity(0.74)).lineLimit(2)
++                    LazyVStack(alignment: .leading, spacing: 0) {
++                        ForEach(notes) { note in
++                            NavigationLink(value: Route.note(note.id)) {
++                                HStack(spacing: 16) {
++                                    VStack(alignment: .leading, spacing: 5) {
++                                        Text(note.displayTitle)
++                                            .font(.system(.title3, design: direction.serif, weight: .semibold))
++                                            .foregroundStyle(memory.selectedNote == note.id ? direction.accent : .primary)
++                                            .lineLimit(2)
++                                        let excerpt = note.body.prefix(400).split(whereSeparator: \.isWhitespace)
++                                            .joined(separator: " ")
++                                        if !excerpt.isEmpty {
++                                            Text(excerpt).font(.callout)
++                                                .foregroundStyle(.primary.opacity(0.74)).lineLimit(2)
++                                        }
+                                     }
++                                    Spacer(minLength: 0)
++                                    Image(systemName: "chevron.forward")
++                                        .font(.footnote.weight(.semibold))
++                                        .foregroundStyle(.secondary)
++                                        .accessibilityHidden(true)
+                                 }
+-                                Spacer(minLength: 0)
+-                                Image(systemName: "chevron.forward")
+-                                    .font(.footnote.weight(.semibold))
+-                                    .foregroundStyle(.secondary)
+-                                    .accessibilityHidden(true)
++                                .padding(.vertical, 13)
++                                .frame(minHeight: 54)
++                                .contentShape(Rectangle())
+                             }
+-                            .padding(.vertical, 13)
+-                            .frame(minHeight: 54)
+-                            .contentShape(Rectangle())
++                            .buttonStyle(.plain)
++                            .accessibilityIdentifier("collection.note")
++                            .accessibilityAddTraits(memory.selectedNote == note.id ? .isSelected : [])
++                            .overlay(alignment: .bottom) { Divider().allowsHitTesting(false) }
++                            .id(note.id)
+                         }
+-                        .buttonStyle(.plain)
+-                        .accessibilityIdentifier("collection.note")
+-                        .accessibilityAddTraits(memory.selectedNote == note.id ? .isSelected : [])
+-                        .overlay(alignment: .bottom) { Divider().allowsHitTesting(false) }
+-                        .id(note.id)
+                     }
++                    .scrollTargetLayout()
++                }
++                .frame(maxWidth: .infinity, alignment: .leading)
++                .padding(.horizontal, 22)
++                // A search starts at the top, so a deep browsing offset never hangs over a short result list.
++                .onChange(of: memory.query.isEmpty) { _, browsing in
++                    if !browsing { reader.scrollTo(Self.top, anchor: .top) }
+                 }
+-                .scrollTargetLayout()
+             }
+-            .frame(maxWidth: .infinity, alignment: .leading)
+-            .padding(.horizontal, 22)
+         }
+         .scrollPosition(id: Binding(
+             get: { memory.query.isEmpty ? memory.anchor : nil },
+             set: { if memory.query.isEmpty { memory.anchor = $0 } }
+         ), anchor: .top)
+         .scrollDismissesKeyboard(.interactively)
++        .opacity(1 - 0.5 * progress)
++        .allowsHitTesting(!revealed)
++        .accessibilityHidden(revealed)
++        .overlay {
++            if revealed {
++                Color.clear.contentShape(Rectangle())
++                    .onTapGesture { showWorkspace(false) }
++                    .accessibilityHidden(true)
++                    .transition(.identity)
++            }
++        }
+         .safeAreaInset(edge: .bottom, spacing: 0) { searchBar }
+         .background(direction.paper.ignoresSafeArea())
+         .navigationTitle(memory.anchor == nil || memory.anchor == notes.first?.id ? "" : store.title(shelf))
+         .navigationBarTitleDisplayMode(.inline)
++        .onChange(of: compact) { _, compact in
++            if compact { searching = false }
++        }
++        .task(id: compact) {
++            // The field is back in the layout by now, so it can take focus.
++            guard !compact, searchAfterClose else { return }
++            searchAfterClose = false
++            searching = true
++        }
+         .toolbar {
++            ToolbarItem(placement: .topBarLeading) {
++                let close = progress > 0.5
++                Button { showWorkspace(!revealed) } label: {
++                    Label(close ? "Close Workspace" : "Show Workspace",
++                          systemImage: close ? "xmark" : "line.3.horizontal")
++                        .contentTransition(.symbolEffect(.replace))
++                }
++                .animation(reduceMotion ? nil : .smooth(duration: 0.25), value: close)
++                .accessibilityIdentifier("collection.menu")
++            }
+             ToolbarItem(placement: .primaryAction) {
+                 Button("New Note", systemImage: "square.and.pencil", action: create)
+                     .accessibilityIdentifier("collection.compose")
+@@ -331,27 +578,73 @@ private struct CollectionScreen: View {
+         }
+     }
+ 
++    /// The search field while the surface fills the screen; a round search button at the surface's edge while the
++    /// workspace is open. The field keeps its place in the layout so the notes above never shift.
+     private var searchBar: some View {
++        ZStack(alignment: .leading) {
++            searchField
++                .opacity(compact ? 0 : 1)
++                .allowsHitTesting(!compact)
++                .accessibilityHidden(compact)
++            if compact {
++                searchButton
++                    .padding(.leading, 16)
++                    .transition(.scale(scale: 0.6, anchor: .leading).combined(with: .opacity))
++            }
++        }
++        .animation(reduceMotion ? nil : .smooth(duration: 0.3), value: compact)
++    }
++
++    @ViewBuilder private var searchButton: some View {
++        let button = Button {
++            searchAfterClose = true
++            showWorkspace(false)
++        } label: {
++            Image(systemName: "magnifyingglass")
++                .font(.body.weight(.medium))
++                .foregroundStyle(direction.accent)
++                .matchedGeometryEffect(id: "magnifier", in: morph)
++                .frame(width: 48, height: 48)
++                .contentShape(Circle())
++        }
++        .buttonStyle(.plain)
++        .accessibilityLabel("Search notes")
++        .accessibilityIdentifier("collection.searchButton")
++        if #available(iOS 26, *) {
++            button.glassEffect(.regular.interactive(), in: .circle)
++        } else {
++            button.background(.regularMaterial, in: Circle())
++        }
++    }
++
++    private var searchField: some View {
+         VStack(spacing: 0) {
+             Divider()
+             HStack(spacing: 12) {
+                 Image(systemName: "magnifyingglass").foregroundStyle(direction.accent)
++                    .matchedGeometryEffect(id: "magnifier", in: morph, isSource: !compact)
+                     .accessibilityHidden(true)
+-                TextField("Search notes", text: $memory.query, prompt: Text(""))
+-                    .overlay(alignment: .leading) {
+-                        if memory.query.isEmpty {
+-                            Text("Search notes").foregroundStyle(.primary.opacity(0.65))
+-                                .allowsHitTesting(false).accessibilityHidden(true)
++                if compact {
++                    // Holds the field's place while it is hidden, without leaving a focusable field behind.
++                    Text(memory.query.isEmpty ? "Search notes" : memory.query).lineLimit(1)
++                        .frame(maxWidth: .infinity, alignment: .leading)
++                } else {
++                    TextField("Search notes", text: $memory.query, prompt: Text(""))
++                        .overlay(alignment: .leading) {
++                            if memory.query.isEmpty {
++                                Text("Search notes").foregroundStyle(.primary.opacity(0.65))
++                                    .allowsHitTesting(false).accessibilityHidden(true)
++                            }
+                         }
++                        .focused($searching)
++                        .submitLabel(.search)
++                        .onSubmit { searching = false }
++                        .accessibilityIdentifier("collection.search")
++                    if !memory.query.isEmpty {
++                        Button("Clear search", systemImage: "xmark.circle.fill") { memory.query = "" }
++                            .labelStyle(.iconOnly)
++                            .frame(minWidth: 44, minHeight: 44)
+                     }
+-                    .focused($searching)
+-                    .submitLabel(.search)
+-                    .onSubmit { searching = false }
+-                    .accessibilityIdentifier("collection.search")
+-                if !memory.query.isEmpty {
+-                    Button("Clear search", systemImage: "xmark.circle.fill") { memory.query = "" }
+-                        .labelStyle(.iconOnly)
+-                        .frame(minWidth: 44, minHeight: 44)
+                 }
+             }
+             .frame(minHeight: 50)
+diff --git a/UITests/FolioUITests.swift b/UITests/FolioUITests.swift
+index b8ee709..05c65e6 100644
+--- a/UITests/FolioUITests.swift
++++ b/UITests/FolioUITests.swift
+@@ -169,6 +169,70 @@ final class FolioUITests: XCTestCase {
+         }
+     }
+ 
++    @MainActor func testWorkspaceRevealKeepsCollectionState() {
++        continueAfterFailure = false
++        let app = XCUIApplication()
++        app.launchEnvironment["FOLIO_TEST_LIBRARY"] = UUID().uuidString
++        app.launchEnvironment["FOLIO_TEST_COUNT"] = "60"
++        app.launch()
++        let inbox = app.buttons["workspace.inbox"]
++        let menu = app.buttons["collection.menu"]
++        let search = app.textFields["collection.search"]
++        let searchButton = app.buttons["collection.searchButton"]
++        let closers = app.buttons.matching(NSPredicate(format: "label == %@", "Close Workspace"))
++        XCTAssertTrue(inbox.waitForExistence(timeout: 10))
++        XCTAssertEqual(menu.label, "Close Workspace")
++        XCTAssertEqual(closers.count, 1, "The open workspace has one close control")
++        XCTAssertTrue(searchButton.isHittable)
++        XCTAssertFalse(search.exists)
++        capture(app, "reveal-open")
++        inbox.tap()
++        XCTAssertTrue(search.waitForExistence(timeout: 8))
++        XCTAssertEqual(menu.label, "Show Workspace")
++        XCTAssertFalse(inbox.exists)
++        XCTAssertFalse(searchButton.exists)
++        capture(app, "reveal-closed")
++
++        app.swipeUp(velocity: .slow)
++        let rows = app.buttons.matching(identifier: "collection.note")
++        guard let anchor = rows.allElementsBoundByIndex.first(where: {
++            $0.isHittable && $0.frame.midY > app.frame.height * 0.3
++        }) else { XCTFail("No visible note after scrolling"); return }
++        let anchorTitle = anchor.label
++        let anchorY = anchor.frame.midY
++        drag(app, from: 0.005, to: 0.2)
++        XCTAssertTrue(inbox.waitForNonExistence(timeout: 5), "A short drag settles back closed")
++        drag(app, from: 0.005, to: 0.75)
++        XCTAssertTrue(inbox.waitForExistence(timeout: 8))
++        XCTAssertEqual(menu.label, "Close Workspace")
++        XCTAssertFalse(app.textViews["note.body"].exists, "Dragging over a note row does not open it")
++        drag(app, from: 0.92, to: 0.75)
++        XCTAssertTrue(inbox.exists, "A short drag back keeps the workspace open")
++        drag(app, from: 0.92, to: 0.1)
++        XCTAssertTrue(search.waitForExistence(timeout: 8))
++        let restored = rows.matching(NSPredicate(format: "label == %@", anchorTitle)).firstMatch
++        XCTAssertEqual(restored.frame.midY, anchorY, accuracy: 2, "Revealing keeps the scroll position")
++
++        search.tap()
++        search.typeText("lantern 3")
++        XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 5))
++        menu.tap()
++        XCTAssertTrue(inbox.waitForExistence(timeout: 8))
++        XCTAssertTrue(app.keyboards.firstMatch.waitForNonExistence(timeout: 5), "Revealing puts the keyboard away")
++        capture(app, "reveal-open-searching")
++        searchButton.tap()
++        XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 5), "The compact button returns to search")
++        XCTAssertEqual(search.value as? String, "lantern 3")
++        XCTAssertFalse(inbox.exists)
++    }
++
++    @MainActor private func drag(_ app: XCUIApplication, from start: CGFloat, to end: CGFloat) {
++        app.coordinate(withNormalizedOffset: CGVector(dx: start, dy: 0.52))
++            .press(forDuration: 0.04,
++                   thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: end, dy: 0.52)),
++                   withVelocity: .slow, thenHoldForDuration: 0.18)
++    }
++
+     @MainActor private func edgeSwipe(_ app: XCUIApplication, end: CGFloat) {
+         app.coordinate(withNormalizedOffset: CGVector(dx: 0.005, dy: 0.52))
+             .press(forDuration: 0.04,

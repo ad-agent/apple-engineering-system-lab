@@ -1,0 +1,47 @@
+[
+  {
+    "skills": [
+      "apple-product-engineering"
+    ],
+    "slash_commands": [
+      "apple-product-engineering"
+    ]
+  },
+  {
+    "result": "Not logged in \u00b7 Please run /login",
+    "is_error": true,
+    "usage": {
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 0,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    }
+  },
+  {
+    "event": "response_item",
+    "role": "user",
+    "first_lines": [
+      "<skill>",
+      "<name>apple-product-engineering</name>",
+      "<path>/Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/activation002/codex/.agents/skills/apple-product-engineering/SKILL.md</path>",
+      "---"
+    ],
+    "contains_core_and_index": true
+  }
+]

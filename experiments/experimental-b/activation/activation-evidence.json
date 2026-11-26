@@ -1,0 +1,141 @@
+{
+ "source": "Claude Code session transcript, sanitized (see README for what is omitted)",
+ "session_id": "bb1cbf46-0e07-42d7-9a0e-e60d22d91670",
+ "client_version": "2.1.311",
+ "window_utc": [
+  "2026-11-26T07:02:00Z",
+  "2026-11-26T08:10:55Z"
+ ],
+ "assistant_messages_by_model": {
+  "claude-opus-5-5": 205
+ },
+ "api_requests_by_params": {
+  "{\"effort\": \"high\", \"max_tokens\": 128000, \"model\": \"claude-opus-5-5\", \"thinking\": {\"display\": \"updates\", \"type\": \"adaptive\"}}": 96
+ },
+ "permission_mode_changes": [
+  [
+   "2026-11-26T07:02:00Z",
+   "default"
+  ],
+  [
+   "2026-11-26T07:07:10.097Z",
+   "auto"
+  ]
+ ],
+ "compact_boundaries_in_file": [
+  [
+   "2026-11-26T08:20:36.776Z",
+   "auto"
+  ]
+ ],
+ "tool_calls_by_name": {
+  "Read": 20,
+  "ToolSearch": 1,
+  "Bash": 70,
+  "Write": 3,
+  "Edit": 2
+ },
+ "events": [
+  {
+   "t": "2026-11-26T07:02:08.550Z",
+   "event": "Slash command",
+   "command": "/apple-product-engineering",
+   "args": "Read TASK.md and implement it."
+  },
+  {
+   "t": "2026-11-26T07:02:08.550Z",
+   "event": "Skill body injected by harness",
+   "base_directory": "<project>/.claude/skills/apple-product-engineering",
+   "injected_chars": 6198,
+   "injected_sha256": "c0e01aeabc6f91a79ab0d770d05a46303810533dc056bbc15a7ce3691d49549a"
+  },
+  {
+   "t": "2026-11-26T08:06:22.446Z",
+   "event": "Compaction summary row (text withheld)"
+  }
+ ],
+ "aes_skill_file_reads": [],
+ "aes_reference_reads": [],
+ "all_read_calls": [
+  {
+   "t": "2026-11-26T07:02:11.481Z",
+   "path": "<project>/TASK.md"
+  },
+  {
+   "t": "2026-11-26T07:02:27.964Z",
+   "path": "<project>/Sources/Library.swift"
+  },
+  {
+   "t": "2026-11-26T07:02:28.609Z",
+   "path": "<project>/Sources/FolioApp.swift"
+  },
+  {
+   "t": "2026-11-26T07:02:29.310Z",
+   "path": "<project>/UITests/FolioUITests.swift"
+  },
+  {
+   "t": "2026-11-26T07:02:29.962Z",
+   "path": "<project>/Tests/NoteStoreTests.swift"
+  },
+  {
+   "t": "2026-11-26T07:02:30.711Z",
+   "path": "<project>/References/Screenshot 2026-11-25 at 22.36.03.png"
+  },
+  {
+   "t": "2026-11-26T07:02:31.360Z",
+   "path": "<project>/References/Screenshot 2026-11-25 at 22.44.32.png"
+  },
+  {
+   "t": "2026-11-26T07:07:09.631Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/ref/sheet_01.png"
+  },
+  {
+   "t": "2026-11-26T07:07:10.097Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/ref/sheet_02.png"
+  },
+  {
+   "t": "2026-11-26T07:12:03.463Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/before/before-sheet.png"
+  },
+  {
+   "t": "2026-11-26T07:19:44.030Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/after/shots1/99777A76-C68F-4F2E-A670-7B805BE1B3B6.png"
+  },
+  {
+   "t": "2026-11-26T07:24:25.725Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/after/sheet4.png"
+  },
+  {
+   "t": "2026-11-26T07:32:38.567Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/after/diag-spatial.png"
+  },
+  {
+   "t": "2026-11-26T07:45:28.481Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/after/shots5/4806EABC-1BBC-4952-ACC3-851A99BEFFCE.png"
+  },
+  {
+   "t": "2026-11-26T07:45:44.540Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/note-edited-compare.png"
+  },
+  {
+   "t": "2026-11-26T08:09:30.292Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/after/rec-overview.png"
+  },
+  {
+   "t": "2026-11-26T08:09:35.239Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/after/rec-drag.png"
+  },
+  {
+   "t": "2026-11-26T08:09:42.101Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/after/rec-drag2.png"
+  },
+  {
+   "t": "2026-11-26T08:09:56.431Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/resting-before-after.png"
+  },
+  {
+   "t": "2026-11-26T08:09:56.860Z",
+   "path": "~/Scratch/Folio/2026-11-26-workspace-reveal/revealed-states.png"
+  }
+ ]
+}

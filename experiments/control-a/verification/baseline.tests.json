@@ -1,0 +1,165 @@
+{
+  "devices" : [
+    {
+      "architecture" : "arm64",
+      "deviceId" : "7EF1C8CB-EAEA-4605-92E6-D4FA5CFA1740",
+      "deviceName" : "iPhone 18 Pro Max",
+      "modelName" : "iPhone 18 Pro Max",
+      "osBuildNumber" : "24B8117",
+      "osVersion" : "27.2",
+      "platform" : "iOS Simulator"
+    }
+  ],
+  "testNodes" : [
+    {
+      "children" : [
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "duration" : "0.019s",
+                  "durationInSeconds" : 0.019429922103881836,
+                  "name" : "testCommitFailureRetriesWithoutDiscardingOpenEdit()",
+                  "nodeIdentifier" : "NoteStoreTests/testCommitFailureRetriesWithoutDiscardingOpenEdit()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests/NoteStoreTests/testCommitFailureRetriesWithoutDiscardingOpenEdit",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1s",
+                  "durationInSeconds" : 1.173954963684082,
+                  "name" : "testMeasuredLargeLibrarySearch()",
+                  "nodeIdentifier" : "NoteStoreTests/testMeasuredLargeLibrarySearch()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests/NoteStoreTests/testMeasuredLargeLibrarySearch",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.48s",
+                  "durationInSeconds" : 0.4812159538269043,
+                  "name" : "testUnfinishedNoteSaveAndExactRelaunch()",
+                  "nodeIdentifier" : "NoteStoreTests/testUnfinishedNoteSaveAndExactRelaunch()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests/NoteStoreTests/testUnfinishedNoteSaveAndExactRelaunch",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0034s",
+                  "durationInSeconds" : 0.0033719539642333984,
+                  "name" : "testUnreadableLibraryIsProtectedUntilReload()",
+                  "nodeIdentifier" : "NoteStoreTests/testUnreadableLibraryIsProtectedUntilReload()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests/NoteStoreTests/testUnreadableLibraryIsProtectedUntilReload",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "NoteStoreTests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests/NoteStoreTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            }
+          ],
+          "name" : "FolioTests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests",
+          "nodeType" : "Unit test bundle",
+          "result" : "Passed"
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "children" : [
+                    {
+                      "name" : "Invalid frame dimension (negative or non-finite).",
+                      "nodeType" : "Runtime Warning"
+                    }
+                  ],
+                  "duration" : "38s",
+                  "durationInSeconds" : 38.55326199531555,
+                  "name" : "testCreateCollectionAndFavorite()",
+                  "nodeIdentifier" : "FolioUITests/testCreateCollectionAndFavorite()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testCreateCollectionAndFavorite",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "name" : "Invalid frame dimension (negative or non-finite).",
+                      "nodeType" : "Runtime Warning"
+                    }
+                  ],
+                  "duration" : "34s",
+                  "durationInSeconds" : 34.52795207500458,
+                  "name" : "testSpatialNavigationAndSearchInLargeCollection()",
+                  "nodeIdentifier" : "FolioUITests/testSpatialNavigationAndSearchInLargeCollection()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testSpatialNavigationAndSearchInLargeCollection",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "24s",
+                  "durationInSeconds" : 24.892903089523315,
+                  "name" : "testVisualDirections()",
+                  "nodeIdentifier" : "FolioUITests/testVisualDirections()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testVisualDirections",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "name" : "Invalid frame dimension (negative or non-finite).",
+                      "nodeType" : "Runtime Warning"
+                    }
+                  ],
+                  "duration" : "27s",
+                  "durationInSeconds" : 27.269518971443176,
+                  "name" : "testWorkspaceInboxWritingAndRelaunch()",
+                  "nodeIdentifier" : "FolioUITests/testWorkspaceInboxWritingAndRelaunch()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testWorkspaceInboxWritingAndRelaunch",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "name" : "Invalid frame dimension (negative or non-finite).",
+                      "nodeType" : "Runtime Warning"
+                    }
+                  ],
+                  "duration" : "18s",
+                  "durationInSeconds" : 18.842706084251404,
+                  "name" : "testWritingAppearance()",
+                  "nodeIdentifier" : "FolioUITests/testWritingAppearance()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testWritingAppearance",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "FolioUITests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            }
+          ],
+          "name" : "FolioUITests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests",
+          "nodeType" : "UI test bundle",
+          "result" : "Passed"
+        }
+      ],
+      "name" : "Folio",
+      "nodeType" : "Test Plan",
+      "result" : "Passed"
+    }
+  ],
+  "testPlanConfigurations" : [
+    {
+      "configurationId" : "1",
+      "configurationName" : "Test Scheme Action"
+    }
+  ]
+}

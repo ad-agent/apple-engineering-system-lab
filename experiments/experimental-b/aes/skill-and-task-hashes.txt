@@ -1,0 +1,17 @@
+# Skill copies present in the participant repo (untracked)
+2d754c567f739645147f248fb2f071e9ba57cf6d545601ef2223405dcecaf4e1  .claude/skills/apple-product-engineering/SKILL.md
+03472076d78c13a73df5991425cacf37dd5f738feaacbd5d9aa68edcaaaf1fa8  .claude/skills/apple-product-engineering/references/haptics.md
+b783c56861f971a4a2f8ff433479407a92c6c5cc68c35b1e3a459aaa8fbb06e3  .claude/skills/apple-product-engineering/references/interaction.md
+22719b7ce139c6d170223c663514ca68d7d7c7d1ae5a0d50b64a40b3223bfb31  .claude/skills/apple-product-engineering/references/native.md
+4755d80ba79b8da8120867dab7eb3a3165dbf69fd39c3eb17661d423735f1444  .claude/skills/apple-product-engineering/references/preservation.md
+44727b4c26ff88eaf80bd685ba0e0560e1be98e90b4ed6ef50677ae78edaf79a  .claude/skills/apple-product-engineering/references/runtime.md
+2d754c567f739645147f248fb2f071e9ba57cf6d545601ef2223405dcecaf4e1  .agents/skills/apple-product-engineering/SKILL.md
+03472076d78c13a73df5991425cacf37dd5f738feaacbd5d9aa68edcaaaf1fa8  .agents/skills/apple-product-engineering/references/haptics.md
+b783c56861f971a4a2f8ff433479407a92c6c5cc68c35b1e3a459aaa8fbb06e3  .agents/skills/apple-product-engineering/references/interaction.md
+22719b7ce139c6d170223c663514ca68d7d7c7d1ae5a0d50b64a40b3223bfb31  .agents/skills/apple-product-engineering/references/native.md
+4755d80ba79b8da8120867dab7eb3a3165dbf69fd39c3eb17661d423735f1444  .agents/skills/apple-product-engineering/references/preservation.md
+44727b4c26ff88eaf80bd685ba0e0560e1be98e90b4ed6ef50677ae78edaf79a  .agents/skills/apple-product-engineering/references/runtime.md
+
+# TASK.md (tracked, unchanged from baseline)
+69f69aeb9803a3bfbe6810a876eb73823d00c878df19a46f581872eeb2ef782b  TASK.md
+TASK.md and References/ identical to baseline

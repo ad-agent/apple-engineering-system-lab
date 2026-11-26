@@ -1,0 +1,188 @@
+{
+  "devices" : [
+    {
+      "architecture" : "arm64",
+      "deviceId" : "7EF1C8CB-EAEA-4605-92E6-D4FA5CFA1740",
+      "deviceName" : "iPhone 18 Pro Max",
+      "modelName" : "iPhone 18 Pro Max",
+      "osBuildNumber" : "24B8117",
+      "osVersion" : "27.2",
+      "platform" : "iOS Simulator"
+    }
+  ],
+  "testNodes" : [
+    {
+      "children" : [
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "duration" : "0.06s",
+                  "durationInSeconds" : 0.06017005443572998,
+                  "name" : "testCommitFailureRetriesWithoutDiscardingOpenEdit()",
+                  "nodeIdentifier" : "NoteStoreTests/testCommitFailureRetriesWithoutDiscardingOpenEdit()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests/NoteStoreTests/testCommitFailureRetriesWithoutDiscardingOpenEdit",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1s",
+                  "durationInSeconds" : 1.3673309087753296,
+                  "name" : "testMeasuredLargeLibrarySearch()",
+                  "nodeIdentifier" : "NoteStoreTests/testMeasuredLargeLibrarySearch()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests/NoteStoreTests/testMeasuredLargeLibrarySearch",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.46s",
+                  "durationInSeconds" : 0.45797598361968994,
+                  "name" : "testUnfinishedNoteSaveAndExactRelaunch()",
+                  "nodeIdentifier" : "NoteStoreTests/testUnfinishedNoteSaveAndExactRelaunch()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests/NoteStoreTests/testUnfinishedNoteSaveAndExactRelaunch",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0041s",
+                  "durationInSeconds" : 0.004078030586242676,
+                  "name" : "testUnreadableLibraryIsProtectedUntilReload()",
+                  "nodeIdentifier" : "NoteStoreTests/testUnreadableLibraryIsProtectedUntilReload()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests/NoteStoreTests/testUnreadableLibraryIsProtectedUntilReload",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "NoteStoreTests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests/NoteStoreTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            }
+          ],
+          "name" : "FolioTests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioTests",
+          "nodeType" : "Unit test bundle",
+          "result" : "Passed"
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "children" : [
+                    {
+                      "name" : "Invalid frame dimension (negative or non-finite).",
+                      "nodeType" : "Runtime Warning"
+                    }
+                  ],
+                  "duration" : "42s",
+                  "durationInSeconds" : 42.3347589969635,
+                  "name" : "testCreateCollectionAndFavorite()",
+                  "nodeIdentifier" : "FolioUITests/testCreateCollectionAndFavorite()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testCreateCollectionAndFavorite",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "name" : "Failed to synthesize event: Neither element nor any descendant has keyboard focus. Event dispatch snapshot: TextField, {{54.3, 886.0}, {307.7, 22.0}}, identifier: 'collection.search', value: b\nElement debug description:\nAttributes: TextField, 0x113569a40, {{54.3, 886.0}, {307.7, 22.0}}, identifier: 'collection.search', value: b\nElement subtree:\n →TextField, 0x113569a40, {{54.3, 886.0}, {307.7, 22.0}}, identifier: 'collection.search', value: b\nPath to element:\n →Application, 0x113b052c0, pid: 96129, label: 'Folio'\n  ↳Window (Main), 0x113b04640, {{0.0, 0.0}, {440.0, 956.0}}\n   ↳Other, 0x113b04a00, {{0.0, 0.0}, {440.0, 956.0}}\n    ↳Other, 0x113b048c0, {{0.0, 0.0}, {440.0, 956.0}}\n     ↳Other, 0x113b04780, {{0.0, 0.0}, {440.0, 956.0}}\n      ↳Other, 0x113b04140, {{0.0, 0.0}, {440.0, 956.0}}\n       ↳Other, 0x113b04500, {{0.0, 0.0}, {440.0, 956.0}}\n        ↳Other, 0x1139f4140, {{0.0, 0.0}, {440.0, 956.0}}\n         ↳Other, 0x113b69b80, {{0.0, 0.0}, {440.0, 956.0}}\n          ↳Other, 0x113b69e00, {{0.0, 0.0}, {440.0, 956.0}}\n           ↳Other, 0x113b69cc0, {{0.0, 0.0}, {440.0, 956.0}}\n            ↳TextField, 0x113569a40, {{54.3, 886.0}, {307.7, 22.0}}, identifier: 'collection.search', value: b\nQuery chain:\n →Find: Target Application 'xyz.appleengineering.challenge002.folio'\n  Output: {\n    Application, 0x113b33340, pid: 96129, label: 'Folio'\n  }\n  ↪︎Find: Descendants matching type TextField\n    Output: {\n      TextField, 0x113b321c0, {{54.3, 886.0}, {307.7, 22.0}}, identifier: 'collection.search', value: b\n    }\n    ↪︎Find: Elements matching predicate '\"collection.search\" IN identifiers'\n      Output: {\n        TextField, 0x113b5d7c0, {{54.3, 886.0}, {307.7, 22.0}}, identifier: 'collection.search', value: b\n      }\n",
+                      "nodeType" : "Failure Message",
+                      "sourceLocation" : {
+                        "filePath" : "/Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A/UITests/FolioUITests.swift",
+                        "lineNumber" : 92
+                      }
+                    }
+                  ],
+                  "duration" : "46s",
+                  "durationInSeconds" : 46.18691098690033,
+                  "name" : "testSpatialNavigationAndSearchInLargeCollection()",
+                  "nodeIdentifier" : "FolioUITests/testSpatialNavigationAndSearchInLargeCollection()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testSpatialNavigationAndSearchInLargeCollection",
+                  "nodeType" : "Test Case",
+                  "result" : "Failed"
+                },
+                {
+                  "duration" : "22s",
+                  "durationInSeconds" : 22.046959042549133,
+                  "name" : "testVisualDirections()",
+                  "nodeIdentifier" : "FolioUITests/testVisualDirections()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testVisualDirections",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "name" : "Invalid frame dimension (negative or non-finite).",
+                      "nodeType" : "Runtime Warning"
+                    }
+                  ],
+                  "duration" : "26s",
+                  "durationInSeconds" : 26.434776067733765,
+                  "name" : "testWorkspaceInboxWritingAndRelaunch()",
+                  "nodeIdentifier" : "FolioUITests/testWorkspaceInboxWritingAndRelaunch()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testWorkspaceInboxWritingAndRelaunch",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "name" : "XCTAssertTrue failed",
+                      "nodeType" : "Failure Message",
+                      "sourceLocation" : {
+                        "filePath" : "/Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A/UITests/FolioUITests.swift",
+                        "lineNumber" : 218
+                      }
+                    }
+                  ],
+                  "duration" : "30s",
+                  "durationInSeconds" : 30.258224964141846,
+                  "name" : "testWorkspaceRevealKeepsCollectionState()",
+                  "nodeIdentifier" : "FolioUITests/testWorkspaceRevealKeepsCollectionState()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testWorkspaceRevealKeepsCollectionState",
+                  "nodeType" : "Test Case",
+                  "result" : "Failed"
+                },
+                {
+                  "children" : [
+                    {
+                      "name" : "Invalid frame dimension (negative or non-finite).",
+                      "nodeType" : "Runtime Warning"
+                    }
+                  ],
+                  "duration" : "31s",
+                  "durationInSeconds" : 31.23201298713684,
+                  "name" : "testWritingAppearance()",
+                  "nodeIdentifier" : "FolioUITests/testWritingAppearance()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testWritingAppearance",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "FolioUITests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests",
+              "nodeType" : "Test Suite",
+              "result" : "Failed"
+            }
+          ],
+          "name" : "FolioUITests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests",
+          "nodeType" : "UI test bundle",
+          "result" : "Failed"
+        }
+      ],
+      "name" : "Folio",
+      "nodeType" : "Test Plan",
+      "result" : "Failed"
+    }
+  ],
+  "testPlanConfigurations" : [
+    {
+      "configurationId" : "1",
+      "configurationName" : "Test Scheme Action"
+    }
+  ]
+}

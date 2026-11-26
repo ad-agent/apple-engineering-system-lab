@@ -1,0 +1,315 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Folio.xcodeproj -scheme Folio -destination id=7EF1C8CB-EAEA-4605-92E6-D4FA5CFA1740 -derivedDataPath /Users/x/Scratch/Folio/2026-11-26-workspace-reveal/dd-after -resultBundlePath /Users/x/Scratch/Folio/2026-11-26-workspace-reveal/after/light-recording.xcresult test-without-building "-only-testing:FolioUITests/FolioUITests/testWorkspaceRevealKeepsCollectionState"
+
+Writing result bundle at path:
+	/Users/x/Scratch/Folio/2026-11-26-workspace-reveal/after/light-recording.xcresult
+
+2026-11-26 09:08:00.316368+0100 FolioUITests-Runner[70931:4234409] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-11-26 09:08:05.197.
+Test Suite 'FolioUITests.xctest' started at 2026-11-26 09:08:05.198.
+Test Suite 'FolioUITests' started at 2026-11-26 09:08:05.198.
+Test Case '-[FolioUITests.FolioUITests testWorkspaceRevealKeepsCollectionState]' started.
+    t =     0.00s Start Test at 2026-11-26 09:08:05.200
+    t =     0.04s Set Up
+    t =     0.05s Open xyz.appleengineering.challenge002.folio
+    t =     0.05s     Launch xyz.appleengineering.challenge002.folio
+2026-11-26 09:08:05.563 xcodebuild[70929:4234141] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 09:08:05.563 xcodebuild[70929:4234141] [MT] IDELaunchParametersSnapshot: no debugger version
+objc[70931]: Class UIAccessibilityLoaderWebShared is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.gA1IJk/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x10a4e8310) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.gA1IJk/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10a51c398). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+    t =     3.21s         Setting up automation session
+    t =     5.55s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     8.49s Waiting 10.0s for "workspace.inbox" Button to exist
+    t =     9.54s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =     9.55s         Checking existence of `"workspace.inbox" Button`
+    t =     9.80s Find the "collection.workspace" Button
+    t =     9.84s Checking existence of `"collection.searchButton" Button`
+    t =     9.88s Checking existence of `"collection.compose" Button`
+    t =     9.91s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    10.08s Added attachment named 'reveal-launch'
+    t =    10.08s Tap "workspace.inbox" Button
+    t =    10.08s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.08s     Find the "workspace.inbox" Button
+    t =    10.12s     Check for interrupting elements affecting "workspace.inbox" Button
+    t =    10.19s     Synthesize event
+    t =    10.52s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.96s Waiting 8.0s for "collection.search" TextField to exist
+    t =    12.00s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.search" TextField`
+    t =    12.00s         Checking existence of `"collection.search" TextField`
+    t =    12.04s Waiting 5.0s for "workspace.inbox" Button to not exist
+    t =    13.08s     Checking `Expect predicate `existsNoRetry == 0` for object "workspace.inbox" Button`
+    t =    13.08s         Checking existence of `"workspace.inbox" Button`
+    t =    13.14s Find the "collection.workspace" Button
+    t =    13.17s Swipe up Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.17s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    13.17s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.20s     Check for interrupting elements affecting "Folio" Application
+    t =    13.22s     Synthesize event
+    t =    13.71s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    15.66s Checking existence of `"workspace.inbox" Button`
+    t =    15.73s Get all elements bound by index for: Elements matching predicate '"collection.note" IN identifiers'
+    t =    15.78s Find the "collection.note" Button
+    t =    15.83s Find the "collection.note" Button
+    t =    15.88s Find the "collection.note" Button
+    t =    15.93s Find the "collection.note" Button
+    t =    15.97s Find the "collection.note" Button
+    t =    16.03s Find the "collection.note" Button
+    t =    16.11s Find the "collection.note" Button
+    t =    16.16s Find the "collection.note" Button
+    t =    16.21s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.26s Find the "collection.note" Button
+    t =    16.31s Find the "collection.note" Button
+    t =    16.35s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.38s Find the "collection.note" Button
+    t =    16.43s Find the "collection.note" Button
+    t =    16.47s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.50s Find the "collection.note" Button
+    t =    16.55s Find the "collection.note" Button
+    t =    16.59s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.62s Find the "collection.note" Button
+    t =    16.66s Find the "collection.note" Button
+    t =    16.71s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.83s Added attachment named 'collection-scrolled'
+    t =    16.83s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.30, 0.45] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.45, 0.45] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    16.83s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    16.90s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.96s     Check for interrupting elements affecting "Folio" Application
+    t =    17.00s     Synthesize event
+    t =    17.00s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.03s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.05s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.08s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.11s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.85s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    17.86s Waiting 3.0s for "workspace.inbox" Button to not exist
+    t =    18.89s     Checking `Expect predicate `existsNoRetry == 0` for object "workspace.inbox" Button`
+    t =    18.89s         Checking existence of `"workspace.inbox" Button`
+    t =    18.93s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.20, 0.45] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.90, 0.45] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    18.93s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    18.94s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    18.97s     Check for interrupting elements affecting "Folio" Application
+    t =    19.00s     Synthesize event
+    t =    19.00s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    19.03s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    19.06s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    19.08s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    19.11s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    20.82s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    20.83s Waiting 5.0s for "workspace.inbox" Button to exist
+    t =    21.86s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =    21.86s         Checking existence of `"workspace.inbox" Button`
+    t =    21.94s Checking existence of `"collection.searchButton" Button`
+    t =    21.97s Find the "collection.workspace" Button
+    t =    22.00s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    22.14s Added attachment named 'revealed'
+    t =    22.14s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.92, 0.45] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.78, 0.45] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    22.14s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    22.14s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    22.16s     Check for interrupting elements affecting "Folio" Application
+    t =    22.19s     Synthesize event
+    t =    22.20s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    22.22s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    22.24s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    22.27s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    22.29s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    23.02s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    23.02s Waiting 2.0s for "workspace.inbox" Button to not exist
+    t =    24.06s     Checking `Expect predicate `existsNoRetry == 0` for object "workspace.inbox" Button`
+    t =    24.06s         Checking existence of `"workspace.inbox" Button`
+    t =    24.12s         Capturing element debug description
+    t =    24.13s             Requesting snapshot of accessibility hierarchy for app with pid 70974
+    t =    24.19s             Find: Descendants matching type Button
+    t =    24.19s             Find: Elements matching predicate '"workspace.inbox" IN identifiers'
+    t =    24.19s             Requesting snapshot of accessibility hierarchy for app with pid 70974
+    t =    24.24s             Find: Descendants matching type Button
+    t =    24.24s             Requesting snapshot of accessibility hierarchy for app with pid 70974
+    t =    25.03s     Checking `Expect predicate `existsNoRetry == 0` for object "workspace.inbox" Button`
+    t =    25.03s         Checking existence of `"workspace.inbox" Button`
+    t =    25.09s         Capturing element debug description
+    t =    25.09s             Requesting snapshot of accessibility hierarchy for app with pid 70974
+    t =    25.14s             Find: Descendants matching type Button
+    t =    25.14s             Find: Elements matching predicate '"workspace.inbox" IN identifiers'
+    t =    25.14s             Requesting snapshot of accessibility hierarchy for app with pid 70974
+    t =    25.19s             Find: Descendants matching type Button
+    t =    25.19s             Requesting snapshot of accessibility hierarchy for app with pid 70974
+    t =    25.27s     Checking existence of `"workspace.inbox" Button`
+    t =    25.30s Collecting debug information to assist test failure triage
+    t =    25.30s     Requesting snapshot of accessibility hierarchy for app with pid 70974
+    t =    25.35s Find the "workspace.inbox" Button
+    t =    25.40s Tap "collection.workspace" Button
+    t =    25.40s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    25.40s     Find the "collection.workspace" Button
+    t =    25.43s     Check for interrupting elements affecting "collection.workspace" Button
+    t =    25.46s     Synthesize event
+    t =    25.76s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    26.08s Waiting 5.0s for "workspace.inbox" Button to not exist
+    t =    27.11s     Checking `Expect predicate `existsNoRetry == 0` for object "workspace.inbox" Button`
+    t =    27.11s         Checking existence of `"workspace.inbox" Button`
+    t =    27.18s Find the "collection.note" Button
+    t =    27.21s Tap "collection.search" TextField
+    t =    27.21s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    27.21s     Find the "collection.search" TextField
+    t =    27.27s     Check for interrupting elements affecting "collection.search" TextField
+    t =    27.31s     Synthesize event
+    t =    27.60s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    28.29s Type 'lantern 21' into "collection.search" TextField
+    t =    28.29s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    28.68s     Find the "collection.search" TextField
+    t =    28.75s     Check for interrupting elements affecting "collection.search" TextField
+    t =    28.81s     Synthesize event
+    t =    29.20s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    29.20s Waiting 5.0s for Keyboard (First Match) to exist
+    t =    30.24s     Checking `Expect predicate `existsNoRetry == 1` for object Keyboard (First Match)`
+    t =    30.24s         Checking existence of `Keyboard (First Match)`
+    t =    30.27s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.20, 0.45] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.90, 0.45] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    30.27s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    30.27s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    30.31s     Check for interrupting elements affecting "Folio" Application
+    t =    30.35s     Synthesize event
+    t =    30.35s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    30.38s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    30.41s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    30.44s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    30.47s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    32.19s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    32.19s Waiting 5.0s for "workspace.inbox" Button to exist
+    t =    33.23s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =    33.23s         Checking existence of `"workspace.inbox" Button`
+    t =    33.32s Waiting 5.0s for Keyboard (First Match) to not exist
+    t =    34.35s     Checking `Expect predicate `existsNoRetry == 0` for object Keyboard (First Match)`
+    t =    34.35s         Checking existence of `Keyboard (First Match)`
+    t =    34.45s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    34.60s Added attachment named 'revealed-searching'
+    t =    34.60s Tap "workspace.favorites" Button
+    t =    34.60s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    34.61s     Find the "workspace.favorites" Button
+    t =    34.65s     Check for interrupting elements affecting "workspace.favorites" Button
+    t =    34.68s     Synthesize event
+    t =    34.98s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    35.35s Waiting 5.0s for "No notes yet" StaticText to exist
+    t =    36.38s     Checking `Expect predicate `existsNoRetry == 1` for object "No notes yet" StaticText`
+    t =    36.38s         Checking existence of `"No notes yet" StaticText`
+    t =    36.42s Tap "collection.workspace" Button
+    t =    36.42s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    36.43s     Find the "collection.workspace" Button
+    t =    36.45s     Check for interrupting elements affecting "collection.workspace" Button
+    t =    36.46s     Synthesize event
+    t =    36.76s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    37.12s Waiting 5.0s for "workspace.inbox" Button to exist
+    t =    38.16s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =    38.16s         Checking existence of `"workspace.inbox" Button`
+    t =    38.23s Tap "workspace.inbox" Button
+    t =    38.24s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    38.24s     Find the "workspace.inbox" Button
+    t =    38.28s     Check for interrupting elements affecting "workspace.inbox" Button
+    t =    38.32s     Synthesize event
+    t =    38.61s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    38.99s Waiting 5.0s for "workspace.inbox" Button to not exist
+    t =    40.03s     Checking `Expect predicate `existsNoRetry == 0` for object "workspace.inbox" Button`
+    t =    40.03s         Checking existence of `"workspace.inbox" Button`
+    t =    40.09s Find the "collection.search" TextField
+    t =    40.12s Tap "collection.workspace" Button
+    t =    40.12s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    40.12s     Find the "collection.workspace" Button
+    t =    40.15s     Check for interrupting elements affecting "collection.workspace" Button
+    t =    40.18s     Synthesize event
+    t =    40.48s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    40.84s Waiting 5.0s for "collection.searchButton" Button to exist
+    t =    41.87s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.searchButton" Button`
+    t =    41.88s         Checking existence of `"collection.searchButton" Button`
+    t =    41.95s Tap "collection.searchButton" Button
+    t =    41.95s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    41.96s     Find the "collection.searchButton" Button
+    t =    42.01s     Check for interrupting elements affecting "collection.searchButton" Button
+    t =    42.06s     Synthesize event
+    t =    42.37s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    42.47s Waiting 5.0s for Keyboard (First Match) to exist
+    t =    43.50s     Checking `Expect predicate `existsNoRetry == 1` for object Keyboard (First Match)`
+    t =    43.50s         Checking existence of `Keyboard (First Match)`
+    t =    43.53s Checking existence of `"workspace.inbox" Button`
+    t =    43.59s Type '9
+' into "collection.search" TextField
+    t =    43.59s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    43.59s     Find the "collection.search" TextField
+    t =    43.63s     Check for interrupting elements affecting "collection.search" TextField
+    t =    43.67s     Synthesize event
+    t =    43.92s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    44.34s Waiting 5.0s for "collection.note" Button to exist
+    t =    45.38s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.note" Button`
+    t =    45.38s         Checking existence of `"collection.note" Button`
+    t =    45.43s Tap "collection.note" Button
+    t =    45.43s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    45.43s     Find the "collection.note" Button
+    t =    45.46s     Check for interrupting elements affecting "collection.note" Button
+    t =    45.48s     Synthesize event
+    t =    45.77s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    45.86s Waiting 8.0s for "note.body" TextView to exist
+    t =    46.87s     Checking `Expect predicate `existsNoRetry == 1` for object "note.body" TextView`
+    t =    46.87s         Checking existence of `"note.body" TextView`
+    t =    46.94s Tap "note.body" TextView
+    t =    46.94s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    46.94s     Find the "note.body" TextView
+    t =    46.95s     Check for interrupting elements affecting "note.body" TextView
+    t =    46.97s     Synthesize event
+<unknown>:0: warning: -[FolioUITests.FolioUITests testWorkspaceRevealKeepsCollectionState] : Invalid frame dimension (negative or non-finite).
+    t =    47.37s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    47.46s Type '
+Revisit the east ...' into "note.body" TextView
+    t =    47.46s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    47.84s     Find the "note.body" TextView
+    t =    47.88s     Check for interrupting elements affecting "note.body" TextView
+    t =    47.91s     Synthesize event
+    t =    48.75s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    48.75s Tap "Dismiss keyboard" Button
+    t =    48.75s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    48.75s     Find the "Dismiss keyboard" Button
+    t =    48.79s     Check for interrupting elements affecting "Dismiss keyboard" Button
+    t =    48.83s     Synthesize event
+    t =    49.12s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    49.40s Tap Button (First Match)
+    t =    49.40s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    49.41s     Find the Button (First Match)
+    t =    49.42s     Check for interrupting elements affecting "BackButton" Button
+    t =    49.44s     Synthesize event
+    t =    49.73s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    50.09s Waiting 8.0s for "collection.note" Button to exist
+    t =    51.13s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.note" Button`
+    t =    51.13s         Checking existence of `"collection.note" Button`
+    t =    51.15s Tap "collection.workspace" Button
+    t =    51.15s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    51.16s     Find the "collection.workspace" Button
+    t =    51.17s     Check for interrupting elements affecting "collection.workspace" Button
+    t =    51.19s     Synthesize event
+    t =    51.49s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    51.84s Waiting 5.0s for Button (First Match) to exist
+    t =    52.85s     Checking `Expect predicate `existsNoRetry == 1` for object Button (First Match)`
+    t =    52.85s         Checking existence of `Button (First Match)`
+    t =    52.95s Tap Button (First Match)
+    t =    52.95s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    52.96s     Find the Button (First Match)
+    t =    53.02s     Check for interrupting elements affecting "Field entry 219" Button
+    t =    53.05s     Synthesize event
+    t =    53.34s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    53.34s Waiting 8.0s for "note.body" TextView to exist
+    t =    54.37s     Checking `Expect predicate `existsNoRetry == 1` for object "note.body" TextView`
+    t =    54.37s         Checking existence of `"note.body" TextView`
+    t =    54.41s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    54.52s Added attachment named 'continued-note'
+    t =    54.53s Tear Down
+Test Case '-[FolioUITests.FolioUITests testWorkspaceRevealKeepsCollectionState]' passed (54.976 seconds).
+Test Suite 'FolioUITests' passed at 2026-11-26 09:09:00.176.
+	 Executed 1 test, with 0 failures (0 unexpected) in 54.976 (54.978) seconds
+Test Suite 'FolioUITests.xctest' passed at 2026-11-26 09:09:00.183.
+	 Executed 1 test, with 0 failures (0 unexpected) in 54.976 (54.986) seconds
+Test Suite 'Selected tests' passed at 2026-11-26 09:09:00.184.
+	 Executed 1 test, with 0 failures (0 unexpected) in 54.976 (54.987) seconds
+2026-11-26 09:09:17.437 xcodebuild[70929:4234141] [MT] IDETestOperationsObserverDebug: 81.525 elapsed -- Testing started completed.
+2026-11-26 09:09:17.438 xcodebuild[70929:4234141] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-26 09:09:17.438 xcodebuild[70929:4234141] [MT] IDETestOperationsObserverDebug: 81.525 sec, +81.525 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/x/Scratch/Folio/2026-11-26-workspace-reveal/after/light-recording.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

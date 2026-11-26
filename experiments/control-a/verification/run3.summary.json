@@ -1,0 +1,74 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "7EF1C8CB-EAEA-4605-92E6-D4FA5CFA1740",
+        "deviceName" : "iPhone 18 Pro Max",
+        "modelName" : "iPhone 18 Pro Max",
+        "osBuildNumber" : "24B8117",
+        "osVersion" : "27.2",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 2,
+      "passedTests" : 8,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "Folio · Built with macOS 27.2.1",
+  "expectedFailures" : 0,
+  "failedTests" : 2,
+  "finishTime" : 1795684186.437,
+  "passedTests" : 8,
+  "result" : "Failed",
+  "runtimeWarnings" : [
+    {
+      "issueType" : "Runtime Warning",
+      "message" : "Invalid frame dimension (negative or non-finite)."
+    },
+    {
+      "issueType" : "Runtime Warning",
+      "message" : "Invalid frame dimension (negative or non-finite)."
+    },
+    {
+      "issueType" : "Runtime Warning",
+      "message" : "Invalid frame dimension (negative or non-finite)."
+    }
+  ],
+  "skippedTests" : 0,
+  "startTime" : 1795684009.201,
+  "statistics" : [
+    {
+      "subtitle" : "1 test run",
+      "title" : "1 test collected performance metrics"
+    }
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "XCTAssertTrue failed",
+      "targetName" : "FolioUITests",
+      "testIdentifier" : 6,
+      "testIdentifierString" : "FolioUITests/testSpatialNavigationAndSearchInLargeCollection()",
+      "testIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testSpatialNavigationAndSearchInLargeCollection",
+      "testName" : "testSpatialNavigationAndSearchInLargeCollection()"
+    },
+    {
+      "failureText" : "XCTAssertFalse failed - A short drag settles back closed",
+      "targetName" : "FolioUITests",
+      "testIdentifier" : 9,
+      "testIdentifierString" : "FolioUITests/testWorkspaceRevealKeepsCollectionState()",
+      "testIdentifierURL" : "test://com.apple.xcode/Folio/FolioUITests/FolioUITests/testWorkspaceRevealKeepsCollectionState",
+      "testName" : "testWorkspaceRevealKeepsCollectionState()"
+    }
+  ],
+  "title" : "Test - Folio",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 10
+}

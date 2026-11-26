@@ -1,0 +1,7 @@
+ Folio.xcodeproj/project.pbxproj  |   8 ++
+ Sources/FolioApp.swift           | 266 +++++++++++++++++++++++++++++++--------
+ Sources/Library.swift            |   2 +-
+ Sources/WorkspaceReveal.swift    | 143 +++++++++++++++++++++
+ Tests/WorkspaceRevealTests.swift |  67 ++++++++++
+ UITests/FolioUITests.swift       |  93 ++++++++++++++
+ 6 files changed, 528 insertions(+), 51 deletions(-)

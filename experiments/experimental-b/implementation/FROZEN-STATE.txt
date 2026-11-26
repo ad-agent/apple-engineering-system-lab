@@ -1,0 +1,10 @@
+repo: /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/B
+branch: workspace-reveal
+HEAD: 5e5167fbc2b01ac5a34c613b2c4141f17914c2ce
+tree: 15edd1a2f707a2264006f3545c368169425b2de8
+baseline: 7764604840e0be2a1c0ddf1ca4f50c2efe3d89fc
+status (untracked .agents/ and .claude/ hold the skill copies and local settings; not part of the change):
+## workspace-reveal
+?? .agents/
+?? .claude/
+working tree == HEAD for tracked files

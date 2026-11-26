@@ -1,0 +1,904 @@
+start 10:21:14
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -project Folio.xcodeproj -scheme Folio -destination id=7EF1C8CB-EAEA-4605-92E6-D4FA5CFA1740 -derivedDataPath /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd -resultBundlePath /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/run6.xcresult
+
+Writing result bundle at path:
+	/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/run6.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'FolioUITests' in project 'Folio'
+        ➜ Explicit dependency on target 'Folio' in project 'Folio'
+    Target 'FolioTests' in project 'Folio'
+        ➜ Explicit dependency on target 'Folio' in project 'Folio'
+    Target 'Folio' in project 'Folio' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A/Folio.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -o /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache
+
+SwiftDriver Folio normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Folio -Onone @/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -F /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -sdk-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio_const_extract_protocols.json -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-generated-files.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-own-target-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-all-target-headers.hmap -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-project-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/DerivedSources-normal/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/DerivedSources/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio-Swift.h -working-directory /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ FolioApp.swift /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A/Sources/FolioApp.swift (in target 'Folio' from project 'Folio')
+
+SwiftCompile normal arm64 /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A/Sources/FolioApp.swift (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-SwiftPerFileCompile FolioApp.swift
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ Folio (in target 'Folio' from project 'Folio')
+
+SwiftCompile normal arm64 (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling FolioApp.swift (in target 'Folio' from project 'Folio')
+
+SwiftDriver\ Compilation Folio normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Folio -Onone @/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -F /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -sdk-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio_const_extract_protocols.json -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-generated-files.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-own-target-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-all-target-headers.hmap -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-project-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/DerivedSources-normal/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/DerivedSources/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio-Swift.h -working-directory /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for Folio (in target 'Folio' from project 'Folio')
+
+SwiftDriver\ Compilation\ Requirements Folio normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Folio -Onone @/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -F /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -sdk-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio_const_extract_protocols.json -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-generated-files.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-own-target-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-all-target-headers.hmap -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-project-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/DerivedSources-normal/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/DerivedSources/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio-Swift.h -working-directory /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A -experimental-emit-module-separately -disable-cmo
+
+Copy /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.swiftmodule/arm64-apple-ios-simulator.swiftmodule /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.swiftmodule (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.swiftmodule /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.abi.json (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.abi.json /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.swiftsourceinfo (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.swiftsourceinfo /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+Ld /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio.debug.dylib normal (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -F/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -filelist /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.LinkFileList -install_name @rpath/Folio.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio.debug.dylib
+
+ConstructStubExecutorLinkFileList /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-ExecutorLinkFileList-normal-arm64.txt (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    construct-stub-executor-link-file-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'Folio' from project 'Folio')
+
+Ld /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio normal (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -F/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio-ExecutorLinkFileList-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio.app-Simulated.xcent.der /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio
+
+ExtractAppIntentsMetadata (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Folio --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk --xcode-version 27B52 --platform-family iOS --deployment-target 17.0 --bundle-identifier xyz.appleengineering.challenge002.folio --output /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio --dependency-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio_dependency_info.dat --stringsdata-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.SwiftFileList --metadata-file-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio.DependencyMetadataFileList --static-metadata-file-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Folio.DependencyStaticMetadataFileList --swift-const-vals-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/Objects-normal/arm64/Folio.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-11-26 10:21:25.396 appintentsmetadataprocessor[97767:4387951] Starting App Intents metadata extraction
+2026-11-26 10:21:25.406 appintentsmetadataprocessor[97767:4387951] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CopySwiftLibs /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio.debug.dylib --scan-folder /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Frameworks --scan-folder /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns --scan-folder /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/SystemExtensions --scan-folder /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/Folio.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+SwiftDriver FolioTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'FolioTests' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name FolioTests -Onone @/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -sdk-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-generated-files.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-own-target-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-project-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/DerivedSources/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests-Swift.h -working-directory /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation FolioTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'FolioTests' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name FolioTests -Onone @/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -sdk-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-generated-files.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-own-target-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-project-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/DerivedSources/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests-Swift.h -working-directory /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation\ Requirements FolioTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'FolioTests' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name FolioTests -Onone @/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex -sdk-module-cache-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-generated-files.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-own-target-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests-project-headers.hmap -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/DerivedSources/arm64 -Xcc -I/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests-Swift.h -working-directory /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest/FolioTests normal (in target 'FolioTests' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -filelist /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -dead_strip -bundle_loader /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio -Xlinker -object_path_lto -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest/FolioTests
+
+ExtractAppIntentsMetadata (in target 'FolioTests' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name FolioTests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk --xcode-version 27B52 --platform-family iOS --deployment-target 17.0 --bundle-identifier xyz.appleengineering.challenge002.folio.tests --output /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest/FolioTests --dependency-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests_dependency_info.dat --stringsdata-file /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests.SwiftFileList --metadata-file-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests.DependencyMetadataFileList --static-metadata-file-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/FolioTests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/Objects-normal/arm64/FolioTests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-11-26 10:21:25.794 appintentsmetadataprocessor[97772:4387981] Starting App Intents metadata extraction
+2026-11-26 10:21:25.795 appintentsmetadataprocessor[97772:4387981] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CopySwiftLibs /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest (in target 'FolioTests' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest/FolioTests --scan-folder /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest/Frameworks --scan-folder /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest/PlugIns --scan-folder /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest/SystemExtensions --scan-folder /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/Folio.build/Debug-iphonesimulator/FolioTests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+CodeSign /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest (in target 'FolioTests' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der --strip-disallowed-xattrs /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/PlugIns/FolioTests.xctest
+
+CodeSign /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio.debug.dylib (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der --strip-disallowed-xattrs /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/Folio.debug.dylib
+
+CodeSign /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/__preview.dylib (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der --strip-disallowed-xattrs /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/__preview.dylib
+/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app/__preview.dylib: replacing existing signature
+
+CodeSign /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der --strip-disallowed-xattrs /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app
+
+Validate /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app (in target 'Folio' from project 'Folio')
+    cd /Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A
+    builtin-validationUtility /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Products/Debug-iphonesimulator/Folio.app -shallow-bundle -infoplist-subpath Info.plist
+
+PruneExplicitPrecompiledModules /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/dd/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+2026-11-26 10:21:35.663410+0100 Folio[97792:4388250] [API] cannot add handler to 0 from 0 - dropping
+2026-11-26 10:21:35.665289+0100 Folio[97792:4388250] [API] cannot add handler to 0 from 0 - dropping
+2026-11-26 10:21:35.690832+0100 Folio[97792:4388250] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-11-26 10:21:35.693744+0100 Folio[97792:4388250] [API] cannot add handler to 0 from 0 - dropping
+2026-11-26 10:21:35.693836+0100 Folio[97792:4388250] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'All tests' started at 2026-11-26 10:21:36.768.
+Test Suite 'FolioTests.xctest' started at 2026-11-26 10:21:36.771.
+Test Suite 'NoteStoreTests' started at 2026-11-26 10:21:36.771.
+Test Case '-[FolioTests.NoteStoreTests testCommitFailureRetriesWithoutDiscardingOpenEdit]' started.
+Test Case '-[FolioTests.NoteStoreTests testCommitFailureRetriesWithoutDiscardingOpenEdit]' passed (0.015 seconds).
+Test Case '-[FolioTests.NoteStoreTests testMeasuredLargeLibrarySearch]' started.
+/Users/x/Documents/Codex/2026-11-25/apple-product-engineering-mission-deliver-applications-2/work/trials002/A/Tests/NoteStoreTests.swift:72: Test Case '-[FolioTests.NoteStoreTests testMeasuredLargeLibrarySearch]' measured [Clock Monotonic Time, s] average: 0.211, relative standard deviation: 11.645%, values: [0.256218, 0.212747, 0.206993, 0.193111, 0.185816], performanceMetricID:com.apple.dt.XCTMetric_Clock.time.monotonic, baselineName: "", baselineAverage: , polarity: prefers smaller, maxPercentRegression: 10.000%, maxPercentRelativeStandardDeviation: 10.000%, maxRegression: 0.000, maxStandardDeviation: 0.000
+Test Case '-[FolioTests.NoteStoreTests testMeasuredLargeLibrarySearch]' passed (1.399 seconds).
+Test Case '-[FolioTests.NoteStoreTests testUnfinishedNoteSaveAndExactRelaunch]' started.
+Test Case '-[FolioTests.NoteStoreTests testUnfinishedNoteSaveAndExactRelaunch]' passed (0.477 seconds).
+Test Case '-[FolioTests.NoteStoreTests testUnreadableLibraryIsProtectedUntilReload]' started.
+Test Case '-[FolioTests.NoteStoreTests testUnreadableLibraryIsProtectedUntilReload]' passed (0.003 seconds).
+Test Suite 'NoteStoreTests' passed at 2026-11-26 10:21:38.669.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 1.895 (1.898) seconds
+Test Suite 'FolioTests.xctest' passed at 2026-11-26 10:21:38.671.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 1.895 (1.900) seconds
+Test Suite 'All tests' passed at 2026-11-26 10:21:38.671.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 1.895 (1.903) seconds
+2026-11-26 10:21:40.790422+0100 FolioUITests-Runner[97828:4388758] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'All tests' started at 2026-11-26 10:21:46.752.
+Test Suite 'FolioUITests.xctest' started at 2026-11-26 10:21:46.752.
+Test Suite 'FolioUITests' started at 2026-11-26 10:21:46.752.
+Test Case '-[FolioUITests.FolioUITests testCreateCollectionAndFavorite]' started.
+    t =     0.01s Start Test at 2026-11-26 10:21:46.758
+    t =     0.09s Set Up
+    t =     0.10s Open xyz.appleengineering.challenge002.folio
+    t =     0.10s     Launch xyz.appleengineering.challenge002.folio
+2026-11-26 10:21:47.434 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 10:21:47.435 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: no debugger version
+objc[97828]: Class UIAccessibilityLoaderWebShared is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.gA1IJk/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x1049fc310) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.gA1IJk/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x104a30398). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+    t =     0.90s         Setting up automation session
+    t =     4.13s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     6.12s Tap "workspace.addFolder" Button
+    t =     6.12s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     6.12s     Find the "workspace.addFolder" Button
+    t =     6.47s     Check for interrupting elements affecting "workspace.addFolder" Button
+    t =     6.54s     Synthesize event
+    t =     6.88s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     7.90s Tap TextField (First Match)
+    t =     7.90s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     8.32s     Find the TextField (First Match)
+    t =     8.40s     Check for interrupting elements affecting "Collection name" TextField
+    t =     8.49s     Synthesize event
+    t =     8.78s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     9.48s Type 'Field notes' into "Collection name" TextField
+    t =     9.48s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     9.50s     Find the "Collection name" TextField
+    t =     9.54s     Check for interrupting elements affecting "Collection name" TextField
+    t =     9.62s     Synthesize event
+    t =    10.02s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.14s Tap "Create" Button
+    t =    10.14s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.14s     Find the "Create" Button
+    t =    10.23s     Check for interrupting elements affecting "Create" Button
+    t =    10.30s     Synthesize event
+    t =    10.59s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    11.15s Waiting 8.0s for "collection.compose" Button to exist
+    t =    12.18s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.compose" Button`
+    t =    12.18s         Checking existence of `"collection.compose" Button`
+    t =    12.22s Tap "collection.compose" Button
+    t =    12.22s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    12.22s     Find the "collection.compose" Button
+    t =    12.24s     Check for interrupting elements affecting "collection.compose" Button
+    t =    12.25s     Synthesize event
+    t =    12.55s     Wait for xyz.appleengineering.challenge002.folio to idle
+<unknown>:0: warning: -[FolioUITests.FolioUITests testCreateCollectionAndFavorite] : Invalid frame dimension (negative or non-finite).
+    t =    13.61s Waiting 8.0s for "note.title" TextField to exist
+    t =    14.65s     Checking `Expect predicate `existsNoRetry == 1` for object "note.title" TextField`
+    t =    14.66s         Checking existence of `"note.title" TextField`
+    t =    14.76s Tap "note.title" TextField
+    t =    14.76s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    14.77s     Find the "note.title" TextField
+    t =    14.81s     Check for interrupting elements affecting "note.title" TextField
+    t =    14.84s     Synthesize event
+    t =    15.14s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    15.63s Type 'An unfinished note' into "note.title" TextField
+    t =    15.64s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    15.64s     Find the "note.title" TextField
+    t =    15.69s     Check for interrupting elements affecting "note.title" TextField
+    t =    15.72s     Synthesize event
+    t =    16.24s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    16.24s Tap "note.actions" Button
+    t =    16.24s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    16.25s     Find the "note.actions" Button
+    t =    16.27s     Check for interrupting elements affecting "note.actions" Button
+    t =    16.30s     Synthesize event
+    t =    16.60s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    17.60s Tap "Add to Favorites" Button
+    t =    17.60s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    17.60s     Find the "Add to Favorites" Button
+    t =    17.65s     Check for interrupting elements affecting "star" Button
+    t =    17.67s     Synthesize event
+    t =    17.96s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    19.10s Tap Button (First Match)
+    t =    19.10s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    19.11s     Find the Button (First Match)
+    t =    19.15s     Check for interrupting elements affecting "BackButton" Button
+    t =    19.21s     Synthesize event
+    t =    19.51s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    19.94s Tap Button (First Match)
+    t =    19.94s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    19.95s     Find the Button (First Match)
+    t =    19.97s     Check for interrupting elements affecting "collection.menu" Button
+    t =    19.99s     Synthesize event
+    t =    20.29s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    20.29s Tap "workspace.favorites" Button
+    t =    20.29s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    20.29s     Find the "workspace.favorites" Button
+    t =    20.38s     Check for interrupting elements affecting "workspace.favorites" Button
+    t =    20.43s     Synthesize event
+    t =    20.73s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    20.73s Waiting 8.0s for "collection.note" Button to exist
+    t =    21.76s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.note" Button`
+    t =    21.77s         Checking existence of `"collection.note" Button`
+    t =    21.83s Terminate xyz.appleengineering.challenge002.folio:97889
+    t =    22.93s Open xyz.appleengineering.challenge002.folio
+    t =    22.93s     Launch xyz.appleengineering.challenge002.folio
+2026-11-26 10:22:09.716 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 10:22:09.717 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =    23.99s         Setting up automation session
+    t =    28.14s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    31.11s Waiting 8.0s for "workspace.folder" Button to exist
+    t =    32.14s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.folder" Button`
+    t =    32.14s         Checking existence of `"workspace.folder" Button`
+    t =    32.38s Tap "workspace.folder" Button
+    t =    32.38s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    32.38s     Find the "workspace.folder" Button
+    t =    32.42s     Check for interrupting elements affecting "workspace.folder" Button
+    t =    32.47s     Synthesize event
+    t =    32.77s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    32.78s Waiting 8.0s for "collection.note" Button to exist
+    t =    33.81s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.note" Button`
+    t =    33.81s         Checking existence of `"collection.note" Button`
+    t =    33.84s Tear Down
+Test Case '-[FolioUITests.FolioUITests testCreateCollectionAndFavorite]' passed (34.225 seconds).
+Test Case '-[FolioUITests.FolioUITests testSpatialNavigationAndSearchInLargeCollection]' started.
+    t =     0.01s Start Test at 2026-11-26 10:22:20.991
+    t =     0.08s Set Up
+    t =     0.08s Open xyz.appleengineering.challenge002.folio
+    t =     0.08s     Launch xyz.appleengineering.challenge002.folio
+    t =     0.08s         Terminate xyz.appleengineering.challenge002.folio:97931
+2026-11-26 10:22:22.123 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 10:22:22.123 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.35s         Setting up automation session
+    t =     3.31s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     5.13s Waiting 10.0s for "workspace.inbox" Button to exist
+    t =     6.15s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =     6.15s         Checking existence of `"workspace.inbox" Button`
+    t =     6.32s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     6.52s Added attachment named 'workspace'
+    t =     6.52s Tap "workspace.inbox" Button
+    t =     6.52s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     6.53s     Find the "workspace.inbox" Button
+    t =     6.56s     Check for interrupting elements affecting "workspace.inbox" Button
+    t =     6.59s     Synthesize event
+    t =     6.88s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     6.88s Waiting 8.0s for "collection.compose" Button to exist
+    t =     7.92s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.compose" Button`
+    t =     7.92s         Checking existence of `"collection.compose" Button`
+    t =     7.97s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     8.08s Added attachment named 'collection-large'
+    t =     8.08s Swipe up Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     8.08s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     8.08s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     8.11s     Check for interrupting elements affecting "Folio" Application
+    t =     8.13s     Synthesize event
+    t =     8.62s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.56s Swipe up Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    10.57s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.57s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    10.62s     Check for interrupting elements affecting "Folio" Application
+    t =    10.65s     Synthesize event
+    t =    11.14s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    13.07s Get all elements bound by index for: Elements matching predicate '"collection.note" IN identifiers'
+    t =    13.15s Find the "collection.note" Button
+    t =    13.20s Find the "collection.note" Button
+    t =    13.25s Find the "collection.note" Button
+    t =    13.30s Find the "collection.note" Button
+    t =    13.35s Find the "collection.note" Button
+    t =    13.40s Find the "collection.note" Button
+    t =    13.46s Find the "collection.note" Button
+    t =    13.51s Find the "collection.note" Button
+    t =    13.56s Find the "collection.note" Button
+    t =    13.61s Find the "collection.note" Button
+    t =    13.67s Find the "collection.note" Button
+    t =    13.72s Find the "collection.note" Button
+    t =    13.78s Find the "collection.note" Button
+    t =    13.83s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.86s Find the "collection.note" Button
+    t =    13.92s Find the "collection.note" Button
+    t =    13.97s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.99s Find the "collection.note" Button
+    t =    14.05s Find the "collection.note" Button
+    t =    14.10s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    14.13s Find the "collection.note" Button
+    t =    14.19s Find the "collection.note" Button
+    t =    14.25s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    14.27s Find the "collection.note" Button
+    t =    14.33s Find the "collection.note" Button
+    t =    14.38s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    14.41s Find the "collection.note" Button
+    t =    14.46s Find the "collection.note" Button
+    t =    14.51s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    14.54s Find the "collection.note" Button
+    t =    14.58s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    14.61s Find the "collection.note" Button
+    t =    14.66s Find the "collection.note" Button
+    t =    14.70s Tap "collection.note" Button
+    t =    14.70s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    14.70s     Find the "collection.note" Button
+    t =    14.75s     Check for interrupting elements affecting "collection.note" Button
+    t =    14.78s     Synthesize event
+    t =    15.08s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    15.18s Waiting 8.0s for "note.body" TextView to exist
+    t =    16.20s     Checking `Expect predicate `existsNoRetry == 1` for object "note.body" TextView`
+    t =    16.20s         Checking existence of `"note.body" TextView`
+    t =    16.24s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.34s Added attachment named 'note'
+    t =    16.34s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.01, 0.52] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.15, 0.52] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    16.34s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    16.34s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.35s     Check for interrupting elements affecting "Folio" Application
+    t =    16.37s     Synthesize event
+    t =    16.37s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.38s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.39s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.40s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.41s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.14s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    17.24s Find the "note.body" TextView
+    t =    17.29s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.01, 0.52] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.83, 0.52] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    17.29s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    17.30s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.31s     Check for interrupting elements affecting "Folio" Application
+    t =    17.32s     Synthesize event
+    t =    17.32s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.33s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.34s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.35s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.36s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    19.29s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    19.55s Waiting 8.0s for "note.body" TextView to not exist
+    t =    20.58s     Checking `Expect predicate `existsNoRetry == 0` for object "note.body" TextView`
+    t =    20.58s         Checking existence of `"note.body" TextView`
+    t =    20.66s Find the "collection.note" Button
+    t =    20.70s Find the "collection.note" Button
+    t =    20.74s Find the "collection.note" Button
+    t =    20.77s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.01, 0.52] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.83, 0.52] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    20.77s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    20.77s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    20.80s     Check for interrupting elements affecting "Folio" Application
+    t =    20.84s     Synthesize event
+    t =    20.84s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    20.87s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    20.90s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    20.92s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    20.95s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    22.90s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    22.91s Waiting 8.0s for "workspace.inbox" Button to exist
+    t =    23.94s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =    23.95s         Checking existence of `"workspace.inbox" Button`
+    t =    24.03s Tap "workspace.inbox" Button
+    t =    24.03s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    24.04s     Find the "workspace.inbox" Button
+    t =    24.08s     Check for interrupting elements affecting "workspace.inbox" Button
+    t =    24.11s     Synthesize event
+    t =    24.40s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    24.41s Waiting 8.0s for "collection.compose" Button to exist
+    t =    25.44s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.compose" Button`
+    t =    25.44s         Checking existence of `"collection.compose" Button`
+    t =    25.52s Find the "collection.note" Button
+    t =    25.57s Tap "collection.search" TextField
+    t =    25.57s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    25.57s     Find the "collection.search" TextField
+    t =    25.61s     Check for interrupting elements affecting "collection.search" TextField
+    t =    25.65s     Synthesize event
+    t =    25.94s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    26.63s Type 'blue lantern 219' into "collection.search" TextField
+    t =    26.63s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    26.99s     Find the "collection.search" TextField
+    t =    27.06s     Check for interrupting elements affecting "collection.search" TextField
+    t =    27.11s     Synthesize event
+    t =    27.59s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    27.60s Type '
+' into "collection.search" TextField
+    t =    27.60s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    27.60s     Find the "collection.search" TextField
+    t =    27.64s     Check for interrupting elements affecting "collection.search" TextField
+    t =    27.67s     Synthesize event
+    t =    27.89s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    28.14s Waiting 8.0s for "collection.note" Button to exist
+    t =    29.15s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.note" Button`
+    t =    29.15s         Checking existence of `"collection.note" Button`
+    t =    29.19s Get number of matches for: Elements matching predicate '"collection.note" IN identifiers'
+    t =    29.20s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    29.30s Added attachment named 'search-result'
+    t =    29.31s Tap "collection.note" Button
+    t =    29.31s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    29.31s     Find the "collection.note" Button
+    t =    29.33s     Check for interrupting elements affecting "collection.note" Button
+    t =    29.35s     Synthesize event
+    t =    29.64s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    30.00s Waiting 8.0s for "note.body" TextView to exist
+    t =    31.03s     Checking `Expect predicate `existsNoRetry == 1` for object "note.body" TextView`
+    t =    31.03s         Checking existence of `"note.body" TextView`
+    t =    31.08s Find the "note.body" TextView
+    t =    31.10s Tap "note.body" TextView
+    t =    31.10s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    31.10s     Find the "note.body" TextView
+    t =    31.12s     Check for interrupting elements affecting "note.body" TextView
+    t =    31.14s     Synthesize event
+    t =    31.44s     Wait for xyz.appleengineering.challenge002.folio to idle
+<unknown>:0: warning: -[FolioUITests.FolioUITests testSpatialNavigationAndSearchInLargeCollection] : Invalid frame dimension (negative or non-finite).
+    t =    31.58s Type '
+Revisit the east ...' into "note.body" TextView
+    t =    31.58s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    31.96s     Find the "note.body" TextView
+    t =    32.00s     Check for interrupting elements affecting "note.body" TextView
+    t =    32.03s     Synthesize event
+    t =    32.87s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    32.87s Waiting 5.0s for "Dismiss keyboard" Button to exist
+    t =    33.90s     Checking `Expect predicate `existsNoRetry == 1` for object "Dismiss keyboard" Button`
+    t =    33.90s         Checking existence of `"Dismiss keyboard" Button`
+    t =    33.96s Tap "Dismiss keyboard" Button
+    t =    33.96s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    33.96s     Find the "Dismiss keyboard" Button
+    t =    33.99s     Check for interrupting elements affecting "Dismiss keyboard" Button
+    t =    34.01s     Synthesize event
+    t =    34.31s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    34.58s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    34.68s Added attachment named 'note-edited'
+    t =    34.68s Tap Button (First Match)
+    t =    34.68s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    34.68s     Find the Button (First Match)
+    t =    34.69s     Check for interrupting elements affecting "BackButton" Button
+    t =    34.71s     Synthesize event
+    t =    35.00s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    35.36s Waiting 8.0s for "collection.note" Button to exist
+    t =    36.37s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.note" Button`
+    t =    36.37s         Checking existence of `"collection.note" Button`
+    t =    36.43s Find the "collection.search" TextField
+    t =    36.45s Tear Down
+Test Case '-[FolioUITests.FolioUITests testSpatialNavigationAndSearchInLargeCollection]' passed (36.761 seconds).
+Test Case '-[FolioUITests.FolioUITests testVisualDirections]' started.
+    t =     0.00s Start Test at 2026-11-26 10:22:57.749
+    t =     0.04s Set Up
+    t =     0.04s Open xyz.appleengineering.challenge002.folio
+    t =     0.04s     Launch xyz.appleengineering.challenge002.folio
+    t =     0.04s         Terminate xyz.appleengineering.challenge002.folio:97972
+2026-11-26 10:22:58.843 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 10:22:58.843 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.31s         Setting up automation session
+    t =     3.35s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     4.93s Waiting 8.0s for "workspace.inbox" Button to exist
+    t =     5.96s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =     5.96s         Checking existence of `"workspace.inbox" Button`
+    t =     6.14s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     6.25s Added attachment named 'workspace-margin'
+    t =     6.25s Terminate xyz.appleengineering.challenge002.folio:98118
+    t =     7.28s Open xyz.appleengineering.challenge002.folio
+    t =     7.28s     Launch xyz.appleengineering.challenge002.folio
+2026-11-26 10:23:05.033 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 10:23:05.034 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     7.50s         Setting up automation session
+    t =     9.49s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    11.14s Waiting 8.0s for "workspace.inbox" Button to exist
+    t =    12.17s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =    12.17s         Checking existence of `"workspace.inbox" Button`
+    t =    12.30s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    12.41s Added attachment named 'workspace-index'
+    t =    12.41s Terminate xyz.appleengineering.challenge002.folio:98136
+    t =    13.44s Open xyz.appleengineering.challenge002.folio
+    t =    13.44s     Launch xyz.appleengineering.challenge002.folio
+2026-11-26 10:23:11.190 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 10:23:11.190 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =    13.65s         Setting up automation session
+    t =    15.60s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    17.23s Waiting 8.0s for "workspace.inbox" Button to exist
+    t =    18.24s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =    18.25s         Checking existence of `"workspace.inbox" Button`
+    t =    18.40s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    18.51s Added attachment named 'workspace-ledger'
+    t =    18.51s Terminate xyz.appleengineering.challenge002.folio:98142
+    t =    19.55s Tear Down
+Test Case '-[FolioUITests.FolioUITests testVisualDirections]' passed (19.595 seconds).
+Test Case '-[FolioUITests.FolioUITests testWorkspaceInboxWritingAndRelaunch]' started.
+    t =     0.00s Start Test at 2026-11-26 10:23:17.345
+    t =     0.02s Set Up
+    t =     0.02s Open xyz.appleengineering.challenge002.folio
+    t =     0.02s     Launch xyz.appleengineering.challenge002.folio
+2026-11-26 10:23:17.365 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 10:23:17.365 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.23s         Setting up automation session
+    t =     2.20s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     3.90s Waiting 10.0s for "workspace.inbox" Button to exist
+    t =     4.93s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =     4.93s         Checking existence of `"workspace.inbox" Button`
+    t =     5.07s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     5.19s Added attachment named 'workspace'
+    t =     5.19s Tap "workspace.inbox" Button
+    t =     5.19s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     5.19s     Find the "workspace.inbox" Button
+    t =     5.22s     Check for interrupting elements affecting "workspace.inbox" Button
+    t =     5.24s     Synthesize event
+    t =     5.54s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     5.54s Waiting 8.0s for "collection.compose" Button to exist
+    t =     6.57s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.compose" Button`
+    t =     6.57s         Checking existence of `"collection.compose" Button`
+    t =     6.61s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     6.71s Added attachment named 'collection-empty'
+    t =     6.71s Tap "collection.compose" Button
+    t =     6.71s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     6.71s     Find the "collection.compose" Button
+    t =     6.73s     Check for interrupting elements affecting "collection.compose" Button
+    t =     6.74s     Synthesize event
+    t =     7.03s     Wait for xyz.appleengineering.challenge002.folio to idle
+<unknown>:0: warning: -[FolioUITests.FolioUITests testWorkspaceInboxWritingAndRelaunch] : Invalid frame dimension (negative or non-finite).
+    t =     8.20s Waiting 8.0s for "note.title" Any to exist
+    t =     9.22s     Checking `Expect predicate `existsNoRetry == 1` for object "note.title" Any`
+    t =     9.22s         Checking existence of `"note.title" Any`
+    t =     9.34s Tap "note.title" Any
+    t =     9.34s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     9.34s     Find the "note.title" Any
+    t =     9.41s     Check for interrupting elements affecting "note.title" TextField
+    t =     9.45s     Synthesize event
+    t =     9.74s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.35s Type 'The evening train
+...' into "note.title" TextField
+    t =    10.35s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.35s     Find the "note.title" TextField
+    t =    10.46s     Check for interrupting elements affecting "note.title" TextField
+    t =    10.49s     Synthesize event
+    t =    11.65s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    11.66s Tap "note.body" TextView
+    t =    11.66s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    11.67s     Find the "note.body" TextView
+    t =    11.71s     Check for interrupting elements affecting "note.body" TextView
+    t =    11.74s     Synthesize event
+    t =    12.03s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    12.03s Type 'The station clock ...' into "note.body" TextView
+    t =    12.03s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    12.04s     Find the "note.body" TextView
+    t =    12.07s     Check for interrupting elements affecting "note.body" TextView
+    t =    12.10s     Synthesize event
+    t =    13.48s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    13.48s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.62s Added attachment named 'note-keyboard'
+    t =    13.62s Pressing Home button
+    t =    14.12s Open xyz.appleengineering.challenge002.folio
+    t =    14.12s     Activate xyz.appleengineering.challenge002.folio
+    t =    14.79s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    14.79s Find the "note.body" TextView
+    t =    15.11s Tap Button (First Match)
+    t =    15.11s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    15.33s     Find the Button (First Match)
+    t =    15.35s     Check for interrupting elements affecting "BackButton" Button
+    t =    15.38s     Synthesize event
+    t =    15.67s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    16.09s Waiting 8.0s for "collection.note" Button to exist
+    t =    17.12s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.note" Button`
+    t =    17.12s         Checking existence of `"collection.note" Button`
+    t =    17.17s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.27s Added attachment named 'collection-populated'
+    t =    17.27s Terminate xyz.appleengineering.challenge002.folio:98161
+    t =    18.33s Open xyz.appleengineering.challenge002.folio
+    t =    18.33s     Launch xyz.appleengineering.challenge002.folio
+2026-11-26 10:23:35.684 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 10:23:35.684 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =    18.55s         Setting up automation session
+    t =    20.51s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    22.14s Tap "workspace.inbox" Button
+    t =    22.14s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    22.14s     Find the "workspace.inbox" Button
+    t =    22.34s     Check for interrupting elements affecting "workspace.inbox" Button
+    t =    22.38s     Synthesize event
+    t =    22.67s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    22.67s Tap "collection.note" Button
+    t =    22.67s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    22.67s     Find the "collection.note" Button
+    t =    22.73s     Check for interrupting elements affecting "collection.note" Button
+    t =    22.77s     Synthesize event
+    t =    23.12s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    23.77s Waiting 8.0s for "note.body" TextView to exist
+    t =    24.80s     Checking `Expect predicate `existsNoRetry == 1` for object "note.body" TextView`
+    t =    24.81s         Checking existence of `"note.body" TextView`
+    t =    24.90s Find the "note.body" TextView
+    t =    24.91s Find the "note.title" TextField
+    t =    24.93s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    25.05s Added attachment named 'note-reopened'
+    t =    25.05s Tear Down
+Test Case '-[FolioUITests.FolioUITests testWorkspaceInboxWritingAndRelaunch]' passed (25.332 seconds).
+Test Case '-[FolioUITests.FolioUITests testWorkspaceRevealKeepsCollectionState]' started.
+    t =     0.00s Start Test at 2026-11-26 10:23:42.680
+    t =     0.03s Set Up
+    t =     0.03s Open xyz.appleengineering.challenge002.folio
+    t =     0.04s     Launch xyz.appleengineering.challenge002.folio
+    t =     0.04s         Terminate xyz.appleengineering.challenge002.folio:98251
+2026-11-26 10:23:43.744 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 10:23:43.744 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.28s         Setting up automation session
+    t =     3.30s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     5.14s Waiting 10.0s for "workspace.inbox" Button to exist
+    t =     6.17s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =     6.17s         Checking existence of `"workspace.inbox" Button`
+    t =     6.34s Find the "collection.menu" Button
+    t =     6.38s Get number of matches for: Elements matching predicate 'label == "Close Workspace"'
+    t =     6.41s Find the "collection.searchButton" Button
+    t =     6.45s Checking existence of `"collection.search" TextField`
+    t =     6.48s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     6.60s Added attachment named 'reveal-open'
+    t =     6.60s Tap "workspace.inbox" Button
+    t =     6.60s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     6.60s     Find the "workspace.inbox" Button
+    t =     6.63s     Check for interrupting elements affecting "workspace.inbox" Button
+    t =     6.68s     Synthesize event
+    t =     6.97s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     6.97s Waiting 8.0s for "collection.search" TextField to exist
+    t =     8.00s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.search" TextField`
+    t =     8.00s         Checking existence of `"collection.search" TextField`
+    t =     8.07s Find the "collection.menu" Button
+    t =     8.11s Checking existence of `"workspace.inbox" Button`
+    t =     8.15s Checking existence of `"collection.searchButton" Button`
+    t =     8.18s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     8.29s Added attachment named 'reveal-closed'
+    t =     8.29s Swipe up Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     8.29s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     8.29s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     8.31s     Check for interrupting elements affecting "Folio" Application
+    t =     8.34s     Synthesize event
+    t =     8.83s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.77s Get all elements bound by index for: Elements matching predicate '"collection.note" IN identifiers'
+    t =    10.84s Find the "collection.note" Button
+    t =    10.89s Find the "collection.note" Button
+    t =    10.93s Find the "collection.note" Button
+    t =    10.98s Find the "collection.note" Button
+    t =    11.02s Find the "collection.note" Button
+    t =    11.07s Find the "collection.note" Button
+    t =    11.14s Find the "collection.note" Button
+    t =    11.19s Find the "collection.note" Button
+    t =    11.23s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    11.26s Find the "collection.note" Button
+    t =    11.31s Find the "collection.note" Button
+    t =    11.35s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    11.37s Find the "collection.note" Button
+    t =    11.42s Find the "collection.note" Button
+    t =    11.47s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    11.49s Find the "collection.note" Button
+    t =    11.54s Find the "collection.note" Button
+    t =    11.58s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.01, 0.52] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.20, 0.52] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    11.58s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    11.58s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    11.61s     Check for interrupting elements affecting "Folio" Application
+    t =    11.64s     Synthesize event
+    t =    11.64s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    11.67s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    11.69s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    11.72s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    11.74s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    12.57s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    12.58s Waiting 5.0s for "workspace.inbox" Button to not exist
+    t =    13.60s     Checking `Expect predicate `existsNoRetry == 0` for object "workspace.inbox" Button`
+    t =    13.60s         Checking existence of `"workspace.inbox" Button`
+    t =    13.66s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.01, 0.52] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.75, 0.52] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    13.67s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    13.67s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.69s     Check for interrupting elements affecting "Folio" Application
+    t =    13.73s     Synthesize event
+    t =    13.73s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.75s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.78s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.80s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.83s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    15.63s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    15.63s Waiting 8.0s for "workspace.inbox" Button to exist
+    t =    16.66s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =    16.66s         Checking existence of `"workspace.inbox" Button`
+    t =    16.73s Find the "collection.menu" Button
+    t =    16.76s Checking existence of `"note.body" TextView`
+    t =    16.79s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.92, 0.52] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.75, 0.52] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    16.79s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    16.80s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.82s     Check for interrupting elements affecting "Folio" Application
+    t =    16.85s     Synthesize event
+    t =    16.85s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.87s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.90s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.92s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    16.95s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.73s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    17.73s Checking existence of `"workspace.inbox" Button`
+    t =    17.76s Press Target Application 'xyz.appleengineering.challenge002.folio'[0.92, 0.52] for 0.0 seconds, then drag to Target Application 'xyz.appleengineering.challenge002.folio'[0.10, 0.52] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    17.76s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    17.76s     Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.79s     Check for interrupting elements affecting "Folio" Application
+    t =    17.82s     Synthesize event
+    t =    17.83s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.85s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.88s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.91s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    17.94s         Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    19.87s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    19.87s Waiting 8.0s for "collection.search" TextField to exist
+    t =    20.90s     Checking `Expect predicate `existsNoRetry == 1` for object "collection.search" TextField`
+    t =    20.90s         Checking existence of `"collection.search" TextField`
+    t =    20.97s Find the "collection.note" Button
+    t =    21.00s Tap "collection.search" TextField
+    t =    21.00s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    21.00s     Find the "collection.search" TextField
+    t =    21.04s     Check for interrupting elements affecting "collection.search" TextField
+    t =    21.08s     Synthesize event
+    t =    21.37s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    21.62s Type 'lantern 3' into "collection.search" TextField
+    t =    21.62s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    21.98s     Find the "collection.search" TextField
+    t =    22.05s     Check for interrupting elements affecting "collection.search" TextField
+    t =    22.09s     Synthesize event
+    t =    22.47s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    22.49s Waiting 5.0s for Keyboard (First Match) to exist
+    t =    23.52s     Checking `Expect predicate `existsNoRetry == 1` for object Keyboard (First Match)`
+    t =    23.52s         Checking existence of `Keyboard (First Match)`
+    t =    23.53s Tap "collection.menu" Button
+    t =    23.53s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    23.53s     Find the "collection.menu" Button
+    t =    23.58s     Check for interrupting elements affecting "collection.menu" Button
+    t =    23.61s     Synthesize event
+    t =    23.90s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    24.32s Waiting 8.0s for "workspace.inbox" Button to exist
+    t =    25.35s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =    25.36s         Checking existence of `"workspace.inbox" Button`
+    t =    25.43s Waiting 5.0s for Keyboard (First Match) to not exist
+    t =    26.47s     Checking `Expect predicate `existsNoRetry == 0` for object Keyboard (First Match)`
+    t =    26.47s         Checking existence of `Keyboard (First Match)`
+    t =    26.57s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    26.69s Added attachment named 'reveal-open-searching'
+    t =    26.69s Tap "collection.searchButton" Button
+    t =    26.69s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    26.69s     Find the "collection.searchButton" Button
+    t =    26.73s     Check for interrupting elements affecting "collection.searchButton" Button
+    t =    26.76s     Synthesize event
+    t =    27.05s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    27.64s Waiting 5.0s for Keyboard (First Match) to exist
+    t =    28.66s     Checking `Expect predicate `existsNoRetry == 1` for object Keyboard (First Match)`
+    t =    28.66s         Checking existence of `Keyboard (First Match)`
+    t =    28.69s Find the "collection.search" TextField
+    t =    28.74s Checking existence of `"workspace.inbox" Button`
+    t =    28.78s Tear Down
+Test Case '-[FolioUITests.FolioUITests testWorkspaceRevealKeepsCollectionState]' passed (29.069 seconds).
+Test Case '-[FolioUITests.FolioUITests testWritingAppearance]' started.
+    t =     0.00s Start Test at 2026-11-26 10:24:11.751
+    t =     0.04s Set Up
+    t =     0.04s Open xyz.appleengineering.challenge002.folio
+    t =     0.04s     Launch xyz.appleengineering.challenge002.folio
+    t =     0.04s         Terminate xyz.appleengineering.challenge002.folio:98267
+2026-11-26 10:24:12.844 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-26 10:24:12.844 xcodebuild[97687:4387439] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.31s         Setting up automation session
+    t =     3.27s         Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     4.89s Waiting 10.0s for "workspace.inbox" Button to exist
+    t =     5.93s     Checking `Expect predicate `existsNoRetry == 1` for object "workspace.inbox" Button`
+    t =     5.93s         Checking existence of `"workspace.inbox" Button`
+    t =     6.09s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     6.21s Added attachment named 'workspace'
+    t =     6.21s Tap "workspace.inbox" Button
+    t =     6.21s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     6.21s     Find the "workspace.inbox" Button
+    t =     6.24s     Check for interrupting elements affecting "workspace.inbox" Button
+    t =     6.27s     Synthesize event
+    t =     6.56s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     6.56s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =     6.68s Added attachment named 'collection'
+    t =     6.68s Tap "collection.compose" Button
+    t =     6.68s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     6.68s     Find the "collection.compose" Button
+    t =     6.71s     Check for interrupting elements affecting "collection.compose" Button
+    t =     6.75s     Synthesize event
+    t =     7.05s     Wait for xyz.appleengineering.challenge002.folio to idle
+<unknown>:0: warning: -[FolioUITests.FolioUITests testWritingAppearance] : Invalid frame dimension (negative or non-finite).
+    t =     8.16s Waiting 8.0s for "note.title" TextField to exist
+    t =     9.20s     Checking `Expect predicate `existsNoRetry == 1` for object "note.title" TextField`
+    t =     9.20s         Checking existence of `"note.title" TextField`
+    t =     9.27s Tap "note.title" TextField
+    t =     9.27s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =     9.27s     Find the "note.title" TextField
+    t =     9.30s     Check for interrupting elements affecting "note.title" TextField
+    t =     9.33s     Synthesize event
+    t =     9.62s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.15s Type 'A map of the coast...' into "note.title" TextField
+    t =    10.15s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    10.16s     Find the "note.title" TextField
+    t =    10.20s     Check for interrupting elements affecting "note.title" TextField
+    t =    10.23s     Synthesize event
+    t =    11.17s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    11.18s Tap "note.body" TextView
+    t =    11.18s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    11.18s     Find the "note.body" TextView
+    t =    11.26s     Check for interrupting elements affecting "note.body" TextView
+    t =    11.30s     Synthesize event
+    t =    11.59s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    11.60s Type 'The wind dropped a...' into "note.body" TextView
+    t =    11.60s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    11.60s     Find the "note.body" TextView
+    t =    11.63s     Check for interrupting elements affecting "note.body" TextView
+    t =    11.66s     Synthesize event
+    t =    13.21s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    13.27s Find the Button (First Match)
+    t =    13.36s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    13.48s Added attachment named 'editor-keyboard'
+    t =    13.48s Checking existence of `"Dismiss keyboard" Button`
+    t =    13.51s Tap "Dismiss keyboard" Button
+    t =    13.51s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    13.52s     Find the "Dismiss keyboard" Button
+    t =    13.55s     Check for interrupting elements affecting "Dismiss keyboard" Button
+    t =    13.62s     Synthesize event
+    t =    13.93s     Wait for xyz.appleengineering.challenge002.folio to idle
+    t =    14.26s Find the Target Application 'xyz.appleengineering.challenge002.folio'
+    t =    14.38s Added attachment named 'editor'
+    t =    16.50s Tear Down
+Test Case '-[FolioUITests.FolioUITests testWritingAppearance]' passed (16.794 seconds).
+Test Suite 'FolioUITests' passed at 2026-11-26 10:24:28.547.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 161.776 (161.795) seconds
+Test Suite 'FolioUITests.xctest' passed at 2026-11-26 10:24:28.555.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 161.776 (161.803) seconds
+Test Suite 'All tests' passed at 2026-11-26 10:24:28.560.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 161.776 (161.808) seconds
+2026-11-26 10:24:45.966 xcodebuild[97687:4387439] [MT] IDETestOperationsObserverDebug: 200.088 elapsed -- Testing started completed.
+2026-11-26 10:24:45.966 xcodebuild[97687:4387439] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-26 10:24:45.966 xcodebuild[97687:4387439] [MT] IDETestOperationsObserverDebug: 200.088 sec, +200.088 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/x/Scratch/Folio/2026-11-26-workspace-reveal-trial002A/run6.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
+exit 0
+end 10:24:46
