@@ -4,7 +4,7 @@ Updated 2026-11-26 15:2x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
-- 2026-11-26 17:4x (lead: scheduled session `resume-appleengineeringsystem-287007`, work tree
+- 2026-11-26 17:3x (lead: scheduled session `resume-appleengineeringsystem-287007`, work tree
   `.claude/worktrees/aes-v0-2-d005-91383d`). **Both Trial 005 arms ran and finished on their own**: arm-control
   17:10–17:17 (arm commits 6c5097c + lead 36c91ba), arm-v02 17:18–17:27 (7caa43b + lead 4207fed). Logs:
   `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/arm-*.jsonl` (+ `.err`, `.start`, `.end`, `.pid`).
@@ -15,6 +15,10 @@ Updated 2026-11-26 15:2x by the AES lead (session on branch claude/aes-v0-2-d005
   with `-derivedDataPath` in the trial folder, install, drive with `tools/m` (mcpd.py → `xcrun mcpbridge`;
   command syntax in `2026-11-26-mcp-verify/xcode-skills/device-interaction/SKILL.md`), then fill the last section.
   Never publish anything from the arm folders (arm-v02's `work/ref/` holds frames of the participant copy).
+- Hand-over 17:3x: this lead ended at the task boundary (context 55 %, runtime checks need a fresh window).
+  No start_session tool here, so the next lead is the one-time scheduled task
+  `next-lead-appleengineeringsystem-287007` (fires 17:38 local; keep-awake to 18:23). It works in this same
+  work tree. Plan usage at hand-over: 5-hour 47 %, weekly 32 %. Owner questions 2–5 below are still open.
 
 Lead hand-over 2026-11-26 ~16:00 (account tag 287007). Next lead: read this block, `get_usage`, `list_sessions
 {"linked": true}` (stand down if a live AES lead exists), then do NEXT below.

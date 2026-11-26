@@ -1,6 +1,6 @@
 # Trial 005: results (one pair)
 
-Status 2026-11-26 17:4x: both arms ran and finished. Transcript, code and `NOTES.md` scoring is below. **Runtime
+Status 2026-11-26 17:3x: both arms ran and finished. Transcript, code and `NOTES.md` scoring is below. **Runtime
 checks C1–C12 are pending** (they need a lead-held lock window on `iPhone 18 Pro Max`). One pair can show failures and
 differences in behaviour. It cannot show that either arm's configuration is better, and nothing here claims that.
 
