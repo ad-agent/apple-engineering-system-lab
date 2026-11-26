@@ -1,9 +1,9 @@
 # Trial 005: results (one pair)
 
-Status 2026-11-26 19:2x: both arms ran and finished, and all scoring is below: transcript, code, `NOTES.md` and the
+Status 2026-11-26 19:1x: both arms ran and finished, and all scoring is below: transcript, code, `NOTES.md` and the
 runtime checks C1–C12 (run 18:10–18:27 in one lead-held lock window on `iPhone 18 Pro Max`). Director Decision 006
 step 1 is complete: interaction recordings, a matched screenshot set, a cold-launch series and a label on every
-finding were added in a second lock window (19:00–19:10), in the last section. One pair can show failures and
+finding were added in a second lock window (19:00–19:08), in the last section. One pair can show failures and
 differences in behaviour. It cannot show that either arm's configuration is better, and nothing here claims that.
 
 The arm folders, transcripts and screenshots stay in `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/`
@@ -174,7 +174,7 @@ or 3. Low main-thread CPU and flattened stacks don't point at app code. The simu
 
 ## Decision 006 step 1: recordings, matched screenshots, cold launch, finding labels
 
-**How it was run.** 2026-11-26 19:00:31–19:10, in a second lead-held lock window: a holder process
+**How it was run.** 2026-11-26 19:00:31–19:07:47, in a second lead-held lock window: a holder process
 (`turn-holder.sh` + `quiet.sh`) owned `/tmp/edraft-checks.lock`, and the heavy lane was otherwise idle. Simulator:
 `iPhone 18 Pro Max` only. The same builds of `36c91ba` and `4207fed` as above were used again, without rebuilding,
 and the participant sources were not touched. For each arm, control first: uninstall, install, a cold-launch series

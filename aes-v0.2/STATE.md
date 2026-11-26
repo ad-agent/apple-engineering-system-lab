@@ -4,10 +4,10 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
-- 2026-11-26 19:2x (lead: scheduled session `next-lead-appleengineeringsystem-287007`, run 2, same work tree).
+- 2026-11-26 19:1x (lead: scheduled session `next-lead-appleengineeringsystem-287007`, run 2, same work tree).
   **Decision 006 step 1 is DONE** and written up in the last section of `trial-005/RESULTS.md`: recordings, 24 matched
   states per arm, a six-launch cold-launch series per arm, and a label on every finding. It ran in one lock window
-  (holder via turn-holder + quiet.sh, 19:00:31–19:10, released; heavy lane idle after) on `iPhone 18 Pro Max` only.
+  (holder via turn-holder + quiet.sh, 19:00:31–19:07:47, released; heavy lane idle after) on `iPhone 18 Pro Max` only.
   Dynamic Type `large` and appearance `light` were restored and checked. Arm-v02 is left installed. Evidence (never
   publish): `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/assess/step1/` (scripts in `bin/`).
   Headlines: v02's Cancel-to-medium was reproduced a third time; the ~11 s cold-launch grid did not come back (first
@@ -22,6 +22,10 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
   is on PATH. Still to do: verify that loading works, then run the verified examples (tap, text, scroll, multi-point
   drag, reversal, screenshot, hierarchy) in one lock window, and write a short method page (no copy of the skill).
   Then steps 3 and 4 as below.
+- Hand-over 19:1x (task boundary after step 1; context 59 %, plan usage 5-hour 77 %, weekly 36 %, 5-hour reset
+  21:50 local). The next lead is the one-time scheduled task `next-lead-appleengineeringsystem-287007`, updated to
+  fire 2026-11-26 19:16 local (keep-awake until 20:01), same work tree. Nothing running, no lock held. If usage
+  reaches 90 % during step 2, finish that step and hand over under R9 (auto-resume after the reset).
 
 - 2026-11-26 18:4x: **Director Decision 006 is CONFIRMED by the owner** in this lead's chat ("Yes, confirmed").
   The text is verbatim in `directives/DECISION-006.md`. No step has been started yet. **NEXT: a fresh lead (scheduled
