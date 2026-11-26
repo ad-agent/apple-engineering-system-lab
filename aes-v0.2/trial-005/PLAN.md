@@ -1,6 +1,8 @@
 # Trial 005: plan (prepared, not yet frozen)
 
-Status: **design only.** The fixture app, the reference recording and the baseline defect run do not exist yet. No
+Status: **Task B superseded by ARMS.md (frozen 2026-11-26; fresh project per Decision 005, not yet run).** Task A below is unchanged, design only.
+
+Earlier status: **design only.** The fixture app, the reference recording and the baseline defect run do not exist yet. No
 participant has run. Nothing here is evidence that v0.2 improves application quality.
 
 One trial, two tasks on one fresh fixture, so Assignment 004's transfer task and the reference-driven challenge share

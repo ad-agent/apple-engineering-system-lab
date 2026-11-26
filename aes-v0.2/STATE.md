@@ -4,21 +4,28 @@ Updated 2026-11-26 15:2x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
-- DONE 2026-11-26: projects.tsv row added (owner yes; codedirector-briefs commit 50e39bb, not pushed).
-- DONE: Decision 005 step A/B. Window 14:59:37–15:12:31, lock released. Results in MCP-VERIFIED.md; TOOLS.md and
-  README updated. Scratch: ~/Scratch/AppleEngineeringSystem/2026-11-26-mcp-verify/ (META; raw logs; Xcode skills export).
-- Approved in Xcode: the check client (Python, 24 h) and `com.anthropic.claude-code`; folder
-  `~/Scratch/AppleEngineeringSystem/2026-11-26-mcp-verify/project` (expires 2026-11-27 14:00 UTC). Trial folders
-  need their own approval or a parent `allow-folder` (sudo, owner).
-- Maps recording received 15:04: `~/Data/AppleEngineeringSystem/trial-005/reference/maps-reference.mp4`, SHA-256
-  7b8ad86b9c3569a8dd8e3a9d228e1f558249af59de64cb4ec30c7c6b30cedad7, 52.2 s, 1170x2532 HEVC with audio, from a
-  physical iPhone. Not in git, never publish. The original is still in ~/Downloads.
-- IN FLIGHT: step C (Trial 005 inputs). Next: analyse the recording (assessor side), write participant objective,
-  frozen inputs, assessor checks, identical arm configs; then run both arms.
-- OWNER QUESTIONS: (1) trash the stray default DerivedData `~/Library/Developer/Xcode/DerivedData/MCPVerify-bdsk…`
-  (60 MB, made by the first workspace open)? (2) The Xcode preview device clone made by RenderPreview: keep it
-  through Trial 005 and then delete it? (3) Enable developer mode (`sudo DevToolsSecurity -enable`) so the MCP
-  debugger works, or leave it off for both arms? (4) Trailhead builder (still open).
+Lead hand-over 2026-11-26 ~16:00 (account tag 287007). Next lead: read this block, `get_usage`, `list_sessions
+{"linked": true}` (stand down if a live AES lead exists), then do NEXT below.
+
+- DONE: projects.tsv row (owner yes; codedirector-briefs 50e39bb, local commit only). Decision 005 step A/B:
+  MCP-VERIFIED.md, TOOLS.md, README (commit 5a20c66). Trial 005 inputs frozen: trial-005/ARMS.md,
+  participant/OBJECTIVE.md, participant/CLAUDE.md, assessor/CHECKS.md (this commit).
+- Trial folder: ~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/ (META; starter git 90951d3; arm-control,
+  arm-v02; mcp-arm-*.json; manifests; coin-flip.log: control first). Recording: ~/Data/AppleEngineeringSystem/
+  trial-005/reference/ (original private, never publish; participant copy 0–44 s, no audio, owner's choice).
+- NEXT (owner yes: Decision 005 + "Both, I'll approve"): after the 5-hour reset (16:50 local), run arm-control then
+  arm-v02 exactly as trial-005/ARMS.md says, one at a time, outside the session (R9 nohup/setsid + keep-awake), only
+  when usage has room for a full 60 minutes. Then score both with assessor/CHECKS.md in a lead lock window, write
+  trial-005/RESULTS.md, commit, push. One pair can only reveal failures; make no superiority claim.
+- In flight: nothing running. No lock held (windows 14:59:37–15:12:31 and 15:43:57–15:55:14, both released).
+- OWNER QUESTIONS: (1) run `sudo xcrun mcp-server allow-folder ~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run`
+  before the arms (otherwise approve each arm's prompt; logged as an intervention); (2) trash the stray default
+  DerivedData `~/Library/Developer/Xcode/DerivedData/MCPVerify-bdsk…` (60 MB)? (3) Xcode's preview device clone
+  (`~/Library/Developer/Xcode/UserData/Previews/Simulator Devices/3566F927…`): keep through Trial 005, then
+  delete? (4) developer mode for the MCP debugger: enable it or leave it off for both arms? (5) Trailhead builder.
+- Rule slip, reported: a 1-minute-old build check cache (`trial005-run/starter-check-DD`, my own) was removed with
+  `rm -rf` instead of `trash` (R7). Nothing else was deleted.
+- Never write the operator's address or location anywhere; the recording shows it after 44 s.
 
 ## Where things are
 
