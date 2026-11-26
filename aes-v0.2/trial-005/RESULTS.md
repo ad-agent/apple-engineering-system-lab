@@ -1,9 +1,10 @@
 # Trial 005: results (one pair)
 
-Status 2026-11-26 18:3x: both arms ran and finished, and all scoring is below: transcript, code, `NOTES.md` and the
-runtime checks C1–C12 (run 18:10–18:27 in one lead-held lock window on `iPhone 18 Pro Max`). One pair can show
-failures and differences in behaviour. It cannot show that either arm's configuration is better, and nothing here
-claims that.
+Status 2026-11-26 19:2x: both arms ran and finished, and all scoring is below: transcript, code, `NOTES.md` and the
+runtime checks C1–C12 (run 18:10–18:27 in one lead-held lock window on `iPhone 18 Pro Max`). Director Decision 006
+step 1 is complete: interaction recordings, a matched screenshot set, a cold-launch series and a label on every
+finding were added in a second lock window (19:00–19:10), in the last section. One pair can show failures and
+differences in behaviour. It cannot show that either arm's configuration is better, and nothing here claims that.
 
 The arm folders, transcripts and screenshots stay in `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/`
 and are not published: arm-v02 saved frames from the participant copy of the private recording in `work/ref/`.
@@ -170,3 +171,79 @@ or 3. Low main-thread CPU and flattened stacks don't point at app code. The simu
 - Self-reports against the runtime checks: arm-v02's reported blank cold launch appeared once, on the first launch
   after install. Arm-control's claimed sheet drags hold. Neither arm checked Dynamic Type, and both turned out
   partial at AX5.
+
+## Decision 006 step 1: recordings, matched screenshots, cold launch, finding labels
+
+**How it was run.** 2026-11-26 19:00:31–19:10, in a second lead-held lock window: a holder process
+(`turn-holder.sh` + `quiet.sh`) owned `/tmp/edraft-checks.lock`, and the heavy lane was otherwise idle. Simulator:
+`iPhone 18 Pro Max` only. The same builds of `36c91ba` and `4207fed` as above were used again, without rebuilding,
+and the participant sources were not touched. For each arm, control first: uninstall, install, a cold-launch series
+of six launches without MCP, then a fresh MCP device session ("Trial 005 Step1 Control", "Trial 005 Step1 V02")
+drove 24 matched states while `simctl io … recordVideo` recorded the screen (control 72 s, v02 69 s). Tap targets
+were found by label or type in the previous hierarchy, so each arm got the same action on its own layout. Every
+state has the MCP screenshot and hierarchy. Dynamic Type and appearance were changed only inside the journey and
+were `large` and `light` again at the end (checked). Arm-v02 is left installed. The evidence stays unpublished in
+`~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/assess/step1/` (scripts in `bin/`, per arm `cold/` and
+`journey/`). The screenshots contain Apple Maps tiles of a real area under the synthetic places, so none are
+published here.
+
+**Matched states** (measured: sheet grabber centre y from the hierarchy; peek ≈ 862/865, medium 459, large 70).
+The two arms ended in the same state at every step, except the two rows marked ◆.
+
+| # | State | arm-control | arm-v02 |
+|---|---|---|---|
+| 1–2 | Launch at peek; drag down at peek | 862 → 862 (sheet stays) | 865 → 865 (sheet stays) |
+| 3–5 | Drag to medium, to large, back to medium | 459, 70, 459 | 459, 70, 459 |
+| 6 | Reversal in one touch from medium (up to y 100, then down to y 800) | settles at peek | settles at peek |
+| 7–9 | Map pan at peek; drag to medium and pan; back to peek | panned; 459; 862 | panned; 459; 865 |
+| 10–11 | Tap search at peek; type "falcon" | large, field focused; 2 rows | large, field focused; 2 rows |
+| 12 ◆ | Cancel search | **peek** (where search began) | **medium**, a third reproduction of the C5 defect |
+| 13–15 | Medium list; tap the first row (Aspen Point); Close | details at medium; list | details at medium; list |
+| 16 ◆ | Tap a visible annotation | Silver Falls → details | Aspen Point → details (Silver Falls was off screen) |
+| 17–19 | Close; open map style; Close | list; Map Modes card; list | list; Map Style card replaces the sheet; list |
+| 20 | Dark appearance at medium | readable | readable; the list card is an opaque dark panel |
+| 21–24 | AX5 at medium; large; first row's details; Close | labels truncate ("Trai Ih…"); Directions and Share break mid-word | category labels whole; row icons overflow their discs |
+
+**Cold launch** (measured: `simctl io screenshot` polled every ~0.48 s for 15 s after `simctl launch`. Each frame
+is classed by the brightness and colour count of the map band: launch screen, flat map with no tiles yet, empty
+grid, or tiles. The time resolution is one polling interval.)
+
+| Launch | arm-control: map drawn / tiles | arm-v02: map drawn / tiles |
+|---|---|---|
+| 1, first after install | 3.5 s / 4.6 s (launch screen until ~3.1 s) | 3.8 s / 5.6 s (launch screen until ~3.3 s, empty grid at 5.1 s) |
+| 2–6, relaunch after `simctl terminate` | tiles at 1.8, 1.6, 1.4, 1.4, 1.7 s | tiles at 1.5, 1.5, 1.3, 1.4, 1.5 s |
+
+In both arms, the first launch after install takes about 3–4 s longer than later launches, and most of that is the
+white launch screen. The ~11 s empty grid that arm-v02 showed once at 18:1x (C1) did not come back: tiles appeared
+at 5.6 s on the first launch after install. That earlier launch came straight after install, with the MCP session
+activating the app, and was not repeated. So the evidence does not show an app-specific cold-launch defect in
+either arm: one first launch per arm, five relaunches.
+
+**Labels on every finding.** **App**: a defect or behaviour of the arm's code. **Tool**: the Xcode MCP tools or
+their hierarchy. **Sim**: the simulator or the Mac it runs on. **Auto**: the assessor's automation or timing.
+
+| Finding | Arm | Label | Evidence |
+|---|---|---|---|
+| Cancel search returns to the middle height, not the height where search began | v02 | **App** | measured three times (C5 twice, state 12 once); code `PlaceSheet.swift:96` sets `.medium` |
+| Search also matches the kind ("lake" → 12 rows); C5 asks for name filtering | control | **App** (behaviour beyond the spec, not a failure) | measured |
+| AX5: Explore category labels truncate; Directions and Share break mid-word | control | **App** | observed in C8 and states 22–23 |
+| AX5: row icon glyphs overflow their fixed 34×34 discs | v02 | **App** | observed in C8 and states 21–22; code |
+| AX5: the floating map controls do not scale | both | **App** (minor) | observed |
+| Search field exposes only its placeholder; some decorative symbols are exposed under default names | both | **App** (minor) | hierarchy labels |
+| Show All Places at the middle height leaves 19 of 40 markers under the sheet | control | **App** | measured |
+| Nearby distances use ft/mi while elevation uses m | control | **App** (minor) | observed |
+| ~11 s empty map grid on one first launch after install | v02 | **Not reproduced**: first-launch cost common to both arms (Sim), plus tile loading | cold-launch series above |
+| Empty grid one second after choosing a row (state 14), tiles in the next state | v02 | **Auto/Sim**: the capture came before tiles loaded at the closer zoom | observed; state 15 has tiles |
+| `applicationState: NotRun` while the app is in front and responding | both | **Tool** (session without a workspace) | measured: PID in the hierarchy, `ps` |
+| A selected marker's accessibility frame does not change size | both | **Tool/system**: both arms use the system `Marker`, whose selection is drawn by MapKit | code; screenshots show the enlargement |
+| Map-control frames are glyph-sized (19×18, 22×22) in the hierarchy | v02 | **Tool** (hierarchy reports the image) | code gives the button label a 44×44 frame; a tap 17 pt off the glyph worked |
+| A capture straight after a tap can come before the animation ends | both | **Auto** | arm-control C6 needed a recapture; every later tap waits 1 s |
+| No on-screen keyboard in screenshots or hierarchy while the field has focus | both | **Sim/Auto** (cause not established; typing works through `sender keyboard kbd`) | hierarchy shows `Keyboard Focused`; C5's "shows the keyboard" stays unverified for both arms |
+| `GetConsoleOutput` refuses without an open workspace | both | **Tool** | C11 deviation above |
+| 12 errors per launch from Apple subsystems, the same in both arms | both | **Sim/system**, not the app | C11 |
+| Hangs only in the first ~10 s of each C12 trace (attach, first MCP activation, first cycle) | both | **Not separable** with this evidence (asserted: tool activation or launch) | C12; the cold-launch series used no MCP and saw no stall after tiles, but screenshots cannot measure hangs |
+| Hitches | both | **Sim**: not measurable on the simulator | MCP-VERIFIED.md |
+
+**Limits of this evidence.** The recordings show that the sheet settles and the map moves. They do not show how
+the gestures feel on a device, or the quality of the animation curves, and no claim is made about either. The
+gestures are synthesized, with fixed timings.

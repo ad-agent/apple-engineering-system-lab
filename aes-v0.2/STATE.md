@@ -4,6 +4,25 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
+- 2026-11-26 19:2x (lead: scheduled session `next-lead-appleengineeringsystem-287007`, run 2, same work tree).
+  **Decision 006 step 1 is DONE** and written up in the last section of `trial-005/RESULTS.md`: recordings, 24 matched
+  states per arm, a six-launch cold-launch series per arm, and a label on every finding. It ran in one lock window
+  (holder via turn-holder + quiet.sh, 19:00:31–19:10, released; heavy lane idle after) on `iPhone 18 Pro Max` only.
+  Dynamic Type `large` and appearance `light` were restored and checked. Arm-v02 is left installed. Evidence (never
+  publish): `~/Scratch/AppleEngineeringSystem/2026-11-26-trial005-run/assess/step1/` (scripts in `bin/`).
+  Headlines: v02's Cancel-to-medium was reproduced a third time; the ~11 s cold-launch grid did not come back (first
+  launch after install: tiles at 4.6 s control, 5.6 s v02; relaunches 1.3–1.8 s); no on-screen keyboard in either arm
+  (Sim/Auto, cause not established).
+- **NEXT: Decision 006 step 2** (verified Apple device-interaction guidance). Read-only findings so far, in
+  `~/Scratch/AppleEngineeringSystem/2026-11-26-d006-step2/notes.md`: `xcrun mcpbridge run-agent plugin path
+  --plugin-format claude` materialises Xcode's own Claude plugin (`xcode-integration` 1.0.0: the `xcode` MCP server
+  plus 16 skills, `device-interaction` among them) at `~/Library/Developer/Xcode/CodingAssistant/ExportedPlugins/27B52/claude`.
+  `claude --plugin-dir <that path>` should load it for one session without installing anything (not yet verified).
+  `xcrun mcpbridge run-agent claude` fails with "Could not find 'claude' binary" although `/opt/homebrew/bin/claude`
+  is on PATH. Still to do: verify that loading works, then run the verified examples (tap, text, scroll, multi-point
+  drag, reversal, screenshot, hierarchy) in one lock window, and write a short method page (no copy of the skill).
+  Then steps 3 and 4 as below.
+
 - 2026-11-26 18:4x: **Director Decision 006 is CONFIRMED by the owner** in this lead's chat ("Yes, confirmed").
   The text is verbatim in `directives/DECISION-006.md`. No step has been started yet. **NEXT: a fresh lead (scheduled
   task `next-lead-appleengineeringsystem-287007`, fires 18:5x, see below) starts with Decision 006 step 1 (the gaps
