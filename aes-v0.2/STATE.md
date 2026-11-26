@@ -4,11 +4,13 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
 
 ## Top block (read first)
 
-- 2026-11-26 18:4x: **Director Decision 006 received, owner confirmation pending.** The owner pasted it into the
-  stood-down session `resume-appleengineeringsystem-287007` (~18:20), which relayed it to this lead. It is recorded
-  verbatim in `directives/DECISION-006.md`. It arrived through a peer session during an unattended scheduled run, so
-  **no step of it has been started**. Owner: confirm it in a lead's chat (one line is enough), and the next fresh lead
-  works through it in order.
+- 2026-11-26 18:4x: **Director Decision 006 is CONFIRMED by the owner** in this lead's chat ("Yes, confirmed").
+  The text is verbatim in `directives/DECISION-006.md`. No step has been started yet. **NEXT: a fresh lead (scheduled
+  task `next-lead-appleengineeringsystem-287007`, fires 18:5x, see below) starts with Decision 006 step 1 (the gaps
+  listed next), then steps 2, 3 and 4 in order.** This lead ended at the task boundary (context ~72 %).
+- Step 4's budget is not set in the decision. Lead's pick, unless the owner says otherwise: the same 60 minutes and
+  the same launch configuration as a Trial 005 arm (`trial-005/ARMS.md`). Run it outside the session (R9 nohup/setsid
+  plus keep-awake), and only when usage has room.
 - Decision 006 step 1 compared with what is done (the 18:10–18:27 window below): done are C1–C12 for both arms, with
   hierarchy evidence, console findings (unified log), Time Profiler and hangs, and a few screenshots per arm. Still
   missing: interaction recordings (`simctl io <udid> recordVideo` inside the window); a matched screenshot set per arm
@@ -16,10 +18,10 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
   (candidates for limitation: `applicationState: NotRun`, marker frames not changing on selection, captures that come
   before an animation ends, glyph-sized control frames, hangs during the first MCP activation); and a cold-launch
   measurement beyond one first launch (arm-v02 showed an empty map grid for ~11 s, once, after install).
-- If confirmed, section 6 settles owner questions 2–4: keep the stray MCPVerify DerivedData and Xcode's preview device
-  clone (removal needs separate authorization), and leave developer mode off. Question 5 (Trailhead builder) stays
-  open.
-- Order once confirmed: step 1 gaps (one lock window) → step 2 (find where Xcode installs the device-interaction skill;
+- Section 6 (now confirmed) settles owner questions 2–4: keep the stray MCPVerify DerivedData and Xcode's preview
+  device clone (removal needs separate authorization), and leave developer mode off. Question 5 (Trailhead builder)
+  stays open.
+- Order: step 1 gaps (one lock window) → step 2 (find where Xcode installs the device-interaction skill;
   verified examples for tap, text, scroll, multi-point drag, reversal, screenshot, hierarchy; no copy of the whole
   skill) → step 3 (premature-completion analysis from the transcripts; notes so far are in RESULTS.md) → step 4 (a
   NEW isolated copy of arm-v02 at participant commit `7caa43b`; it must not see RESULTS.md, CHECKS.md or assessor
@@ -35,9 +37,7 @@ Updated 2026-11-26 18:3x by the AES lead (session on branch claude/aes-v0-2-d005
   In brief: both arms pass C1–C4, C6, C7, C9–C11; arm-v02 fails part of C5 (Cancel goes to the middle height); both
   are partial on C8 with different defects; C12 does not separate them. No superiority claim.
 - Deviation logged in RESULTS: C11 used `simctl … log show`, because `GetConsoleOutput` needs an open Xcode workspace.
-- **NEXT:** no further step has an owner yes. Trial 005's Decision 005 deliverables are complete; the owner reviews
-  `trial-005/RESULTS.md` and decides what follows (publishing v0.2, another pair, or Findings 7/11/17). Owner
-  questions 2–5 below are still open. No resume task is set, and nothing is running.
+- (Superseded at 18:4x by the confirmed Decision 006 above. Nothing is running.)
 
 - 2026-11-26 17:3x (lead: scheduled session `resume-appleengineeringsystem-287007`, work tree
   `.claude/worktrees/aes-v0-2-d005-91383d`). **Both Trial 005 arms ran and finished on their own**: arm-control
@@ -121,6 +121,10 @@ C. Trial 005 = Maps-style reference challenge in a fresh isolated project; wait 
 - Builder for the Trailhead fixture (step 1b).
 
 ## Live yeses
+
+- 2026-11-26 18:4x: Director Decision 006, confirmed by the owner in the lead's chat: steps 1–4, the deliverables and
+  the constraints in `directives/DECISION-006.md` (sections 5–6 included). Every simulator step runs in a lead-held
+  lock window on `iPhone 18 Pro Max`. Decision 005's yeses still apply to Trial 005's setup.
 
 - 2026-11-26: Xcode MCP in both Trial 005 arms; the owner approves the agent in Xcode when prompted.
 - Brief (Assignment 004 + supplement): work on branch `aes-v0.2` and publish it after review; never touch `main`,

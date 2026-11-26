@@ -2,8 +2,8 @@
 
 Provenance: the owner pasted this into the chat of the AES session `resume-appleengineeringsystem-287007` at about
 18:20 local on 2026-11-26. That session had stood down, so it relayed the text to the live lead (scheduled session
-`next-lead-appleengineeringsystem-287007`), which recorded it here unchanged. **It has not yet been confirmed in the
-live lead's own chat.** Until the owner confirms it there, the lead treats it as received, not as a yes to act on.
+`next-lead-appleengineeringsystem-287007`), which recorded it here unchanged. **The owner confirmed it in the live
+lead's own chat on 2026-11-26 at 18:4x ("Yes, confirmed").** From then on it is the owner's yes for the work it names.
 
 === Decision 006, verbatim as the owner pasted it ===
 
