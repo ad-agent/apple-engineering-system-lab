@@ -17,7 +17,7 @@ Updated 2026-11-26 15:2x by the AES lead (session on branch claude/aes-v0-2-d005
   Never publish anything from the arm folders (arm-v02's `work/ref/` holds frames of the participant copy).
 - Hand-over 17:3x: this lead ended at the task boundary (context 55 %, runtime checks need a fresh window).
   No start_session tool here, so the next lead is the one-time scheduled task
-  `next-lead-appleengineeringsystem-287007` (fires 17:38 local; keep-awake to 18:23). It works in this same
+  `next-lead-appleengineeringsystem-287007` (fires 18:09 local; keep-awake to 18:54). It works in this same
   work tree. Plan usage at hand-over: 5-hour 47 %, weekly 32 %. Owner questions 2–5 below are still open.
 
 Lead hand-over 2026-11-26 ~16:00 (account tag 287007). Next lead: read this block, `get_usage`, `list_sessions
