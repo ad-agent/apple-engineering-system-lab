@@ -34,8 +34,10 @@
   **Run log:**
   - run-A: 2026-11-27 11:44:40 → 11:58:41 +0100; result `success`, 64 turns, 827 s, $1.98; committed (`574c354`);
     no `.hold` left.
-  - run-B: launched 2026-11-27 13:53:04 +0100 by the D007 lead (5-hour window at 15 %, so it did not wait for the
-    16:40 reset), PID 5184, same lane command as run-A; ends by ~14:23.
+  - run-B: 2026-11-27 13:53:04 → 14:01:31 +0100 (launched by the D007 lead at a 15 % window, PID 5184, same lane
+    command as run-A); result `success`, 78 turns, 498 s, $2.42; committed (`de3c529`); no `.hold` left.
+    Recorded by the hourly task at 14:5x.
+  - run-C: not started. 14:5x firing: 5-hour window at 51 % (resets 16:40 +0100), so it waits for a later firing.
   **How runs are launched (keep the same for B–D, so the arms run under the same conditions):** inside the heavy
   turn and quiet lane (R8), detached, so `launch.sh`'s `.end` watcher survives the session:
   `nohup perl -e 'use POSIX qw(setsid); setsid(); exec @ARGV' /usr/bin/lockf -k /tmp/edraft-checks.lock
