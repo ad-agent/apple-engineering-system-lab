@@ -22,6 +22,9 @@
   (Trial 005 needed the same; an unattended run cannot answer Xcode's approval). If 24 h lapses before run-D, the
   owner reruns it. Side effect noted: the reference recording left five reminders and a Contacts "Don't Allow" in
   the `iPhone 18 Pro Max` simulator's Reminders app.
+  **RE-ARMED 2026-11-27 13:5x by the D007 lead with the owner present ("Try again"):** `resume-appleengineeringsystem-287007`
+  fires once at 16:43 CET for run-B (keep-awake hold to 17:28). A recurring schedule was refused by the auto-mode
+  classifier, so each later step still needs the owner to re-arm it after its run starts.
   **CHAIN BROKEN — OWNER ACTION (2026-11-27 11:4x, lead started by the 11:43 resume task):** the scheduler refused
   `update_scheduled_task` ("needs a person's approval, and nobody has opened this scheduled run"), so an unattended
   lead cannot re-arm the chain. No other name tried (R9); the 16:43 keep-awake hold was ended; the phone notice was
