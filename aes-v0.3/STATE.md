@@ -22,6 +22,7 @@
   (Trial 005 needed the same; an unattended run cannot answer Xcode's approval). If 24 h lapses before run-D, the
   owner reruns it. Side effect noted: the reference recording left five reminders and a Contacts "Don't Allow" in
   the `iPhone 18 Pro Max` simulator's Reminders app.
+  Armed: `resume-appleengineeringsystem-287007` fires 2026-11-27 11:43 CET (keep-awake hold to 12:28) to launch run-A.
 
 - **HAND-OFF 2026-11-27 (Decision 007, lead session in work tree `.claude/worktrees/aes-v0.3-d007`, branch
   `aes-v0.3`, the only writer and publisher of that branch).** Decision 007 is done except what is listed under
