@@ -18,7 +18,7 @@
   `resetsAt` + 3 min, hold the Mac awake to it, check `list_scheduled_tasks`; (5) commit this file, push `aes-v0.3`
   (verify branch and nonempty source; no force), end. After run-D ends: the assessor step (PLAN.md "Assessment") in
   a fresh lead, blind to arms, then RESULTS.md. A usage-cut run is "budget exhausted", never rerun without the owner.
-  **Needs the owner before run-A:** `sudo xcrun mcp-server allow-folder --for-24-hours ~/Scratch/AppleEngineeringSystem/2026-11-27-larder-run`
+  **Done by the owner (reported in chat 2026-11-27 08:2x: "Done, it's allowed"; valid ~24 h):** `sudo xcrun mcp-server allow-folder --for-24-hours ~/Scratch/AppleEngineeringSystem/2026-11-27-larder-run`
   (Trial 005 needed the same; an unattended run cannot answer Xcode's approval). If 24 h lapses before run-D, the
   owner reruns it. Side effect noted: the reference recording left five reminders and a Contacts "Don't Allow" in
   the `iPhone 18 Pro Max` simulator's Reminders app.
