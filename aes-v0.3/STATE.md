@@ -37,7 +37,10 @@
   - run-B: 2026-11-27 13:53:04 → 14:01:31 +0100 (launched by the D007 lead at a 15 % window, PID 5184, same lane
     command as run-A); result `success`, 78 turns, 498 s, $2.42; committed (`de3c529`); no `.hold` left.
     Recorded by the hourly task at 14:5x.
-  - run-C: not started. 14:5x firing: 5-hour window at 51 % (resets 16:40 +0100), so it waits for a later firing.
+  - run-C: in flight. Launched by the hourly task 2026-11-27 16:52:17 +0100 (5-hour window at 0 %, weekly 65 %;
+    load 4.99, memory pressure level 2 "warn"; heavy lane free), PID 37379, same lane command as run-A and run-B.
+    3-minute check: no Xcode approval or allow-folder error in `.jsonl`, `.err` empty. Ends by 17:22 at the latest.
+    (The 14:5x firing found the window at 51 % and waited.)
   **How runs are launched (keep the same for B–D, so the arms run under the same conditions):** inside the heavy
   turn and quiet lane (R8), detached, so `launch.sh`'s `.end` watcher survives the session:
   `nohup perl -e 'use POSIX qw(setsid); setsid(); exec @ARGV' /usr/bin/lockf -k /tmp/edraft-checks.lock
