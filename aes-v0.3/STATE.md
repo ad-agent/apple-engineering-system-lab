@@ -22,21 +22,19 @@
   (Trial 005 needed the same; an unattended run cannot answer Xcode's approval). If 24 h lapses before run-D, the
   owner reruns it. Side effect noted: the reference recording left five reminders and a Contacts "Don't Allow" in
   the `iPhone 18 Pro Max` simulator's Reminders app.
-  **RE-ARMED 2026-11-27 13:5x by the D007 lead with the owner present ("Try again"):** `resume-appleengineeringsystem-287007`
-  fires once at 16:43 CET for run-B (keep-awake hold to 17:28). A recurring schedule was refused by the auto-mode
-  classifier, so each later step still needs the owner to re-arm it after its run starts.
-  **CHAIN BROKEN — OWNER ACTION (2026-11-27 11:4x, lead started by the 11:43 resume task):** the scheduler refused
-  `update_scheduled_task` ("needs a person's approval, and nobody has opened this scheduled run"), so an unattended
-  lead cannot re-arm the chain. No other name tried (R9); the 16:43 keep-awake hold was ended; the phone notice was
-  not sent (the app said the terminal was active). **To continue:** the owner sets
-  `resume-appleengineeringsystem-287007` to fire 2026-11-27 16:43 CET (5-hour window resets 16:40), or runs it by hand
-  after 16:40. Each later step hits the same refusal, so the owner arms each one (or decides on another way).
+  **RECURRING TASK — OWNER YES 2026-11-27 13:5x, in chat:** "configure the existing AES scheduled task to continue
+  the remaining experiments and independent assessment … Continue through runs B, C, D, the independent assessment and
+  the consolidated final report without requesting routine intermediate decisions. Once the assignment is complete, do
+  not launch additional experiments." `resume-appleengineeringsystem-287007` is now one recurring task (cron
+  `43 * * * *`, dispatched at :51 by the app's jitter). Its prompt holds the whole procedure: gates (STATE, usage,
+  another live session, keep-awake to the next firing), record, next run, blind assessment, final report, then
+  "ASSIGNMENT COMPLETE" here and the task disables itself (or asks the owner to). No lead re-arms anything any more;
+  the earlier one-time re-arms (refused when unattended, 11:4x) are superseded. No permission change was needed.
   **Run log:**
-  - run-A: launched 2026-11-27 11:44:40 +0100, PID 63725 (`timeout 1800`, ends by ~12:15). 3-min check (11:47:51):
-    no approval or allow-folder error, `xcode-tools` connected; it had not yet called `xcode-tools`, so the Xcode
-    approval had not yet been tested at that point. Recheck 11:55:52: its first `xcode-tools` calls
-    (DeviceInteraction start session, synthesize) returned results with no error, so the run is not stuck on Xcode's
-    approval. The next lead records the result.
+  - run-A: 2026-11-27 11:44:40 → 11:58:41 +0100; result `success`, 64 turns, 827 s, $1.98; committed (`574c354`);
+    no `.hold` left.
+  - run-B: launched 2026-11-27 13:53:04 +0100 by the D007 lead (5-hour window at 15 %, so it did not wait for the
+    16:40 reset), PID 5184, same lane command as run-A; ends by ~14:23.
   **How runs are launched (keep the same for B–D, so the arms run under the same conditions):** inside the heavy
   turn and quiet lane (R8), detached, so `launch.sh`'s `.end` watcher survives the session:
   `nohup perl -e 'use POSIX qw(setsid); setsid(); exec @ARGV' /usr/bin/lockf -k /tmp/edraft-checks.lock
