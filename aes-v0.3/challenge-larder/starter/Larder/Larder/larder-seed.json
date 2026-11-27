@@ -1,0 +1,229 @@
+{
+ "note": "Fictional fixture. expiresInDays is relative to the day the app first loads the seed; negative means already past.",
+ "items": [
+  {
+   "name": "Whole milk",
+   "category": "Dairy",
+   "location": "Fridge",
+   "expiresInDays": 2,
+   "quantity": 1
+  },
+  {
+   "name": "Greek yogurt",
+   "category": "Dairy",
+   "location": "Fridge",
+   "expiresInDays": 5,
+   "quantity": 1
+  },
+  {
+   "name": "Cheddar",
+   "category": "Dairy",
+   "location": "Fridge",
+   "expiresInDays": 18,
+   "quantity": 1
+  },
+  {
+   "name": "Butter",
+   "category": "Dairy",
+   "location": "Fridge",
+   "expiresInDays": 30,
+   "quantity": 1
+  },
+  {
+   "name": "Eggs (12)",
+   "category": "Dairy",
+   "location": "Fridge",
+   "expiresInDays": 12,
+   "quantity": 1
+  },
+  {
+   "name": "Baby spinach",
+   "category": "Vegetables",
+   "location": "Fridge",
+   "expiresInDays": 1,
+   "quantity": 1
+  },
+  {
+   "name": "Carrots",
+   "category": "Vegetables",
+   "location": "Fridge",
+   "expiresInDays": 14,
+   "quantity": 1
+  },
+  {
+   "name": "Broccoli",
+   "category": "Vegetables",
+   "location": "Fridge",
+   "expiresInDays": 3,
+   "quantity": 1
+  },
+  {
+   "name": "Cherry tomatoes",
+   "category": "Vegetables",
+   "location": "Counter",
+   "expiresInDays": 4,
+   "quantity": 1
+  },
+  {
+   "name": "Avocados (3)",
+   "category": "Fruit",
+   "location": "Counter",
+   "expiresInDays": 2,
+   "quantity": 1
+  },
+  {
+   "name": "Bananas",
+   "category": "Fruit",
+   "location": "Counter",
+   "expiresInDays": 3,
+   "quantity": 1
+  },
+  {
+   "name": "Strawberries",
+   "category": "Fruit",
+   "location": "Fridge",
+   "expiresInDays": 0,
+   "quantity": 1
+  },
+  {
+   "name": "Apples",
+   "category": "Fruit",
+   "location": "Fridge",
+   "expiresInDays": 21,
+   "quantity": 1
+  },
+  {
+   "name": "Lemons",
+   "category": "Fruit",
+   "location": "Fridge",
+   "expiresInDays": 16,
+   "quantity": 1
+  },
+  {
+   "name": "Chicken thighs",
+   "category": "Meat & fish",
+   "location": "Fridge",
+   "expiresInDays": 1,
+   "quantity": 1
+  },
+  {
+   "name": "Salmon fillets",
+   "category": "Meat & fish",
+   "location": "Freezer",
+   "expiresInDays": 60,
+   "quantity": 1
+  },
+  {
+   "name": "Minced beef",
+   "category": "Meat & fish",
+   "location": "Freezer",
+   "expiresInDays": 45,
+   "quantity": 1
+  },
+  {
+   "name": "Sourdough loaf",
+   "category": "Bakery",
+   "location": "Counter",
+   "expiresInDays": 2,
+   "quantity": 1
+  },
+  {
+   "name": "Tortillas",
+   "category": "Bakery",
+   "location": "Cupboard",
+   "expiresInDays": 9,
+   "quantity": 1
+  },
+  {
+   "name": "Hummus",
+   "category": "Ready meals",
+   "location": "Fridge",
+   "expiresInDays": -1,
+   "quantity": 1
+  },
+  {
+   "name": "Leftover curry",
+   "category": "Ready meals",
+   "location": "Fridge",
+   "expiresInDays": 1,
+   "quantity": 1
+  },
+  {
+   "name": "Basmati rice",
+   "category": "Cupboard",
+   "location": "Cupboard",
+   "expiresInDays": 300,
+   "quantity": 1
+  },
+  {
+   "name": "Spaghetti",
+   "category": "Cupboard",
+   "location": "Cupboard",
+   "expiresInDays": 420,
+   "quantity": 1
+  },
+  {
+   "name": "Chopped tomatoes (2 tins)",
+   "category": "Cupboard",
+   "location": "Cupboard",
+   "expiresInDays": 540,
+   "quantity": 1
+  },
+  {
+   "name": "Peanut butter",
+   "category": "Cupboard",
+   "location": "Cupboard",
+   "expiresInDays": 120,
+   "quantity": 1
+  },
+  {
+   "name": "Oat milk",
+   "category": "Drinks",
+   "location": "Cupboard",
+   "expiresInDays": 90,
+   "quantity": 1
+  },
+  {
+   "name": "Orange juice",
+   "category": "Drinks",
+   "location": "Fridge",
+   "expiresInDays": 6,
+   "quantity": 1
+  },
+  {
+   "name": "Frozen peas",
+   "category": "Vegetables",
+   "location": "Freezer",
+   "expiresInDays": 200,
+   "quantity": 1
+  },
+  {
+   "name": "Fresh basil",
+   "category": "Vegetables",
+   "location": "Fridge",
+   "expiresInDays": 2,
+   "quantity": 1
+  },
+  {
+   "name": "Mozzarella",
+   "category": "Dairy",
+   "location": "Fridge",
+   "expiresInDays": 4,
+   "quantity": 1
+  },
+  {
+   "name": "Pesto",
+   "category": "Ready meals",
+   "location": "Fridge",
+   "expiresInDays": 7,
+   "quantity": 1
+  },
+  {
+   "name": "Coriander",
+   "category": "Vegetables",
+   "location": "Fridge",
+   "expiresInDays": -2,
+   "quantity": 1
+  }
+ ]
+}

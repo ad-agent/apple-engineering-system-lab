@@ -1,0 +1,587 @@
+diff --git a/aes-v0.2/skills/apple-product-engineering/SKILL.md b/aes-v0.3/skills/apple-product-engineering/SKILL.md
+index 1298b46..a2f44ab 100644
+--- a/aes-v0.2/skills/apple-product-engineering/SKILL.md
++++ b/aes-v0.3/skills/apple-product-engineering/SKILL.md
+@@ -1,68 +1,107 @@
+ ---
+ name: apple-product-engineering
+-description: Use when creating, refining, repairing or evaluating a native iOS, iPadOS or macOS app, and whenever a screenshot, recording or existing design is the reference. Covers native-versus-custom decisions, preserving an accepted design, gestures and animation, haptics, runtime verification, and turning a reference into requirements.
++description: Use when creating, refining, repairing or evaluating a native iOS, iPadOS or macOS app; whenever a screenshot, recording, product description or existing design is the reference; and before driving or inspecting a running app in the simulator with Xcode's device tools (it holds verified corrections to Xcode's device-interaction skill). Selects and applies Apple's own Xcode skills, turns the reference into checkable user journeys, and covers native-versus-custom decisions, preserving an accepted design, gestures, haptics, runtime criticism in the running app, and when the work is finished.
+ ---
+ 
+ # Apple product engineering
+ 
+-## Read before you decide
+-
+-The references below hold the decision methods. Before the first edit that commits to a decision in a category,
+-read that category's reference with the Read tool. Read only the ones the task touches, and read each one once.
+-In your first progress note, name the references you read and the category that triggered each one.
+-
+-| The task involves | Read |
+-|---|---|
+-| A screenshot, recording, mock-up or "make it like X" | [reference-analysis.md](references/reference-analysis.md) |
+-| Choosing between a system component and custom code; navigation, sheets, focus, selection, undo, saving; API availability | [native.md](references/native.md) |
+-| Changing an app whose current design is accepted (refine, repair, add to) | [preservation.md](references/preservation.md) |
+-| A drag, swipe, pinch or other continuous gesture; an interruptible or interactive transition; spring tuning | [interaction.md](references/interaction.md) |
+-| Haptic or other feedback tied to an action | [haptics.md](references/haptics.md) |
+-| Building, running, testing, recording or profiling; a failing or flaky test; a runtime warning; a hang | [runtime.md](references/runtime.md) |
+-| A new app or feature whose flow is not yet decided; a request to make something simpler or better | [product.md](references/product.md) |
+-
+-A bug fix in model code, a string change or a build-setting edit usually needs none of them, or only runtime.md.
+-
+-## Use what Apple and the client already provide
+-
+-- Check APIs against the installed SDK, not memory: the Xcode MCP `DocumentationSearch` tool when it is approved,
+-  or the `.swiftinterface` files under `xcrun --show-sdk-path`.
+-- Xcode 27 ships Apple-written agent guidance. Read the file that matches the problem before writing that kind of
+-  code, where it is installed:
+-  `R="$(xcode-select -p)/../PlugIns/IDEIntelligenceChat.framework/Versions/A/Resources"`. `ls "$R"` lists
+-  `swiftui-specialist*` (data flow, identity, animation, soft deprecations), `swiftui-whats-new-27*`, `xctrace*`
+-  (profiling and hang triage), `app-resizability*`, `building-document-based-swiftui-applications*`,
+-  `app-intents-specialist*` and `AdditionalDocumentation/*.md` (Liquid Glass, toolbars, styled text and more).
+-  Read them in place; do not copy them.
+-- Build, test, run and inspect with the tools the session already has: `xcodebuild`, `xcrun simctl`, `xcrun xctrace`,
+-  the Xcode MCP tools (`xcrun mcpbridge`) and any simulator tool the client provides. runtime.md says which tool
+-  observes what. Project rules about locks, simulators and user data apply to every one of them, MCP tools included.
+-
+-## Work order
+-
+-1. **Classify the task.** Creation, refinement of an accepted design, repair, or evaluation. Write the observable
+-   acceptance conditions before editing; take them from the brief, not from what is easy to build.
+-2. **Interpret the reference and the current app** (reference-analysis.md, preservation.md). For a refinement,
+-   capture the current app's comparable states before the first edit.
+-3. **Find the owner.** Locate the view, controller, scene or model that owns the behavior. Try the native component
+-   or container first (native.md). Write custom machinery only for a requirement the native path demonstrably fails;
++The aim is an app an exceptional Apple product team would ship: the intended experience works in the running app,
++for every user, in the ways the platform already teaches. This skill decides *what* to check and *which* expertise to
++apply. Apple's own Xcode skills hold the platform and tool knowledge; use them, do not restate them.
++
++## 1. Load Apple's expertise before the decision it informs
++
++Xcode ships Apple-written skills as a plugin. Find it on the installed Xcode each time; the path contains the Xcode
++build number, so never write it down:
++
++```bash
++P="$(xcrun mcpbridge run-agent plugin path --plugin-format claude)"; ls "$P/skills"
++```
++
++- If your skill list already shows `xcode-integration:<name>` (the session was started with
++  `claude --plugin-dir "$P"`), invoke the skill by that name.
++- Otherwise read `$P/skills/<name>/SKILL.md` in place, and the files under its `references/` that it points to.
++- The device tools (`DeviceInteraction*`) exist only if the session has Xcode's MCP server, through that plugin or
++  `xcrun mcpbridge`. Without them, use the command-line routes in runtime.md; do not add another server or agent.
++- Xcode's longer framework notes (Liquid Glass, toolbars, styled text, Foundation Models, StoreKit, MapKit and more)
++  are plain Markdown in `"$(xcode-select -p)/../PlugIns/IDEIntelligenceChat.framework/Versions/A/Resources/AdditionalDocumentation"`.
++  The specialist files beside that folder are `.packaged` and not readable; use the plugin for those.
++
++Before the first edit or tool call that commits to a decision in a row below, load that row's Apple skill and AES
++reference. Load only the rows the task touches, once each, and name them in your first progress note.
++
++| The task involves | Apple skill (`xcode-integration:`) | AES reference |
++|---|---|---|
++| A screenshot, recording, product description or "make it like X" | — | [reference-analysis.md](references/reference-analysis.md) |
++| A new app or flow, or "make it simpler or better" | — | [product.md](references/product.md) |
++| SwiftUI structure, data flow, identity, lists, animation APIs | `swiftui-specialist`; `swiftui-whats-new-27` for SDK 27 APIs | [native.md](references/native.md) |
++| System component versus custom code; navigation, sheets, focus, undo, saving; availability | `swiftui-specialist` (soft deprecations); `building-document-based-swiftui-applications` for documents | [native.md](references/native.md) |
++| Changing an app whose current design is accepted | — | [preservation.md](references/preservation.md) |
++| A drag, swipe, pinch or interruptible transition | `swiftui-specialist` (animations) | [interaction.md](references/interaction.md) |
++| Haptic or other feedback tied to an action | — | [haptics.md](references/haptics.md) |
++| Driving the running app: tap, type, drag, read the hierarchy | `device-interaction` | [runtime.md](references/runtime.md) |
++| Text size, VoiceOver, contrast | `accessibility-dynamic-type-specialist`, `accessibility-voiceover-specialist`, `accessibility-sufficient-contrast-specialist` | [runtime.md](references/runtime.md) |
++| Launch time, hangs, hitches, CPU, memory | `xctrace` | [runtime.md](references/runtime.md) |
++| Resizable windows, iPad multitasking, multiple windows | `app-resizability` | [native.md](references/native.md) |
++| Siri, Shortcuts, Spotlight, widgets' intents | `app-intents-specialist`, `app-intents-whats-new-27` | [product.md](references/product.md) |
++| Tests to write or migrate | `modernize-tests` | [runtime.md](references/runtime.md) |
++| Localizing strings or String Catalogs | `translation-coordinator` | — |
++
++Check any API you are not sure of against the installed SDK (the Xcode MCP `DocumentationSearch` tool, or the
++`.swiftinterface` files under `xcrun --show-sdk-path`), not memory. Where Apple's guidance and the installed tools
++disagree, runtime.md lists the verified corrections.
++
++## 2. Work order
++
++1. **Classify the task and its authority.** Creation, refinement of an accepted design, repair, or evaluation.
++   Routine engineering choices are yours: take the reasonable default, write the assumption in your notes, continue.
++   Only a step outside the project's authority needs the owner: money, keys and credentials, deleting user data,
++   security settings, publishing, or the project's own rules. A finished milestone is not a reason to ask.
++2. **Understand the intended experience** (reference-analysis.md, product.md). Before implementing, write each
++   primary journey as *starting state → user action → expected end state*, with the end state taken from the
++   reference or brief, not from what is easy to build. Example: "search opened from the smallest sheet height;
++   Cancel; the sheet is back at the smallest height and the map shows all places". Name the usability principle
++   each journey serves. These are your essential acceptance conditions; keep them in your work notes.
++   For a refinement, also capture the current app's comparable states first (preservation.md).
++3. **Find the owner.** Locate the view, controller, scene or model that owns the behaviour. Try the native
++   component first (native.md). Write custom machinery only for a requirement the native path demonstrably fails;
+    record which requirement and what you saw fail.
+ 4. **Implement in small steps** that keep the app buildable.
+-5. **Run the app and look** (runtime.md). Exercise each acceptance condition in the running app, including the
+-   intermediate states of any gesture, then critique what you saw as a user would. A green build or test suite is
+-   necessary, not sufficient.
+-6. **Refine** only on evidence: a defect you observed, a criterion not met, or a measured problem. Each round names
+-   the observation, the change and the re-check. Stop when the criteria hold, when the time or usage budget is
+-   spent, or when a blocker needs the owner. Do not polish past the criteria to look busy.
++5. **Run the app and criticise it** (runtime.md). Walk each primary journey in the running app from more than one
++   starting state and compare the end state you observe with the one you wrote, using the hierarchy, not only
++   screenshots. Then the system-settings pass: the largest accessibility text size, dark appearance, VoiceOver
++   labels. A tool call that succeeded is not a journey that works; a green build is not a good app.
++6. **Refine on evidence.** Each round: observation → cause → change → re-check. When you see a meaningful defect
++   inside the authorised scope, fix it; outside the scope, report it.
++
++## 3. When the work is finished
++
++Sort the conditions into three kinds:
++
++- **Essential:** the primary journeys and anything the brief requires. Each needs runtime evidence. An essential
++  condition without it is unfinished work, not a line in the report: keep working on it.
++- **Polish:** improvements beyond the brief. Do them when they are cheap and clearly better; otherwise list them.
++- **Device-only:** feel, haptics, frame pacing and thermals. The simulator cannot show them; name them as unverified
++  on a physical device. They do not block completion.
++
++Stop only when one of these is true:
++- every essential condition has runtime evidence and nothing you observed is still a meaningful defect;
++- a genuine blocker: the tool's own guidance (its Apple skill or `--help`) **and** one other route (for example an
++  XCUITest instead of synthesized touches, or `simctl` instead of an MCP tool) have both failed, or the next step
++  needs the owner (step 1);
++- the time or usage budget is spent.
++
++Then report, with what remains unverified and why. Do not spend budget that is left just because it is there: once
++the essential conditions hold, finish.
+ 
+-## Hard rules
++## 4. Hard rules
+ 
+-- Never weaken, delete or loosen an assertion or acceptance criterion to get green. If a pre-existing defect blocks a
++- Never weaken, delete or loosen an assertion or acceptance condition to get green. If a pre-existing defect blocks a
+   check, keep the check, mark it as an expected failure with the reason (`XCTExpectFailure`) or leave it failing,
+   and report it.
+ - Report every runtime warning and every test-runner stall you see, even when it also occurs in the baseline. Say
+   whether it is new.
+-- Separate in the report: what you ran and saw (with paths), what tests assert, what you infer from source, and what
+-  you could not check. Simulator evidence says nothing about tactile feel, device frame pacing or thermals.
+-- Follow the project's and the operator's rules on locks, simulators, deletion and permissions for every action.
+-  Doing the task without asking for help is not the same as complying with them; list any deviation.
++- Separate in the report what you ran and saw (with paths), what tests assert, what you infer from source, and what
++  you could not check.
++- Follow the project's and the operator's rules on locks, simulators, deletion and permissions for every action,
++  MCP tools included. Working without help is not the same as complying with them; list any deviation.
+diff --git a/aes-v0.2/skills/apple-product-engineering/references/haptics.md b/aes-v0.3/skills/apple-product-engineering/references/haptics.md
+index dec233a..4b71aed 100644
+--- a/aes-v0.2/skills/apple-product-engineering/references/haptics.md
++++ b/aes-v0.3/skills/apple-product-engineering/references/haptics.md
+@@ -33,7 +33,7 @@ their own feedback. Do not add a second one on top; check on a device what the u
+ 
+ | Claim | Evidence that supports it |
+ |---|---|
+-| The app requests feedback at the right events, once each | A log line or `os_signpost` at the request point, read with `GetConsoleOutput` (Xcode MCP) or `log stream --predicate 'subsystem == "…"'` while running the journey, including a cancelled drag and a repeated action |
++| The app requests feedback at the right events, once each | A log line or `os_signpost` at the request point, read with `GetConsoleOutput` (Xcode MCP, needs an open workspace) or `log stream --predicate 'subsystem == "…"'` while running the journey, including a cancelled drag and a repeated action |
+ | The trigger does not fire during tracking | The same log while dragging back and forth without releasing |
+ | The device plays it | A physical device with system haptics on; the simulator plays nothing |
+ | It feels right (timing, strength) | A person on a named device model and OS. Not claimable by an agent |
+diff --git a/aes-v0.2/skills/apple-product-engineering/references/interaction.md b/aes-v0.3/skills/apple-product-engineering/references/interaction.md
+index 59a82aa..219abaf 100644
+--- a/aes-v0.2/skills/apple-product-engineering/references/interaction.md
++++ b/aes-v0.3/skills/apple-product-engineering/references/interaction.md
+@@ -1,6 +1,7 @@
+ # Interaction engineering
+ 
+-First check whether a system transition does the job (native.md). Most transitions are ordinary: a push, a sheet,
++First check whether a system transition does the job (native.md); for SwiftUI animation APIs read Apple's
++`swiftui-specialist` animations reference. Most transitions are ordinary: a push, a sheet,
+ a zoom, a `withAnimation` state change. Those need no gesture model and no state machine. What follows is for a
+ continuous, finger-driven interaction that the system does not provide.
+ 
+@@ -81,9 +82,9 @@ Increase Contrast; set Reduce Motion in the simulator's Settings > Accessibility
+ 
+ ## Executing reversal and interruption
+ 
+-XCUITest `press(forDuration:thenDragTo:)` draws one straight segment, so it cannot reverse direction in one touch
+-(Control A's evidence gap). Use a tool that takes a multi-point touch path with timing: the client's simulator
+-`touch_path` action where it exists, or the Xcode MCP `DeviceInteractionSynthesize` if its command set covers it
+-(not yet verified). `XCUICoordinate.press(forDuration:thenDragTo:withVelocity:thenHoldForDuration:)` controls speed
+-and the final hold of one segment, which is enough for flick and hold-then-release checks. For interruption, start a settle, then touch down within ~100 ms and hold. Record the screen
++XCUITest `press(forDuration:thenDragTo:)` draws one straight segment, so it cannot reverse direction in one touch.
++Use a multi-point touch path with timing: the Xcode MCP `DeviceInteractionSynthesize` `mt` keyframes (verified
++forms in runtime.md; syntax in Apple's `device-interaction` skill), or the client's simulator `touch_path` where it
++exists. `XCUICoordinate.press(forDuration:thenDragTo:withVelocity:thenHoldForDuration:)` controls speed and the final
++hold of one segment, which is enough for flick and hold-then-release checks. For interruption, start a settle, then touch down within ~100 ms and hold. Record the screen
+ and measure the surface edge frame by frame (runtime.md); a jump of more than a few points at touch-down is a defect.
+diff --git a/aes-v0.2/skills/apple-product-engineering/references/native.md b/aes-v0.3/skills/apple-product-engineering/references/native.md
+index a9661bc..bb79b7f 100644
+--- a/aes-v0.2/skills/apple-product-engineering/references/native.md
++++ b/aes-v0.3/skills/apple-product-engineering/references/native.md
+@@ -32,6 +32,8 @@ needed custom code; the controls could stay system controls.
+   `onScrollGeometryChange`, `onScrollPhaseChange`, `UIView.animate(_: Animation, changes:)` are iOS 18;
+   `scrollPosition(id:)`, `sensoryFeedback`, `defaultFocus`, `focusedValue` are iOS 17; `onGeometryChange` and
+   `presentationDetents` are iOS 16; `ConcentricRectangle` and `glassEffect` are iOS 26.
++- Before using an API you remember from older SDKs, check Apple's `swiftui-specialist` soft-deprecation list and
++  `swiftui-whats-new-27` for its current replacement.
+ - Below the requirement's API floor, decide the fallback explicitly: an older API with the same behavior, a reduced
+   behavior that keeps the outcome (a button instead of a drag), or raising the target with the owner's agreement.
+   Build for the oldest target, and run the fallback branch at least once if a runtime for it is installed. Say so
+@@ -63,5 +65,5 @@ fail against the system gesture. Check the back swipe by hand after adding any h
+ 
+ Keep transient UI state (reveal progress, selection inside a sheet) out of the saved model. Route edits through the
+ existing save path and undo manager. When a write fails, keep the draft, show the failure and offer retry; do not
+-dismiss the editor as if saved. For document apps on SDK 27 read Apple's
+-`building-document-based-swiftui-applications` guidance first (see the core skill for where it is).
++dismiss the editor as if saved. For document apps on SDK 27 load Apple's
++`building-document-based-swiftui-applications` skill first (SKILL.md §1).
+diff --git a/aes-v0.2/skills/apple-product-engineering/references/preservation.md b/aes-v0.3/skills/apple-product-engineering/references/preservation.md
+index 0038174..f89175a 100644
+--- a/aes-v0.2/skills/apple-product-engineering/references/preservation.md
++++ b/aes-v0.3/skills/apple-product-engineering/references/preservation.md
+@@ -13,7 +13,7 @@ When unsure, treat it as a refinement.
+ 
+ | Kind | Examples | How to capture |
+ |---|---|---|
+-| Visual | toolbar items and their order, symbols, title style, colors, spacing, row layout, materials | screenshots of named states (below) |
++| Visual | toolbar items and their order, symbols, title style, colors, spacing, row layout, materials | screenshots and hierarchies of named states (below) |
+ | Behavioral | what each control does, gestures that already exist (back swipe, scroll, swipe actions), keyboard shortcuts, focus order, VoiceOver labels and order | a short script of the journey, existing UI tests |
+ | Data | what is saved, when, and what survives relaunch; selection and scroll restoration; undo history | existing model tests, the stored file before and after |
+ 
+diff --git a/aes-v0.2/skills/apple-product-engineering/references/product.md b/aes-v0.3/skills/apple-product-engineering/references/product.md
+index 20f6dc6..3a21283 100644
+--- a/aes-v0.2/skills/apple-product-engineering/references/product.md
++++ b/aes-v0.3/skills/apple-product-engineering/references/product.md
+@@ -1,38 +1,45 @@
+ # Product judgment
+ 
+-Use this when the flow is not yet decided, or when asked to make something simpler or better. In a targeted
+-refinement, preservation.md wins: propose larger changes in the report instead of making them.
++Use this for a new app or flow, or when asked to make something simpler or better. Think as an Apple product team
++would: start from the person and the moment they use the app, then let the platform carry as much as it can. In a
++targeted refinement, preservation.md wins: outside the authorised scope, propose instead of changing.
+ 
+-## Find the cost the user pays today
++## Find the cost the user pays
+ 
+-Walk the primary journeys in the running app (or the reference) and count:
+-- screens and taps to reach the task, and to get back;
+-- decisions the user must make that the app could make (a default, a remembered choice, a detected context);
+-- moments where the user loses context: a full-screen modal over the thing they were looking at, a lost scroll
+-  position, a cleared field;
+-- duplicated controls (two ways to close in one view), confirmation dialogs for undoable actions, alerts that only
+-  inform.
++Walk the primary journeys in the running app or the reference and look through seven lenses. The worst cost found is
++the opportunity.
+ 
+-The worst of these is the opportunity.
++| Lens | Ask | Typical cost |
++|---|---|---|
++| Interaction continuity | Does the thing the user touched stay the thing that moves, opens or answers? | A jump cut, a new screen where the tapped item could have expanded, a gesture that cannot be reversed mid-way |
++| Navigation efficiency | How many taps and screens to the task, and back? | A choice the app could default or remember; a confirmation for an undoable action; an alert that only informs |
++| Context preservation | What does the user lose on the way? | A full-screen modal over what they were looking at; a lost scroll position, cleared field or forgotten selection |
++| Information hierarchy | Is the primary content and action obvious at a glance? | Everything the same weight; the primary action in a menu; secondary detail before the answer |
++| Responsiveness | Does every touch answer at once, and is waiting shown? | A blocked main thread, a spinner with no progress, a launch that shows nothing useful |
++| Accessibility | Does it work at the largest text size, with VoiceOver, in dark, with Reduce Motion? | Truncation, fixed-size icons, unlabelled buttons, gesture-only actions |
++| Native platform integration | Does it use what the system already knows and does? | Hand-made controls, no share sheet, no Spotlight or Shortcuts, ignoring the keyboard and pointer on iPad |
+ 
+ ## How Apple's apps resolve the same costs
+ 
+-Before inventing, check how a first-party app solves the same problem and which system pieces it uses. Examples:
++Before inventing, check how a first-party app solves the problem and which system pieces it uses:
+ - Keep context visible: Maps and Find My use a resizable sheet (`presentationDetents`,
+   `presentationBackgroundInteraction`) over a live map instead of pushing a new screen.
+-- Avoid confirmation: Mail and Notes make destructive actions undoable (swipe to delete, Undo) rather than asking.
+-- Reduce navigation: Photos and Files use the zoom transition from a tapped item so the source stays the spatial
+-  anchor; Settings search jumps straight to the setting.
++- Avoid confirmation: Mail and Notes make destructive actions undoable rather than asking.
++- Keep the spatial anchor: Photos and Files open an item with the zoom transition from where it was tapped.
+ - Fewer modes: Reminders and Notes edit in place; there is no separate edit screen.
+-- Bring actions to the content: context menus with previews, swipe actions, the toolbar's bottom bar on iPhone.
+-- Use the system's knowledge: Live Text, data detectors, App Intents and Spotlight, Handoff, the share sheet.
+-
+-Verify the behavior in the actual app on the simulator or a device rather than from memory; behavior changes between
+-releases.
+-
+-## Proposing something new
+-
+-A new interaction is justified when you can state the cost it removes and show that system patterns do not remove
+-it. Prototype it against the system alternative, run both, and compare the counts above. Keep platform affordances:
+-the back swipe still goes back, a tap on a row still opens it, VoiceOver still reaches every action. Do not add
+-custom visuals to look original; differentiation comes from removing work.
++- Bring actions to the content: context menus with previews, swipe actions, the bottom toolbar on iPhone.
++- Use the system's knowledge: Live Text, data detectors, App Intents and Spotlight, Handoff, the share sheet
++  (`app-intents-specialist` for intents).
++
++Behaviour changes between releases: check it in the actual app on the simulator, not from memory.
++
++## Deciding what to build
++
++- Every addition names the cost it removes and the lens it belongs to. "It looks more distinctive" is not a cost.
++- Prefer removing work over adding features: one fewer screen, one fewer decision, nothing retyped.
++- A new interaction is justified when system patterns do not remove the cost. Prototype it against the system
++  alternative, run both, compare the counts above.
++- Keep platform affordances: the back swipe goes back, a tap on a row opens it, VoiceOver reaches every action,
++  Dynamic Type scales everything.
++- No decorative customization: custom colours, shapes and animations that solve nothing make the app less native.
++- Write the decision and its reason in your notes in one line, and continue; it does not need the owner.
+diff --git a/aes-v0.2/skills/apple-product-engineering/references/reference-analysis.md b/aes-v0.3/skills/apple-product-engineering/references/reference-analysis.md
+index ccc4baa..c0efa1d 100644
+--- a/aes-v0.2/skills/apple-product-engineering/references/reference-analysis.md
++++ b/aes-v0.3/skills/apple-product-engineering/references/reference-analysis.md
+@@ -1,48 +1,56 @@
+ # Reading a reference as an experience
+ 
+-A screenshot or recording describes what a user experiences, not how it was built. Turn it into requirements you can
+-check in the running app.
++A screenshot, recording or product description says what a user should experience, not how it was built. Turn it
++into journeys you can check in the running app, and into the principle that makes them good.
+ 
+ ## Get the material
+ 
+ - Screenshot: note device class, orientation, appearance, text size and what is cut off.
+ - Recording: `ffprobe` for size, frame rate and duration. Make a contact sheet to find the moments
+   (`ffmpeg -i ref.mov -vf "fps=2,scale=320:-1,tile=6x4" sheet.png`), then extract full frames around each moment
+-  (`ffmpeg -ss 12.4 -to 13.4 -i ref.mov -vf fps=30 f%03d.png`). Look at the frames; for motion, measure an edge
+-  per frame ([examples/edge-track](../examples/edge-track/)).
+-- Write down what the recording cannot show: touches (unless shown), haptics, sound, timing below its frame rate.
++  (`ffmpeg -ss 12.4 -to 13.4 -i ref.mov -vf fps=30 f%03d.png`). For motion, measure an edge per frame
++  ([examples/edge-track](../examples/edge-track/)).
++- Product description: underline who the user is, the situation they are in (hurried, one-handed, offline,
++  interrupted) and the outcome they want. These decide priorities when the description says nothing about layout.
++- Write down what the material cannot show: touches (unless shown), haptics, sound, timing below the frame rate,
++  states never visited.
+ 
+ ## Analyse in this order
+ 
+ 1. **Information architecture.** What content and actions exist, how they group, what is primary.
+-2. **Persistent surfaces and space.** Which surfaces stay on screen across states, which slide, which cover which;
+-   where each sits relative to the others (left of, under, inset by ~N pt).
++2. **Persistent surfaces and space.** Which surfaces stay on screen across states, which slide, which cover which.
+ 3. **Component identity.** Follow each control across frames by function, label, position and order. A control that
+-   changes shape or symbol but keeps its role is the same control transformed (menu → close). Two similar shapes are
+-   not enough to claim identity.
+-4. **Journeys.** The steps a user takes for each task, with the number of taps and screens.
+-5. **Gesture progression.** Contact (if visible), first movement, how far content follows the finger, reversal,
+-   release, settle, overshoot. Mark frame numbers.
+-6. **Motion coordination.** Which properties move together (position, corner radius, opacity, symbol), which lead
+-   or lag, and whether anything changes at a threshold rather than continuously.
+-7. **State continuity.** What is visibly kept across the transition: scroll position, search text, selection,
+-   keyboard.
+-8. **Reported feel.** What the person says about haptics or weight. Record it as their report.
+-9. **The benefit.** Why a user is better off: fewer steps, context kept in view, faster return. This decides what
+-   must be kept when the reference conflicts with the platform or the existing app.
++   changes shape but keeps its role is the same control transformed (menu → close).
++4. **Journeys.** For each task: starting state → user action → resulting state, with the number of taps and
++   screens. The resulting state is the expected end state you will check in your app.
++5. **Gesture progression.** Contact, first movement, how far content follows the finger, reversal, release, settle,
++   overshoot. Mark frame numbers.
++6. **Motion coordination.** Which properties move together, which lead or lag, what changes at a threshold.
++7. **State continuity.** What is kept across a transition: scroll position, search text, selection, keyboard, the
++   place on the map. What returns to where it was when the user backs out.
++8. **Reported feel.** What the person says about haptics or weight, recorded as their report.
++9. **The usability principle.** Why the user is better off: context stays in view, the way back is the way in, the
++   common action is one step, nothing typed is lost. Name it per journey. It decides what must be kept when the
++   reference conflicts with the platform or the existing app, and it is what you test, not the pixels.
+ 
+ ## Record three columns
+ 
+-| Observed (frame or pixel evidence) | Inferred (reasoning, stated as such) | Unknown |
++| Observed (frame or pixel evidence) | Inferred (stated as such) | Unknown |
+ |---|---|---|
+-| "At 22.36 s about 70 pt of the main surface stays visible at the trailing edge" | "Probably a pan rather than an edge swipe, because content moved from the first frame of contact" | Haptic timing; spring parameters; framework used |
++| "At 22.36 s about 70 pt of the main surface stays visible at the trailing edge" | "Probably a pan, because content moved from the first frame of contact" | Haptic timing; spring parameters; framework |
+ 
+-Do not assign spring constants, framework choices or private implementation to the reference. Say "settles in about
+-0.4 s without visible overshoot", not "uses a spring with damping 0.8".
++Do not assign spring constants, frameworks or private implementation to the reference. Say "settles in about 0.4 s
++without visible overshoot", not "uses a spring with damping 0.8".
+ 
+-## Turn it into requirements
++## Turn it into journeys and requirements
+ 
+-Each requirement is observable in your app: "after opening, the main surface's leading edge rests 60–80 pt from the
+-trailing screen edge", "a drag that is reversed before release returns the surface without a jump", "the search
+-text is unchanged after closing". Keep the benefit, adapt the form: if the reference has two close buttons and the
+-brief asks for one, one wins. Then check each requirement against native.md before choosing an implementation.
++Write each primary journey as a check you can run, with its end state from the reference:
++
++| Journey | Starting state | Action | Expected end state | Principle |
++|---|---|---|---|---|
++| Cancel search | sheet at smallest height, map shows all places | tap search, type, tap Cancel | sheet at smallest height; all places shown; text cleared | the way back is the way in |
++
++Add the neighbouring requirements ("a drag reversed before release returns without a jump", "the search text survives
++closing the sheet"). Keep the principle, adapt the form: if the reference has two close buttons and the brief asks
++for one, one wins. Then check each requirement against native.md before choosing an implementation, and look for the
++opportunities in product.md.
+diff --git a/aes-v0.2/skills/apple-product-engineering/references/runtime.md b/aes-v0.3/skills/apple-product-engineering/references/runtime.md
+index 2f04973..da4716c 100644
+--- a/aes-v0.2/skills/apple-product-engineering/references/runtime.md
++++ b/aes-v0.3/skills/apple-product-engineering/references/runtime.md
+@@ -1,86 +1,106 @@
+-# Runtime evaluation and refinement
++# Runtime criticism
+ 
+-## Four kinds of evidence
++## Evidence and what it can establish
+ 
+ | Kind | Example | What it can establish |
+ |---|---|---|
+-| Source intent | "the pan cancels into the committed state" in code | Nothing about behavior |
+-| Model test | unit test of the progress model | The model's arithmetic |
+-| Runtime observation | UI test result, screenshot, recording, log line, trace | What the app did in that run, on that destination |
+-| Perceptual quality | a person judging feel, timing, haptic strength on a device | Feel. Not available to an agent |
++| Source intent | "Cancel restores the previous height" in code | Nothing about behaviour |
++| Test | unit test of the model; UI test result | What the test asserts, on that destination |
++| Runtime observation | hierarchy, screenshot, recording, console line, trace | What the app did in that run |
++| Perceptual quality | a person judging feel, timing, haptics on a device | Feel. Not available to an agent |
+ 
+-Report each claim under the strongest kind you actually have, and say which runs it came from.
++The kinds complement each other: the hierarchy gives state (frames, focus, values, counts); a screenshot gives
++colour, clipping and overlap; a recording gives motion; the console and traces give warnings and time. Report each
++claim under the strongest kind you have. A tool that returned success says the command ran, not that the user got
++what the journey promises.
+ 
+ ## Before the first edit
+ 
+-1. Read the project's rules on shared resources: build or simulator locks, which simulator to use, whether user data
+-   may be touched. They apply to `xcodebuild`, `simctl`, Xcode MCP tools and client simulator tools alike. If the
+-   rule is a lock wrapper around commands, an MCP action that builds, runs, tests, renders a preview or drives a
+-   device happens only while you hold that lock (for example a holder process started under the same lock for the
+-   duration of the MCP calls), or you use the command-line route instead.
+-2. Build and run the existing tests on the untouched baseline with a fresh result bundle:
+-   `xcodebuild test -scheme S -destination 'platform=iOS Simulator,id=<udid>' -resultBundlePath <new path> -derivedDataPath <scratch>`.
+-   Keep the log. Note every failure, skipped test, runtime warning and stall. These are the baseline's, not yours.
+-3. Never erase a simulator, uninstall the app or delete its container to get a clean state. Use the app's test
+-   fixtures, launch arguments or a separate install; if that is impossible, stop and ask.
+-
+-## The refinement loop
+-
+-1. Run the app on the agreed destination and walk each acceptance condition as a user would, plus the neighbouring
+-   states listed in preservation.md. Use previews (`RenderPreview` in Xcode MCP) for layout variants such as text
+-   size, locale and appearance; use the running app for behavior, gestures, focus, keyboard and persistence.
+-2. Capture: screenshots of named states (`xcrun simctl io <udid> screenshot`), a recording of each gesture
+-   (`xcrun simctl io <udid> recordVideo --codec h264 out.mov`, stopped with Ctrl-C/SIGINT), the console
+-   (`GetConsoleOutput`, or `xcrun simctl spawn <udid> log stream --predicate 'process == "App"'`).
+-3. Look at the captures. For motion, extract frames (`ffmpeg -i out.mov -vf fps=30 f%04d.png`) and check the
+-   phases in interaction.md; measure an edge across frames rather than judging by eye
+-   ([examples/edge-track](../examples/edge-track/)).
+-4. Write each problem as observation → cause (if established) → change → re-check. Fix the most user-visible
+-   first. Re-run only what the change can affect, then the full suite once at the end.
+-5. Stop when every acceptance condition has runtime evidence, or the budget is spent, or a blocker needs the owner.
+-   List what remains unverified.
+-
+-## Which tool observes what
+-
+-| Need | Tool |
+-|---|---|
+-| API declaration, availability | SDK `.swiftinterface` / headers; Xcode MCP `DocumentationSearch` |
+-| Build errors, warnings | `xcodebuild` log; Xcode MCP `BuildProject`, `GetBuildLog`, `XcodeRefreshCodeIssuesInFile` |
+-| Layout of one view in many configurations | Xcode MCP `RenderPreview` (locale, variants, device) |
+-| Test results with attachments | `xcodebuild test -resultBundlePath`, then `xcrun xcresulttool get test-results summary --path R` / `tests` |
+-| Drive the running app | XCUITest; Xcode MCP `DeviceInteractionSynthesize` (returns screenshot and UI hierarchy); the client's simulator tool (tap, swipe, multi-point `touch_path`) |
+-| Logs and runtime issues | Xcode MCP `GetConsoleOutput`; `log stream`; the test log |
+-| Hangs, hitches, CPU, memory | `xcrun xctrace` (read Apple's `xctrace` skill in Xcode's resources first); Xcode MCP `InvokeDebuggerCommand` for a paused process |
++1. Read the project's rules on shared resources: build or simulator locks, which simulator, whether user data may be
++   touched. They apply to `xcodebuild`, `simctl`, Xcode MCP tools and client simulator tools alike. If the rule is a
++   lock wrapper around commands, an MCP action that builds, runs, tests or drives a device happens only while you
++   hold that lock (for example a holder process started under the same lock), or you use the command-line route.
++2. Build and run the existing tests on the untouched baseline with a fresh result bundle and a scratch
++   `-derivedDataPath`. Keep the log; note every failure, skip, runtime warning and stall. These are the baseline's.
++3. Never erase a simulator, uninstall the app or delete its container to get a clean state. Use the app's fixtures,
++   launch arguments or a separate install; if that is impossible, ask.
++
++## Choose the checks for the task
+ 
+-Xcode MCP tools need a one-time approval in Xcode for the agent (the first `XcodeOpenWorkspace` or
+-`XcodeNewProject` call asks the user). Until that approval exists, use the command-line route.
++| Task | Proportionate verification |
++|---|---|
++| Model logic, a bug with no visible change | Unit test, one run of the affected journey |
++| Layout or visual change | Running app at default size, at `accessibility-extra-extra-extra-large` and in dark; previews for many variants |
++| A journey, navigation or state change | Each journey from two or more starting states, hierarchy compared before and after every step |
++| A continuous gesture or transition | The above, plus multi-point drags with reversal and a recording measured frame by frame (interaction.md) |
++| A suspected slowness or hang | Measure first: repeated cold launches, timed captures, then `xctrace` (Apple's skill) |
++
++Pick from this, do not run everything. A one-line string fix does not need an accessibility pass; a new screen does.
++
++## Driving the app
++
++Load Apple's `device-interaction` skill (SKILL.md §1) and follow its session lifecycle, command syntax, timing and
++"judging success" sections. Verified corrections for Xcode 27.2 (build 27B52), where the tools differ from the text:
++
++- The skill calls the action tool `DeviceEventSynthesize`; the tool is `DeviceInteractionSynthesize`.
++- The skill and `DeviceInteractionStartSession`'s reply tell the main agent to hand interaction to a subagent.
++  Nothing enforces it; calling the tools directly works. Do not add an agent for it.
++- "Completes once animations are done" did not always hold: a capture straight after a tap came before the
++  transition ended. Recapture once, or append `w 1`.
++- In a session without a workspace (`DeviceInteractionStartSession` with a simulator name or UDID) `applicationState`
++  reads `NotRun` while the app runs; use the PID in the hierarchy. `GetConsoleOutput` needs an open workspace; use
++  `xcrun simctl spawn <udid> log stream --predicate 'process == "App"'` otherwise.
++- `sender keyboard kbd <text>` types and must end the command chain. No on-screen keyboard appears in the hierarchy
++  or screenshot, so "the keyboard is shown" cannot be checked this way.
++- The hierarchy can report an image button with its glyph's frame, not its 44 pt hit area.
++- `xcrun mcpbridge run-agent skills export` omitted the accessibility skills on this Xcode; use `plugin path`.
++
++Verified command forms: `mt [220 865] 0.1 [220 865] 0.5 [220 520] 0.4` (drag with hold), adding a further keyframe
++reverses within one touch; `t x y f x2 y2 0.3` (swipe); `drag x1 y1 x2 y2`; two-point `mt [a b, c d] …` (pinch).
++
++Other routes, for when the device tools are missing or fail: XCUITest (`press(forDuration:thenDragTo:)` for one
++straight segment, `typeText`), the client's own simulator tool, `xcrun simctl io <udid> screenshot` and
++`recordVideo --codec h264 out.mov` (stop with SIGINT).
++
++## The criticism loop
++
++1. **Journeys.** For each primary journey written in SKILL.md step 2, run it from more than one starting state (for a
++   sheet: each height; for a list: empty, short, scrolled; for a form: blank and edited). Capture first. After every
++   action compare the new hierarchy with the previous one by script: frames, labels, values, focus, element counts.
++   Compare the final state with the written expected end state. "Something changed" is not a pass.
++2. **System settings in the running app.** Walk the primary journeys once at
++   `xcrun simctl ui <udid> content_size accessibility-extra-extra-extra-large` and once with
++   `xcrun simctl ui <udid> appearance dark`, then restore the values you read beforehand. Look for truncation,
++   broken words, overlapping or clipped controls, fixed-size icons, unreadable colours. Read the hierarchy's labels
++   in order as VoiceOver would: every control named in words, no symbol names (`"plus.circle"`), no placeholder used
++   as the only label. Apple's three accessibility skills audit the source for the causes; use them to fix.
++   Reduce Motion is not in `simctl ui`; set it in the simulator's Settings > Accessibility > Motion and note it.
++3. **Responsiveness.** If anything feels or looks slow, measure before you report it: several cold launches timed
++   the same way, timed captures around the action, then `xctrace` with Apple's skill. Record the Mac's load average;
++   numbers from a busy Mac are not comparable.
++4. **Console.** Read it while running the journeys. Every warning is reported; a new one is investigated.
++5. **Fix and re-check.** Write each problem as observation → cause (if established) → change → re-check. Fix the most
++   user-visible first; re-run what the change can affect, then the full suite once at the end. Then go back to the
++   completion rule in SKILL.md §3.
+ 
+ ## Diagnosing what you observe
+ 
+-**Pre-existing or introduced?** Run the same test, same destination, same fixture on an export of the baseline
+-commit (`git worktree add` or `git archive`). Fails there too: pre-existing. Then keep the check: wrap it in
+-`XCTExpectFailure("pre-existing: <defect>, seen on <commit>")`, or leave it failing and report it. Do not delete or
+-loosen the assertion. Experimental B removed its reopened-note text assertion after proving the defect
+-pre-existing; an expected failure would have kept the evidence and alerted on a fix.
++**Pre-existing or introduced?** Run the same check on an export of the baseline commit (`git worktree add` or
++`git archive`). Fails there too: pre-existing. Keep the check: `XCTExpectFailure("pre-existing: <defect>, seen on
++<commit>")`, or leave it failing and report it.
+ 
+-**XCTest "App animations complete notification not received".** XCUITest waits for the app to go idle after each
+-action; this message means something kept animating for about a minute. Causes seen in practice: a
++**XCTest "App animations complete notification not received".** Something kept animating for about a minute: a
+ `TimelineView(.animation)` or display link left running, a repeating animation, a value that changes every layout
+-pass and re-triggers `.animation(_:value:)`, a geometry feedback loop. Method: rerun the single test and see if it
+-recurs; record the screen during the stall and look for anything that moves; add `let _ = Self._printChanges()` to
+-suspect view bodies in a debug build and read which keeps updating; compare with the baseline run. Count stalls per
+-run and report them even if the run passed. Experimental B's final run had four stalls of ~60 s, two right after
+-reveal interactions, and did not report them as possibly introduced.
+-
+-**Runtime warnings** (purple runtime issues; in logs as plain lines). `Invalid frame dimension (negative or
+-non-finite)` means a `.frame` received a negative or NaN size, usually from arithmetic on a zero size during the
+-first layout pass (`width - inset`, `distance / width`). Search the frame modifiers fed by computed values, log the
+-value, and fix the arithmetic at its source. Compare the count with the baseline: Experimental B's baseline had 4,
+-its final run 5. Report the change.
+-
+-**Performance regressions.** Profile the same build configuration, device, fixture and journey before and after,
+-with `xcrun xctrace record --template 'Animation Hitches'` (or `Time Profiler`) and the same interval. Separate
+-cold launch from warm repetitions. Without measurements, say the performance is unmeasured.
++pass and re-triggers `.animation(_:value:)`, a geometry feedback loop. Rerun the single test; record the screen during
++the stall and look for movement; add `let _ = Self._printChanges()` to suspect views in a debug build. Count stalls
++per run and report them even if the run passed.
++
++**`Invalid frame dimension (negative or non-finite)`.** A `.frame` got a negative or NaN size, usually from
++arithmetic on a zero size in the first layout pass. Log the value at the modifier and fix it at its source. Compare
++the count with the baseline.
++
++**Performance regressions.** Same build configuration, device, fixture, journey and interval before and after;
++cold launch separate from warm repetitions. Without measurements, say the performance is unmeasured.
+ 
+ ## Compliance is separate from autonomy
+ 

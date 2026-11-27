@@ -1,0 +1,21 @@
+plugin: /Users/x/Library/Developer/Xcode/CodingAssistant/ExportedPlugins/27B52/claude (Xcode 27.2 Build version 27B52 )
+ok   routed  accessibility-dynamic-type-specialist
+ok   routed  accessibility-sufficient-contrast-specialist
+ok   routed  accessibility-voiceover-specialist
+--   unused  adopt-c-bounds-safety
+ok   routed  app-intents-specialist
+ok   routed  app-intents-whats-new-27
+ok   routed  app-resizability
+--   unused  audit-xcode-security-settings
+ok   routed  building-document-based-swiftui-applications
+ok   routed  device-interaction
+ok   routed  modernize-tests
+ok   routed  swiftui-specialist
+ok   routed  swiftui-whats-new-27
+--   unused  translation
+ok   routed  translation-coordinator
+ok   routed  xctrace
+ok   file    swiftui-specialist/references/animations.md
+ok   file    swiftui-specialist/references/soft-deprecated-apis.md
+ok   AdditionalDocumentation: 20 .md files
+routed 13 of 16 Apple skills; exit 0
