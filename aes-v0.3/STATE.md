@@ -22,7 +22,24 @@
   (Trial 005 needed the same; an unattended run cannot answer Xcode's approval). If 24 h lapses before run-D, the
   owner reruns it. Side effect noted: the reference recording left five reminders and a Contacts "Don't Allow" in
   the `iPhone 18 Pro Max` simulator's Reminders app.
-  Armed: `resume-appleengineeringsystem-287007` fires 2026-11-27 11:43 CET (keep-awake hold to 12:28) to launch run-A.
+  **CHAIN BROKEN — OWNER ACTION (2026-11-27 11:4x, lead started by the 11:43 resume task):** the scheduler refused
+  `update_scheduled_task` ("needs a person's approval, and nobody has opened this scheduled run"), so an unattended
+  lead cannot re-arm the chain. No other name tried (R9); the 16:43 keep-awake hold was ended; the phone notice was
+  not sent (the app said the terminal was active). **To continue:** the owner sets
+  `resume-appleengineeringsystem-287007` to fire 2026-11-27 16:43 CET (5-hour window resets 16:40), or runs it by hand
+  after 16:40. Each later step hits the same refusal, so the owner arms each one (or decides on another way).
+  **Run log:**
+  - run-A: launched 2026-11-27 11:44:40 +0100, PID 63725 (`timeout 1800`, ends by ~12:15). 3-min check (11:47:51):
+    no approval or allow-folder error, `xcode-tools` connected; it had not yet called `xcode-tools`, so the Xcode
+    approval had not yet been tested at that point. Recheck 11:55:52: its first `xcode-tools` calls
+    (DeviceInteraction start session, synthesize) returned results with no error, so the run is not stuck on Xcode's
+    approval. The next lead records the result.
+  **How runs are launched (keep the same for B–D, so the arms run under the same conditions):** inside the heavy
+  turn and quiet lane (R8), detached, so `launch.sh`'s `.end` watcher survives the session:
+  `nohup perl -e 'use POSIX qw(setsid); setsid(); exec @ARGV' /usr/bin/lockf -k /tmp/edraft-checks.lock
+  ~/Developer/codedirector-briefs/tools/turn-holder.sh "AES lead: Larder <L>" ~/Developer/codedirector-briefs/tools/quiet.sh
+  "AES lead: Larder <L>" sh -c 'cd ~/Scratch/AppleEngineeringSystem/2026-11-27-larder-run && ./launch.sh <L> && PID=$(cat <L>.pid)
+  && while kill -0 $PID 2>/dev/null; do sleep 20; done' </dev/null > <run folder>/<L>.lane.log 2>&1 &`.
 
 - **HAND-OFF 2026-11-27 (Decision 007, lead session in work tree `.claude/worktrees/aes-v0.3-d007`, branch
   `aes-v0.3`, the only writer and publisher of that branch).** Decision 007 is done except what is listed under
