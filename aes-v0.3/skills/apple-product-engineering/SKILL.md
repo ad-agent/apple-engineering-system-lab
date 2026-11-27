@@ -91,7 +91,8 @@ Stop only when one of these is true:
 - a genuine blocker: the tool's own guidance (its Apple skill or `--help`) **and** one other route (for example an
   XCUITest instead of synthesized touches, or `simctl` instead of an MCP tool) have both failed, or the next step
   needs the owner (step 1);
-- the time or usage budget is spent.
+- the time or usage budget is spent. Read the clock (`date`) when you start and again before you stop; "out of
+  time" is a reason only when the clock shows it.
 
 Then report what remains unverified and why. Once the essential conditions hold, finish; budget left over is not a
 reason to keep going.

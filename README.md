@@ -7,6 +7,9 @@ Folio benchmark. It exists so the work can be reviewed, rebuilt and scored indep
 > not improve, engineering quality. One pair on one task with one client is not enough to say either way, even
 > after scoring (see [evaluation/protocol.md](evaluation/protocol.md)).
 
+Later revisions sit beside v0.1 on their development branches: [aes-v0.2/](aes-v0.2/) (Decisions 005–006, Trial 005)
+and [aes-v0.3/](aes-v0.3/) (Decision 007: the v0.3 skill, its verification and the Larder challenge).
+
 ## The trial
 
 Both arms got the same frozen Folio baseline, the same brief ([evaluation/TASK.md](evaluation/TASK.md)), the same

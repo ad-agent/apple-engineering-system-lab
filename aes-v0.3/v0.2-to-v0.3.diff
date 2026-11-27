@@ -1,8 +1,8 @@
 diff --git a/aes-v0.2/skills/apple-product-engineering/SKILL.md b/aes-v0.3/skills/apple-product-engineering/SKILL.md
-index 1298b46..a2f44ab 100644
+index 1298b46..4dc954f 100644
 --- a/aes-v0.2/skills/apple-product-engineering/SKILL.md
 +++ b/aes-v0.3/skills/apple-product-engineering/SKILL.md
-@@ -1,68 +1,107 @@
+@@ -1,68 +1,110 @@
  ---
  name: apple-product-engineering
 -description: Use when creating, refining, repairing or evaluating a native iOS, iPadOS or macOS app, and whenever a screenshot, recording or existing design is the reference. Covers native-versus-custom decisions, preserving an accepted design, gestures and animation, haptics, runtime verification, and turning a reference into requirements.
@@ -53,8 +53,8 @@ index 1298b46..a2f44ab 100644
 -3. **Find the owner.** Locate the view, controller, scene or model that owns the behavior. Try the native component
 -   or container first (native.md). Write custom machinery only for a requirement the native path demonstrably fails;
 +The aim is an app an exceptional Apple product team would ship: the intended experience works in the running app,
-+for every user, in the ways the platform already teaches. This skill decides *what* to check and *which* expertise to
-+apply. Apple's own Xcode skills hold the platform and tool knowledge; use them, do not restate them.
++for every user. Apple's Xcode skills hold the platform and tool knowledge; this skill chooses which to apply and what
++to check.
 +
 +## 1. Load Apple's expertise before the decision it informs
 +
@@ -65,14 +65,13 @@ index 1298b46..a2f44ab 100644
 +P="$(xcrun mcpbridge run-agent plugin path --plugin-format claude)"; ls "$P/skills"
 +```
 +
-+- If your skill list already shows `xcode-integration:<name>` (the session was started with
-+  `claude --plugin-dir "$P"`), invoke the skill by that name.
-+- Otherwise read `$P/skills/<name>/SKILL.md` in place, and the files under its `references/` that it points to.
-+- The device tools (`DeviceInteraction*`) exist only if the session has Xcode's MCP server, through that plugin or
-+  `xcrun mcpbridge`. Without them, use the command-line routes in runtime.md; do not add another server or agent.
-+- Xcode's longer framework notes (Liquid Glass, toolbars, styled text, Foundation Models, StoreKit, MapKit and more)
-+  are plain Markdown in `"$(xcode-select -p)/../PlugIns/IDEIntelligenceChat.framework/Versions/A/Resources/AdditionalDocumentation"`.
-+  The specialist files beside that folder are `.packaged` and not readable; use the plugin for those.
++- If your skill list shows `xcode-integration:<name>` (session started with `claude --plugin-dir "$P"`), invoke
++  it by that name; otherwise read `$P/skills/<name>/SKILL.md` and the `references/` it points to, in place.
++- The device tools (`DeviceInteraction*`) exist only with Xcode's MCP server (that plugin or `xcrun mcpbridge`).
++  Without them, use the command-line routes in runtime.md; add no other server or agent.
++- Framework notes (Liquid Glass, toolbars, styled text, Foundation Models, StoreKit, MapKit and more) are Markdown in
++  `"$(xcode-select -p)/../PlugIns/IDEIntelligenceChat.framework/Versions/A/Resources/AdditionalDocumentation"`.
++  The `.packaged` files beside that folder are not readable; the plugin has those skills.
 +
 +Before the first edit or tool call that commits to a decision in a row below, load that row's Apple skill and AES
 +reference. Load only the rows the task touches, once each, and name them in your first progress note.
@@ -120,9 +119,8 @@ index 1298b46..a2f44ab 100644
 -6. **Refine** only on evidence: a defect you observed, a criterion not met, or a measured problem. Each round names
 -   the observation, the change and the re-check. Stop when the criteria hold, when the time or usage budget is
 -   spent, or when a blocker needs the owner. Do not polish past the criteria to look busy.
-+5. **Run the app and criticise it** (runtime.md). Walk each primary journey in the running app from more than one
-+   starting state and compare the end state you observe with the one you wrote, using the hierarchy, not only
-+   screenshots. Then the system-settings pass: the largest accessibility text size, dark appearance, VoiceOver
++5. **Run the app and criticise it** (runtime.md): each primary journey from more than one starting state, its
++   observed end state compared with the written one in the hierarchy; then largest text size, dark, VoiceOver
 +   labels. A tool call that succeeded is not a journey that works; a green build is not a good app.
 +6. **Refine on evidence.** Each round: observation → cause → change → re-check. When you see a meaningful defect
 +   inside the authorised scope, fix it; outside the scope, report it.
@@ -137,15 +135,20 @@ index 1298b46..a2f44ab 100644
 +- **Device-only:** feel, haptics, frame pacing and thermals. The simulator cannot show them; name them as unverified
 +  on a physical device. They do not block completion.
 +
++In an evaluation the essential conditions are the brief's primary journeys, each run in the app, plus the
++system-settings pass. Before stopping, compare your "not checked" list with the essential conditions: anything
++essential on it is your next action, not a report line.
++
 +Stop only when one of these is true:
 +- every essential condition has runtime evidence and nothing you observed is still a meaningful defect;
 +- a genuine blocker: the tool's own guidance (its Apple skill or `--help`) **and** one other route (for example an
 +  XCUITest instead of synthesized touches, or `simctl` instead of an MCP tool) have both failed, or the next step
 +  needs the owner (step 1);
-+- the time or usage budget is spent.
++- the time or usage budget is spent. Read the clock (`date`) when you start and again before you stop; "out of
++  time" is a reason only when the clock shows it.
 +
-+Then report, with what remains unverified and why. Do not spend budget that is left just because it is there: once
-+the essential conditions hold, finish.
++Then report what remains unverified and why. Once the essential conditions hold, finish; budget left over is not a
++reason to keep going.
  
 -## Hard rules
 +## 4. Hard rules

@@ -48,8 +48,10 @@ quarter of a weekly allowance. Start each run just after a 5-hour reset. If a ru
 1. Record the reference: in the heavy lane, a 20–30 s simulator recording of a first-party list app adding four or
    five items in a row with the keyboard up (no personal data; status bar overridden). Keep it in
    `~/Data/AppleEngineeringSystem/larder/reference/` and never publish it.
-2. Make the starter: Xcode iOS App template named Larder, iOS 27, with `larder-seed.json` and `RESEARCH.md` added to
-   the bundle and the folder; commit it.
+2. Starter: done. [starter/Larder/](starter/Larder/) is Xcode's iOS App template (iOS 27.2, bundle `test.aes.Larder`)
+   with `larder-seed.json` in the app folder and `RESEARCH.md` at the root. Built on 2026-11-27 for `iPhone 18 Pro Max`
+   (BUILD SUCCEEDED; `larder-seed.json` is in the built app). Commit it once in the run folder as the starter commit.
+   Copy `participant/OBJECTIVE.md` and `participant/CLAUDE.md` into each run folder, and name the UDID in the prompt.
 3. Check isolation. Headless `claude -p` here also loads the owner's `~/.claude/CLAUDE.md` (seen in the Decision 007
    probes: answers cited R1, R8 and R10). `--setting-sources project` does not prevent it and `--bare` needs an API
    key. It affects both arms equally; record it in each run's setup, or run with an API key under `--bare` if the
