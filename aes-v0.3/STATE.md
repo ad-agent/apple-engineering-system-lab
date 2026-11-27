@@ -19,8 +19,9 @@
   (verify branch and nonempty source; no force), end. After run-D ends: the assessor step (PLAN.md "Assessment") in
   a fresh lead, blind to arms, then RESULTS.md. A usage-cut run is "budget exhausted", never rerun without the owner.
   **Done by the owner (reported in chat 2026-11-27 08:2x: "Done, it's allowed"; valid ~24 h):** `sudo xcrun mcp-server allow-folder --for-24-hours ~/Scratch/AppleEngineeringSystem/2026-11-27-larder-run`
-  (Trial 005 needed the same; an unattended run cannot answer Xcode's approval). If 24 h lapses before run-D, the
-  owner reruns it. Side effect noted: the reference recording left five reminders and a Contacts "Don't Allow" in
+  (Trial 005 needed the same; an unattended run cannot answer Xcode's approval). **Renewed by the owner 2026-11-27
+  13:55 ("allowed … (24 hours)"), so it now lapses about 13:55 on 2026-11-28.** If it lapses before the assessment
+  ends, the owner reruns it. Side effect noted: the reference recording left five reminders and a Contacts "Don't Allow" in
   the `iPhone 18 Pro Max` simulator's Reminders app.
   **RECURRING TASK — OWNER YES 2026-11-27 13:5x, in chat:** "configure the existing AES scheduled task to continue
   the remaining experiments and independent assessment … Continue through runs B, C, D, the independent assessment and
