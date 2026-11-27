@@ -41,11 +41,35 @@
     4.99, memory pressure level 2 "warn"; heavy lane free; PID 37379, same lane command as run-A and run-B); result
     `success`, 79 turns, 414 s, $2.42; committed (`a18ea49`); no `.hold` left; `.err` empty. Recorded by the hourly
     task at 17:5x. (The 14:5x firing found the window at 51 % and waited.)
-  - run-D: **in flight**, started 2026-11-27 21:52:18 +0100 (launched by the hourly task at a 1 % window, weekly
-    78 %; load 2.52, memory pressure level 2 "warn"; heavy lane free; PID 826, lane log `run-D.lane.log`, same lane
-    command as run-A–C). The 17:5x firing found the window at 35 % and waited; the 19:5x and 20:5x firings stopped on
-    the usage limit (start hook's log) and wrote nothing. Next firing: record run-D from `run-D.end`, then the
-    assessment.
+  - run-D: 2026-11-27 21:52:18 → 22:17:59 +0100 (launched by the hourly task at a 1 % window, weekly 78 %; load
+    2.52, memory pressure level 2 "warn"; heavy lane free; PID 826, same lane command as run-A–C); result `success`,
+    20 turns, 1531 s, $0.96; committed (`4f989a3` app, then `1785626`, `7ec12ed` NOTES); no `.hold` left; `.err`
+    empty. The 17:5x firing found the window at 35 % and waited; the 19:5x and 20:5x firings stopped on the usage
+    limit and wrote nothing. Recorded by the hourly task at 22:5x. **Deviation, from the result line only:** the
+    participant reports it built the app but never ran it: it waited 21:54–22:17 for `/tmp/edraft-checks.lock`, which
+    its own launcher (`lockf` → `turn-holder.sh` → `launch.sh run-D`) held for the whole run, because the owner's
+    global CLAUDE.md R8 (loaded by headless runs, PLAN.md "Check isolation") says every simulator action takes that
+    lock. Its journeys are unverified at runtime by its own account. Not rerun: a rerun would change the conditions
+    and needs the owner. Whether run-A–C met the same wait is a transcript count for the final report, read only
+    after scoring. The assessor's prompt says it already holds the heavy turn, so it cannot meet the same deadlock.
+  **Assessment log (blind; labels only):**
+  - Builds, 22:54–22:55 in the heavy lane (load 4.62 → 6.75): `assess-build/build.sh <label>` exports each clone's
+    committed tree without `.claude/` (`git archive HEAD`) and runs one `xcodebuild … -derivedDataPath
+    assess-build/<label>/dd build`. All five BUILD SUCCEEDED: starter `dbf9109` 0 warnings; run-A `574c354` 0; run-B
+    `de3c529` 0; run-C `a18ea49` **4** (all in `Intents.swift`, Swift 6 concurrency: missing `await`, main-actor
+    properties from a nonisolated context); run-D `7ec12ed` 0. No project has a test target, so "its tests pass" has
+    nothing to run (C11's build part, scored by the lead). Logs: `assess-build/<label>/build.log`, `warnings.txt`.
+  - `assess/<label>/` holds only `Larder.app` and `NOTES.md` (from the commit). `assess/ASSESSOR.md` is the one
+    assessor script (fixed order of the twelve checks, fixed 10 item names for C1, one C10 method, writes
+    `assess/<label>/SCORES.md` as it goes, scores C11's runtime part only); `assess/CHECKS.md` is an unchanged copy;
+    `assess/assess.sh <label>` resets the simulator (uninstall, light, `large`), records the load in `<label>.load`
+    and starts `claude -p` with launch.sh's flags (timeout 1800, same model, plugin, mcp.json, tools).
+  - Rule for starting an assessor run: the same as for the runs (5-hour window under 20 %, weekly under 90 %), one
+    label per firing, order run-A, run-B, run-C, run-D. The 22:5x firing found the window at 53 % (PLAN.md's rate
+    puts a 30-minute Opus run near 60 %) and waited. Next firing: if the gates allow, start run-A's assessor with the
+    lane command below, using `cd …/assess && ./assess.sh <L>` in place of `./launch.sh <L>`, lane log
+    `assess/<L>.lane.log`; after 3 min check `assess/<L>.jsonl`/`.err` for an Xcode approval error. When `<L>.end`
+    exists: copy the facts from `SCORES.md` and the `.load` lines into this log, then the next label.
   **How runs are launched (keep the same for B–D, so the arms run under the same conditions):** inside the heavy
   turn and quiet lane (R8), detached, so `launch.sh`'s `.end` watcher survives the session:
   `nohup perl -e 'use POSIX qw(setsid); setsid(); exec @ARGV' /usr/bin/lockf -k /tmp/edraft-checks.lock
