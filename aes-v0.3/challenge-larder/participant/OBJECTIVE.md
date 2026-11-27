@@ -16,7 +16,8 @@ obvious what to use soon. The primary journeys are:
 4. In the shop, check whether something is already at home, and where.
 
 **Reference.** `reference/quick-entry.mov` is a short screen recording of a first-party iPhone list app entering
-several items in a row. Study what makes that fast. Do not copy its branding, names or artwork.
+several items in a row, played at 3× speed (the pauses between items come from the tool that drove it, not the app).
+Study what makes that fast. Do not copy its branding, names or artwork.
 
 **Fixture.** When the app is launched with the argument `-LarderSeed`, it replaces its stored items with the
 contents of `larder-seed.json` (bundled in the app). Dates in the file are relative to the launch day. Without the
