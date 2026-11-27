@@ -71,7 +71,8 @@
     `assess/<L>.lane.log`; after 3 min check `assess/<L>.jsonl`/`.err` for an Xcode approval error. When `<L>.end`
     exists: copy the facts from `SCORES.md` and the `.load` lines into this log, then the next label.
   - 23:5x firing: **weekly at 90 %** (resets 2026-12-02 21:00 +0100; 5-hour 88 %, resets 02:50): gate b, launched
-    nothing, one phone notice sent. Later firings stop at this gate until the weekly reset; run-A's assessor is next.
+    nothing; the phone notice was skipped by the app (terminal active), later firings send none. Later firings stop at
+    this gate until the weekly reset; run-A's assessor is next.
   **How runs are launched (keep the same for B–D, so the arms run under the same conditions):** inside the heavy
   turn and quiet lane (R8), detached, so `launch.sh`'s `.end` watcher survives the session:
   `nohup perl -e 'use POSIX qw(setsid); setsid(); exec @ARGV' /usr/bin/lockf -k /tmp/edraft-checks.lock
