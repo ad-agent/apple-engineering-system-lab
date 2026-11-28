@@ -74,7 +74,8 @@
     nothing; the phone notice was skipped by the app (terminal active), later firings send none. Later firings stop at
     this gate until the weekly reset; run-A's assessor is next. 2026-11-28 11:5x firing: weekly **97 %** (same reset),
     5-hour 42 % (other work on this account); still gate b, nothing launched. 12:5x firing: weekly **100 %**, 5-hour
-    67 %; gate b, nothing launched, no notice, no keep-awake (gate b ends before it). The hourly task itself is the resume (no
+    67 %; gate b, nothing launched, no notice, no keep-awake (gate b ends before it). 13:5x firing: weekly 100 %,
+    5-hour 1 %; gate b again, same handling. The hourly task itself is the resume (no
     other task made). The owner's Xcode allow-folder lapses ~13:55 today, before the reset: renew it before the first
     assessor run (`sudo xcrun mcp-server allow-folder --for-24-hours ~/Scratch/AppleEngineeringSystem/2026-11-27-larder-run`).
   **How runs are launched (keep the same for B–D, so the arms run under the same conditions):** inside the heavy
